@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID ACADEMY | Substation Design and Protection Systems</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #009268;
+            --secondary-color: #2C3E50;
+            --accent-color: #E6F4F1;
+            --light-bg: #FFF2CC;
+            --medium-bg: #FBE4D5;
+            --dark-bg: #F4B083;
+            --darker-bg: #C45911;
+            --text-dark: #212E3C;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Open Sans", sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Updated Hero Section Styles */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: url('CO/bg.jpg') center/cover no-repeat;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.5); /* 50% dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for the content box */
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: 5%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo h2 {
+            font-family: Montserrat, sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .course-title {
+            font-family: Montserrat, sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .instructor {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .year {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--white);
+        }
+        
+        section:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            font-family: Montserrat, sans-serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h2 {
+            font-family: Montserrat, sans-serif;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 30px 0 15px;
+        }
+        
+        h3 {
+            font-family: Montserrat, sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        /* Table Styles */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .schedule-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 15px;
+            text-align: center;
+            font-family: "Aptos Narrow", sans-serif;
+            font-weight: bold;
+        }
+        
+        .schedule-table td {
+            padding: 10px 15px;
+            border: 1px solid var(--primary-color);
+        }
+        
+        .level-1 {
+            background-color: var(--accent-color);
+        }
+        
+        .level-2 {
+            background-color: #d4f0e8;
+        }
+        
+        .level-3 {
+            background-color: #a8e1d2;
+        }
+        
+        .level-4 {
+            background-color: #7cd2bc;
+            color: var(--text-dark);
+        }
+        
+        .mega-project {
+            font-weight: bold;
+            background-color: var(--light-bg);
+        }
+        
+        /* List Styles */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .bullet-list {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .bullet-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Certification Styles */
+        .certification-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .certification-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .certification-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .instructor-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .instructor-photo {
+            flex: 0 0 200px;
+        }
+        
+        .instructor-photo img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .instructor-bio {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        
+        .company-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .company-logo {
+            height: 50px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .payment-option {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .course-title {
+                font-size: 1.8rem;
+            }
+            
+            .schedule-table {
+                font-size: 0.9rem;
+            }
+            
+            .schedule-table th, 
+            .schedule-table td {
+                padding: 8px 10px;
+            }
+            
+            .instructor-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .instructor-bio {
+                text-align: center;
+            }
+            
+            .company-logos {
+                gap: 15px;
+            }
+            
+            .company-logo {
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            .company-logo {
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Updated Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <h2>GRID ACADEMY</h2>
+                </div>
+                <h1 class="course-title">Substation Design & Protection Course</h1>
+                <p class="instructor">Presented by: Eng. Ahmed Metwally</p>
+                <p class="year">2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section id="overview">
+        <div class="container">
+            <h1>Course Overview</h1>
+            <p>This 4-Level professional course equips electrical engineering students with both <strong>theoretical ground and practical application</strong> in <strong>substation design and protection systems</strong>. It covers everything from <strong>control philosophy</strong> to <strong>advanced protection schemes</strong>, <strong>calculation techniques</strong>, and <strong>field interfacing practices</strong>, providing industry-aligned, job-ready competencies.</p>
+        </div>
+    </section>
+
+    <!-- Rest of the content remains the same -->
+    <!-- Course Objectives -->
+    <section id="objectives">
+        <div class="container">
+            <h1>Course Objectives</h1>
+            <p>By the end of this course, participants will be able to:</p>
+            <ul class="bullet-list">
+                <li>Understand the structure and control of conventional and automated substations.</li>
+                <li>Interpret and design substation SLDs, schematics, and signal lists.</li>
+                <li>Perform key sizing calculations for CTs, VTs, cables, batteries, and relays.</li>
+                <li>Configure relay settings and develop safe interlocking schemes.</li>
+                <li>Prepare and review submittals including design documents and vendor drawings.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule">
+        <div class="container">
+            <h1>Schedule</h1>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Session</th>
+                        <th>Date</th>
+                        <th>Level</th>
+                        <th>Session</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Level 1 Sessions -->
+                    <tr>
+                        <td class="level-1">1</td>
+                        <td>1</td>
+                        <td>07-Oct</td>
+                        <td class="level-3">3</td>
+                        <td>10</td>
+                        <td>09-Dec</td>
+                    </tr>
+                    <tr>
+                        <td class="level-1">1</td>
+                        <td>2</td>
+                        <td>14-Oct</td>
+                        <td class="level-3">3</td>
+                        <td>11</td>
+                        <td>16-Dec</td>
+                    </tr>
+                    <tr>
+                        <td class="level-1">1</td>
+                        <td>3</td>
+                        <td>21-Oct</td>
+                        <td class="level-3">3</td>
+                        <td>12</td>
+                        <td>23-Dec</td>
+                    </tr>
+                    <tr>
+                        <td class="level-1">1</td>
+                        <td>4</td>
+                        <td>28-Oct</td>
+                        <td class="level-3">3</td>
+                        <td>13</td>
+                        <td>30-Dec</td>
+                    </tr>
+                    <tr>
+                        <td class="level-1"></td>
+                        <td class="mega-project">Mega Project</td>
+                        <td class="mega-project">01/11–03/11</td>
+                        <td class="level-3">3</td>
+                        <td>14</td>
+                        <td>06-Jan</td>
+                    </tr>
+                    <!-- Level 2 Sessions -->
+                    <tr>
+                        <td class="level-2">2</td>
+                        <td>5</td>
+                        <td>04-Nov</td>
+                        <td class="level-3"></td>
+                        <td class="mega-project">Mega Project</td>
+                        <td class="mega-project">10/01–12/01</td>
+                    </tr>
+                    <tr>
+                        <td class="level-2">2</td>
+                        <td>6</td>
+                        <td>11-Nov</td>
+                        <td class="level-4">4</td>
+                        <td>15</td>
+                        <td>13-Jan</td>
+                    </tr>
+                    <tr>
+                        <td class="level-2">2</td>
+                        <td>7</td>
+                        <td>18-Nov</td>
+                        <td class="level-4">4</td>
+                        <td>16</td>
+                        <td>20-Jan</td>
+                    </tr>
+                    <tr>
+                        <td class="level-2">2</td>
+                        <td>8</td>
+                        <td>25-Nov</td>
+                        <td class="level-4">4</td>
+                        <td>17</td>
+                        <td>27-Jan</td>
+                    </tr>
+                    <tr>
+                        <td class="level-2">2</td>
+                        <td>9</td>
+                        <td>02-Dec</td>
+                        <td class="level-4">4</td>
+                        <td>18</td>
+                        <td>03-Feb</td>
+                    </tr>
+                    <tr>
+                        <td class="level-2"></td>
+                        <td class="mega-project">Mega Project</td>
+                        <td class="mega-project">06/12–08/12</td>
+                        <td class="level-4">4</td>
+                        <td>19</td>
+                        <td>10-Feb</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="level-4"></td>
+                        <td class="mega-project">Final Mega Project</td>
+                        <td class="mega-project">14/02–20/02</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong><em>Note:</em></strong><em> Mega Projects are due <strong>one month after being assigned.</strong><br>
+            Mini-Assignments will be given after each session and must be submitted <strong>within one week of being assigned.</strong></em></p>
+        </div>
+    </section>
+
+    <!-- Course Structure -->
+    <section id="structure">
+        <div class="container">
+            <h1>Course Structure</h1>
+            
+            <h2>Level 1: Foundations of Substation Design</h2>
+            
+            <h3>Session 1: Welcome to the Grid</h3>
+            <p>Substation types, voltage levels, layouts, and system roles.</p>
+            
+            <h3>Session 2: Brains of the System</h3>
+            <p>Conventional vs SAS Substation Control</p>
+            <p>Hierarchy and components in conventional and automated systems.</p>
+            
+            <h3>Session 3: Protection System Basics</h3>
+            <p>Philosophies, protection elements, attributes, relay types.</p>
+            
+            <h3>Session 4: Relay Types and Applications</h3>
+            <p>Overcurrent, differential, and distance relays.</p>
+            
+            <h2>Level 2: Advanced Substation Design & Drawings [Base Design]</h2>
+            
+            <h3>Session 1: Single Line Diagrams (SLD)</h3>
+            <p>Main SLD purpose, structure, IEC conventions.</p>
+            
+            <h3>Session 2: Relay & Metering SLD</h3>
+            <p>CT/VT integration, relay layout.</p>
+            
+            <h3>Session 3: Distance Protection Schemes</h3>
+            <p>Pilot-aided and non-pilot-aided schemes, zone settings.</p>
+            
+            <h3>Session 4: Interlocking Schemes, Alarm list</h3>
+            <p>Logic, maloperation prevention.</p>
+            
+            <h3>Session 5: AC/DC SLDs</h3>
+            <p>AC/DC SLDs</p>
+            
+            <h2>Level 3: Engineering Calculations & Design Sizing</h2>
+            
+            <h3>Session 1: Breaker and Cable Sizing</h3>
+            <p>IEC-based sizing for AC/DC breakers and cables.</p>
+            
+            <h3>Session 2: Auxiliary Transformer & Zig-Zag Sizing</h3>
+            <p>Roles, calculation steps.</p>
+            
+            <h3>Session 3: Battery and Charger Sizing</h3>
+            <p>DC load profile, battery sizing.</p>
+            
+            <h3>Session 4: CT and VT Fundamentals</h3>
+            <p>CT classes, sizing, adequacy; VT basics.</p>
+            
+            <h3>Session 5: Relay Setting Calculations</h3>
+            <p>Overcurrent, distance, unit protection.</p>
+            
+            <h2>Level 4: Practical Interfacing & Field Applications</h2>
+            
+            <h3>Session 1: Wiring Intelligence</h3>
+            <h3>Session 2: Wiring Intelligence (Cont'd)</h3>
+            <p>Control Schematics Session with symbols and wiring notations.</p>
+            <p>Reading Protection Schematics and how to trace reactions.</p>
+            <p>Exploring Key Circuits used in Electrical Control and Protection.</p>
+            <p>Exercise: Trace circuit logic in schematic</p>
+            
+            <h3>Session 3: The Last Meter</h3>
+            <p>Cable Schedules & Termination Charts</p>
+            <p>Assignment: Fill termination chart from drawing</p>
+            
+            <h3>Session 4: Panel Contents</h3>
+            <p>Local/remote/protection schematics, signal list creation.</p>
+            <p>Assignment: Signal list + protection schematic.</p>
+            
+            <h3>Session 5: Final Wrap-Up and Submittals</h3>
+            <p>Document requirements, vendor deviations, Telecom Networks, starting real projects.</p>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="container">
+            <h1>Certifications</h1>
+            
+            <h2>Completion Certifications:</h2>
+            <div class="certification-container">
+                <div class="certification-card">
+                    <h3>Level 1:</h3>
+                    <p><em>Certified Substation Basics Specialist</em></p>
+                </div>
+                <div class="certification-card">
+                    <h3>Level 2:</h3>
+                    <p><em>Advanced SLD & Protection Designer</em></p>
+                </div>
+                <div class="certification-card">
+                    <h3>Level 3:</h3>
+                    <p><em>Substation Design Calculator</em></p>
+                </div>
+                <div class="certification-card">
+                    <h3>Level 4:</h3>
+                    <p><em>Practical Field Interfacing Expert</em></p>
+                </div>
+            </div>
+            
+            <h2>Attendance Certifications:</h2>
+            <div class="certification-container">
+                <div class="certification-card">
+                    <h3>Level 1:</h3>
+                    <p><em>Attended Level 1</em></p>
+                </div>
+                <div class="certification-card">
+                    <h3>Level 2:</h3>
+                    <p><em>Attended Level 2</em></p>
+                </div>
+                <div class="certification-card">
+                    <h3>Level 3:</h3>
+                    <p><em>Attended Level 3</em></p>
+                </div>
+                <div class="certification-card">
+                    <h3>Level 4:</h3>
+                    <p><em>Attended Level 4</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assignments -->
+    <section id="assignments">
+        <div class="container">
+            <h1>Assignments Summary</h1>
+            <ul class="bullet-list">
+                <li>Component identification</li>
+                <li>Control hierarchy diagram</li>
+                <li>CT/VT sizing</li>
+                <li>Main SLD drawing</li>
+                <li>Relay & Metering SLD</li>
+                <li>AC/DC SLDs</li>
+                <li>Breaker and Cable sizing</li>
+                <li>Battery Sizing</li>
+                <li>Relay Settings</li>
+                <li>Interlocking Logic</li>
+                <li>Signal List & Schematic</li>
+                <li>Others will follow according to timing</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Tools & Software -->
+    <section id="tools">
+        <div class="container">
+            <h1>Tools & Software</h1>
+            <ul class="bullet-list">
+                <li>AutoCAD for schematic and SLD drafting</li>
+                <li>Excel for all sizing calculations</li>
+                <li>ETAP for protection studies</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Evaluation -->
+    <section id="evaluation">
+        <div class="container">
+            <h1>Evaluation Criteria</h1>
+            <ul class="bullet-list">
+                <li>Assignments – 50%</li>
+                <li>Level-Project – 50%</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Policy -->
+    <section id="policy">
+        <div class="container">
+            <h1>Content Usage & Non-Sharing Policy</h1>
+            <ul class="bullet-list">
+                <li><strong>All course materials, tools, recordings, templates, and files are proprietary</strong> and may not be <strong>copied, recorded, distributed, or reused</strong> without written permission.</li>
+                <li>By registering, participants agree not to <strong>share or reproduce content</strong> outside personal use or for commercial/teaching purposes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer with Instructor Info -->
+    <footer>
+        <div class="container">
+            <h1>About the Instructor</h1>
+            <div class="instructor-info">
+                <div class="instructor-photo">
+                    <img src="CO/am.png" alt="Eng. Ahmed Metwally">
+                </div>
+                <div class="instructor-bio">
+                    <p>Ahmed Metwally is a substation engineering manager with over 16 years of hands-on experience in AIS and GIS substations, with a focus on control and protection schemes. Throughout his career, he has worked closely with multidisciplinary teams across primary, secondary, and telecom systems, gaining practical insight into the challenges of real-world project execution.</p>
+                    <p>He has contributed to cost-saving initiatives that helped optimize designs and vendor specifications, leading to measurable improvements in efficiency. His academic background includes studies in Japanese Corporate Management through Harvard Business School and ongoing MBA studies, reflecting a continuous commitment to learning and development.</p>
+                    <p>Ahmed believes in sharing practical knowledge in a structured, accessible way, and is passionate about helping engineering students bridge the gap between theory and application.</p>
+                </div>
+            </div>
+            
+            <div class="company-logos">
+                <img src="CO/i1.png" alt="Company 1" class="company-logo">
+                <img src="CO/i2.png" alt="Company 2" class="company-logo">
+                <img src="CO/i3.png" alt="Company 3" class="company-logo">
+                <img src="CO/i4.png" alt="Company 4" class="company-logo">
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
