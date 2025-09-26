@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid Academy — Payment Options</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+    body {
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      background:#f9fafb;
+      color:#111827;
+      margin:0;
+      padding:20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width:800px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:12px;
+      padding:32px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1,h2 {
+      color:#009268;
+      margin-top:0;
+      text-shadow: 0 1px 2px rgba(0,146,104,0.1);
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height:1.7;
+      margin-bottom: 16px;
+    }
+    .section {
+      margin-bottom:36px;
+    }
+    .pay-method {
+      margin-bottom:16px;
+      padding:20px;
+      border:1px solid #009268;
+      border-radius:8px;
+      background:#E6F4F1;
+      box-shadow: 0 1px 3px rgba(0,146,104,0.1);
+      line-height: 1.6;
+    }
+    .pay-method strong {
+      color:#111827;
+    }
+    .qr {
+      text-align:center;
+      margin:16px 0;
+    }
+    .qr img {
+      max-width:200px;
+    }
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin:16px 0;
+      font-size:14px;
+    }
+    th, td {
+      border:1px solid #e5e7eb;
+      padding:12px 8px;
+      text-align:center;
+      line-height: 1.5;
+    }
+    th {
+      background:#E6F4F1;
+      font-weight:600;
+    }
+    .highlight {
+      background:#E6F4F1;
+      font-weight:bold;
+      padding:16px;
+      border-radius:6px;
+      margin:16px 0;
+      text-align:center;
+    }
+    .note {
+      font-size:13px;
+      color:#6b7280;
+      margin-top:8px;
+    }
+    a.btn {
+      display:inline-block;
+      padding:10px 16px;
+      background:#009268;
+      color:#fff;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
+      transition: background-color 0.3s ease;
+    }
+    a.btn:hover {
+      background:#007a56;
+    }
+    .form-section {
+      background:#E6F4F1;
+      padding:20px;
+      border-radius:8px;
+      margin-top:32px;
+      text-align:center;
+    }
+    .form-section h3 {
+      color:#009268;
+      margin-top:0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display: flex; align-items: center; margin-bottom: 24px;">
+      <img src="logo.png" alt="Grid Academy Logo" style="width: 60px; height: 60px; object-fit: contain; margin-right: 16px;">
+      <h1 style="margin: 0; flex: 1;">Grid Academy — Payment Options</h1>
+    </div>
+
+    <div class="section">
+      <h2>How to Pay</h2>
+      <div class="pay-method">
+        <strong>Vodafone Cash:</strong> <br>
+        01090855647
+      </div>
+      <div class="pay-method">
+        <strong>Instapay:</strong> <br>
+        minanbe2@instapay
+        <div class="qr">
+          <img src="instapay-qr.jpg" alt="Instapay QR" style="border-radius: 8px; max-width: 200px; border: 2px solid #009268;">
+        </div>
+      </div>
+      <div class="pay-method">
+        <strong>PayPal (International):</strong><br>
+        <a href="https://www.paypal.com/paypalme/GRIDACAD" class="btn" target="_blank">💳 Pay via PayPal</a>
+        <p class="note">Choose your amount and pay securely by card.</p>
+      </div>
+      <div class="pay-method" style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong>External Bank Transfers:</strong><br>
+          <div style="display: flex; align-items: center; margin: 8px 0;">
+            <strong>IBAN:</strong> <span id="iban">EG530037005908401130690639662</span>
+            <button onclick="copyToClipboard('iban', 'iban-tooltip')" style="margin-left: 8px; padding: 4px 8px; background: #009268; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; position: relative;" title="Copy IBAN">
+              📋
+              <span id="iban-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Copy IBAN</span>
+            </button>
+          </div>
+          <div style="display: flex; align-items: center; margin: 8px 0;">
+            <strong>Card Holder:</strong> <span id="cardholder">MINA NABIL DEEB ATALLAH</span>
+            <button onclick="copyToClipboard('cardholder', 'cardholder-tooltip')" style="margin-left: 8px; padding: 4px 8px; background: #009268; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; position: relative;" title="Copy Card Holder">
+              📋
+              <span id="cardholder-tooltip" style="position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; white-space: nowrap; opacity: 0; transition: opacity 0.3s;">Copy Card Holder</span>
+            </button>
+          </div>
+          Please message us on WhatsApp for additional details.
+        </div>
+        <a href="https://wa.me/201090855647" class="btn">Message us on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Pricing</h2>
+      <table>
+        <tr>
+          <th>Level</th>
+          <th>Sessions</th>
+          <th>Price / Level</th>
+          <th>PayPal</th>
+        </tr>
+        <tr>
+          <td>1</td><td>4</td><td>$40</td>
+          <td><a href="https://www.paypal.com/paypalme/GRIDACAD/40" class="btn" target="_blank">Pay Now</a></td>
+        </tr>
+        <tr>
+          <td>2</td><td>5</td><td>$60</td>
+          <td><a href="https://www.paypal.com/paypalme/GRIDACAD/60" class="btn" target="_blank">Pay Now</a></td>
+        </tr>
+        <tr>
+          <td>3</td><td>5</td><td>$100</td>
+          <td><a href="https://www.paypal.com/paypalme/GRIDACAD/100" class="btn" target="_blank">Pay Now</a></td>
+        </tr>
+        <tr>
+          <td>4</td><td>5</td><td>$100</td>
+          <td><a href="https://www.paypal.com/paypalme/GRIDACAD/100" class="btn" target="_blank">Pay Now</a></td>
+        </tr>
+      </table>
+
+      <div class="highlight">
+        Total for 4 Levels: $260 <br>
+        <a href="https://www.paypal.com/paypalme/GRIDACAD/260" target="_blank" class="btn" style="margin-top:8px;">Pay $260 via PayPal</a>
+      </div>
+
+      <p class="note"></p>
+    </div>
+
+    <div class="form-section">
+      <h3>Complete Your Registration</h3>
+      <p>After making your payment, please submit your details and payment proof</p>
+      <p>using the form below:</p>
+      <a href="https://forms.gle/wReqZPf2awWmvJf96" class="btn" style="font-size: 16px; padding: 14px 24px;">Submit Payment Form</a>
+      <p class="note" style="margin-top: 20px;">
+        Please include your transfer screenshot or reference number.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard(elementId, tooltipId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        const tooltip = document.getElementById(tooltipId);
+        const originalText = tooltip.textContent;
+        tooltip.textContent = 'Copied!';
+        tooltip.style.opacity = '1';
+        
+        setTimeout(() => {
+          tooltip.style.opacity = '0';
+          setTimeout(() => {
+            tooltip.textContent = originalText;
+          }, 300);
+        }, 1500);
+      }).catch(function(err) {
+        alert('Copy failed. Please copy manually: ' + text);
+      });
+    }
+
+    // Show tooltips on hover
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('button[title]');
+      buttons.forEach(button => {
+        const tooltip = button.querySelector('span');
+        button.addEventListener('mouseenter', () => {
+          if (tooltip.textContent !== 'Copied!') {
+            tooltip.style.opacity = '1';
+          }
+        });
+        button.addEventListener('mouseleave', () => {
+          if (tooltip.textContent !== 'Copied!') {
+            tooltip.style.opacity = '0';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
