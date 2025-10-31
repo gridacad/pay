@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GRID ACADEMY | Substation Design and Protection Systems</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         /* Base Styles */
         :root {
@@ -25,13 +25,13 @@
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             --radius: 8px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             color: var(--secondary-color);
@@ -39,26 +39,26 @@
             background-color: var(--light-gray);
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         section {
             padding: 80px 0;
             position: relative;
         }
-        
+
         section:nth-child(even) {
             background-color: var(--white);
         }
-        
+
         section:nth-child(odd) {
             background-color: var(--light-gray);
         }
-        
+
         h1 {
             font-family: Montserrat, sans-serif;
             font-size: 2.2rem;
@@ -67,9 +67,9 @@
             padding-bottom: 15px;
             position: relative;
         }
-        
+
         h1:after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -78,26 +78,26 @@
             background-color: var(--primary-color);
             border-radius: 2px;
         }
-        
+
         h2 {
             font-family: Montserrat, sans-serif;
             font-size: 1.6rem;
             color: var(--secondary-color);
             margin: 30px 0 15px;
         }
-        
+
         h3 {
             font-family: Montserrat, sans-serif;
             font-size: 1.3rem;
             color: var(--primary-color);
             margin: 20px 0 10px;
         }
-        
+
         p {
             margin-bottom: 15px;
             font-size: 1.05rem;
         }
-        
+
         /* Shapes and Background Elements */
         .shape-circle {
             position: absolute;
@@ -105,14 +105,14 @@
             background-color: rgba(0, 146, 104, 0.05);
             z-index: -1;
         }
-        
+
         .shape-square {
             position: absolute;
             background-color: rgba(0, 146, 104, 0.03);
             transform: rotate(45deg);
             z-index: -1;
         }
-        
+
         /* Updated Hero Section Styles */
         .hero-section {
             position: relative;
@@ -120,9 +120,10 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(0, 110, 77, 0.9) 0%, rgba(0, 146, 104, 0.8) 100%), url('CO/bg.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(0, 110, 77, 0.9) 0%, rgba(0, 146, 104, 0.8) 100%),
+                url("CO/bg.jpg") center/cover no-repeat;
         }
-        
+
         .hero-background {
             position: absolute;
             top: 0;
@@ -131,7 +132,7 @@
             height: 100%;
             z-index: 0;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -145,11 +146,11 @@
             box-shadow: var(--shadow);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .logo {
             margin-bottom: 30px;
         }
-        
+
         .logo h2 {
             font-family: Montserrat, sans-serif;
             font-size: 2.2rem;
@@ -158,9 +159,9 @@
             display: flex;
             align-items: center;
         }
-        
+
         .logo h2:before {
-            content: '';
+            content: "";
             display: inline-block;
             width: 40px;
             height: 40px;
@@ -169,9 +170,9 @@
             border-radius: 6px;
             position: relative;
         }
-        
+
         .logo h2:after {
-            content: '';
+            content: "";
             display: inline-block;
             width: 20px;
             height: 20px;
@@ -181,7 +182,7 @@
             top: 10px;
             border-radius: 4px;
         }
-        
+
         .course-title {
             font-family: Montserrat, sans-serif;
             font-size: 2.8rem;
@@ -190,7 +191,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             line-height: 1.2;
         }
-        
+
         .instructor {
             font-size: 1.3rem;
             margin-bottom: 10px;
@@ -198,11 +199,11 @@
             display: flex;
             align-items: center;
         }
-        
+
         .instructor i {
             margin-right: 10px;
         }
-        
+
         .year {
             font-size: 1.1rem;
             font-weight: bold;
@@ -212,7 +213,7 @@
             border-radius: 20px;
             display: inline-block;
         }
-        
+
         .cta-button {
             display: inline-block;
             margin-top: 30px;
@@ -225,13 +226,13 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
             background-color: var(--accent-color);
         }
-        
+
         /* Card Styles */
         .card {
             background-color: var(--white);
@@ -242,12 +243,12 @@
             border-top: 4px solid var(--primary-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-        
+
         /* Table Styles */
         .schedule-table {
             width: 100%;
@@ -257,7 +258,7 @@
             border-radius: var(--radius);
             overflow: hidden;
         }
-        
+
         .schedule-table th {
             background-color: var(--primary-color);
             color: var(--white);
@@ -267,55 +268,55 @@
             font-weight: bold;
             font-size: 1.1rem;
         }
-        
+
         .schedule-table td {
             padding: 12px 15px;
             border: 1px solid var(--medium-gray);
         }
-        
+
         .level-1 {
             background-color: rgba(0, 146, 104, 0.1);
         }
-        
+
         .level-2 {
             background-color: rgba(0, 146, 104, 0.2);
         }
-        
+
         .level-3 {
             background-color: rgba(0, 146, 104, 0.3);
         }
-        
+
         .level-4 {
             background-color: rgba(0, 146, 104, 0.4);
             color: var(--text-dark);
         }
-        
+
         .mega-project {
             font-weight: bold;
             background-color: var(--light-bg);
         }
-        
+
         /* List Styles */
         ul {
             margin-left: 20px;
             margin-bottom: 20px;
         }
-        
+
         li {
             margin-bottom: 8px;
         }
-        
+
         .bullet-list {
             list-style-type: none;
             margin-left: 0;
         }
-        
+
         .bullet-list li {
             position: relative;
             padding-left: 25px;
             margin-bottom: 12px;
         }
-        
+
         .bullet-list li:before {
             content: "✓";
             color: var(--primary-color);
@@ -331,7 +332,7 @@
             justify-content: center;
             font-size: 0.8rem;
         }
-        
+
         /* Certification Styles */
         .certification-container {
             display: grid;
@@ -339,7 +340,7 @@
             gap: 25px;
             margin: 30px 0;
         }
-        
+
         .certification-card {
             background-color: var(--white);
             padding: 25px;
@@ -349,11 +350,11 @@
             transition: transform 0.3s ease;
             text-align: center;
         }
-        
+
         .certification-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .certification-card h3 {
             margin-top: 0;
             color: var(--primary-color);
@@ -361,12 +362,12 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .certification-card h3 i {
             margin-right: 10px;
             font-size: 1.5rem;
         }
-        
+
         /* Footer Styles */
         footer {
             background-color: var(--secondary-color);
@@ -375,7 +376,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .instructor-info {
             display: flex;
             flex-wrap: wrap;
@@ -384,20 +385,20 @@
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .instructor-photo {
             flex: 0 0 250px;
             position: relative;
         }
-        
+
         .instructor-photo img {
             width: 100%;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
-        
+
         .instructor-photo:after {
-            content: '';
+            content: "";
             position: absolute;
             width: 100%;
             height: 100%;
@@ -407,13 +408,13 @@
             left: 10px;
             z-index: -1;
         }
-        
+
         .instructor-bio {
             flex: 1;
             min-width: 300px;
             text-align: left;
         }
-        
+
         .company-logos {
             display: flex;
             justify-content: center;
@@ -421,18 +422,18 @@
             flex-wrap: wrap;
             margin: 40px 0;
         }
-        
+
         .company-logo {
             height: 60px;
             filter: brightness(0) invert(1);
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
-        
+
         .company-logo:hover {
             opacity: 1;
         }
-        
+
         .payment-options {
             display: flex;
             justify-content: center;
@@ -440,7 +441,7 @@
             flex-wrap: wrap;
             margin-top: 30px;
         }
-        
+
         .payment-option {
             background-color: var(--white);
             padding: 15px 25px;
@@ -449,7 +450,7 @@
             font-weight: bold;
             box-shadow: var(--shadow);
         }
-        
+
         .copyright {
             text-align: center;
             margin-top: 40px;
@@ -458,30 +459,30 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
-        
+
         /* Section Styling */
         .section-header {
             text-align: center;
             margin-bottom: 50px;
         }
-        
+
         .section-header h1 {
             display: inline-block;
         }
-        
+
         .section-header p {
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
         }
-        
+
         /* Progress Indicator */
         .progress-indicator {
             display: flex;
             justify-content: center;
             margin: 40px 0;
         }
-        
+
         .progress-step {
             display: flex;
             flex-direction: column;
@@ -490,9 +491,9 @@
             position: relative;
             width: 120px;
         }
-        
+
         .progress-step:not(:last-child):after {
-            content: '';
+            content: "";
             position: absolute;
             top: 25px;
             left: 70px;
@@ -501,7 +502,7 @@
             background-color: var(--primary-color);
             z-index: -1;
         }
-        
+
         .step-circle {
             width: 50px;
             height: 50px;
@@ -515,111 +516,111 @@
             margin-bottom: 10px;
             box-shadow: 0 4px 10px rgba(0, 146, 104, 0.3);
         }
-        
+
         .step-label {
             text-align: center;
             font-weight: bold;
             color: var(--primary-color);
         }
-        
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero-content {
                 padding: 30px;
                 margin: 20px;
             }
-            
+
             .course-title {
                 font-size: 2.2rem;
             }
-            
+
             .progress-step:not(:last-child):after {
                 width: 80px;
                 left: 60px;
             }
         }
-        
+
         @media (max-width: 768px) {
             section {
                 padding: 60px 0;
             }
-            
+
             .hero-content {
                 padding: 25px;
                 margin: 15px;
             }
-            
+
             .course-title {
                 font-size: 1.8rem;
             }
-            
+
             .schedule-table {
                 font-size: 0.9rem;
             }
-            
-            .schedule-table th, 
+
+            .schedule-table th,
             .schedule-table td {
                 padding: 10px 8px;
             }
-            
+
             .instructor-info {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .instructor-bio {
                 text-align: center;
             }
-            
+
             .company-logos {
                 gap: 20px;
             }
-            
+
             .company-logo {
                 height: 40px;
             }
-            
+
             .progress-step {
                 margin: 0 10px;
                 width: 100px;
             }
-            
+
             .progress-step:not(:last-child):after {
                 width: 60px;
                 left: 50px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .schedule-table {
                 display: block;
                 overflow-x: auto;
             }
-            
+
             h1 {
                 font-size: 1.8rem;
             }
-            
+
             h2 {
                 font-size: 1.4rem;
             }
-            
+
             h3 {
                 font-size: 1.2rem;
             }
-            
+
             .company-logo {
                 height: 35px;
             }
-            
+
             .progress-indicator {
                 flex-wrap: wrap;
             }
-            
+
             .progress-step {
                 margin: 10px;
             }
-            
+
             .progress-step:not(:last-child):after {
                 display: none;
             }
@@ -632,12 +633,12 @@
         <div class="shape-circle" style="width: 300px; height: 300px; top: -100px; right: -100px;"></div>
         <div class="shape-square" style="width: 200px; height: 200px; bottom: -50px; left: 10%;"></div>
         <div class="shape-circle" style="width: 150px; height: 150px; bottom: 100px; right: 20%;"></div>
-        
+
         <div class="container">
             <div class="hero-content">
-                
+
                     <h2>GRID ACADEMY</h2>
-                
+
                 <h1 class="course-title">Substation Design & Protection Course</h1>
                 <p class="instructor"><i class="fas fa-chalkboard-teacher"></i> Presented by: Eng. Ahmed Metwally</p>
                 <p class="year">2025 Edition</p>
@@ -651,7 +652,7 @@
     <section id="overview">
         <div class="shape-circle" style="width: 200px; height: 200px; top: 50px; left: -50px;"></div>
         <div class="shape-square" style="width: 150px; height: 150px; bottom: 100px; right: 5%;"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1>Course Overview</h1>
@@ -661,7 +662,7 @@
                 <p>It covers everything from <strong>control philosophy</strong> to <strong>advanced protection schemes</strong>, <strong>calculation techniques</strong>, and <strong>field interfacing practices</strong>, providing industry-aligned, job-ready competencies.</p>
                 <p>Through hands-on projects and real-world scenarios, you'll gain the expertise needed to excel in the power systems industry.</p>
             </div>
-            
+
             <div class="progress-indicator">
                 <div class="progress-step">
                     <div class="step-circle">1</div>
@@ -686,7 +687,7 @@
     <!-- Course Objectives -->
     <section id="objectives">
         <div class="shape-circle" style="width: 250px; height: 250px; top: -100px; right: -100px;"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1>Course Objectives</h1>
@@ -705,272 +706,281 @@
         </div>
     </section>
 
+    <!-- Schedule -->
+    <section id="schedule">
+      <div class="container">
+        <h1>Schedule</h1>
+        <p>
+          <strong>Meetings are held at 7:00 PM (GMT+2 - Cairo) / 8:00 PM (KSA)</strong>.
+          A <strong>Microsoft Teams meeting link</strong> will be shared with participants before each session.<br />
+          After every session, <strong>a PDF Notes file</strong> will be provided to all participants.
+        </p>
 
+        <div class="schedule-wrapper">
+          <!-- Left Table -->
+          <table class="schedule-table" id="schedule-left">
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Session</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="level-1">1</td><td>1</td><td data-datetime="2025-10-06T19:00:00+02:00">06-Oct</td></tr>
+              <tr><td class="level-1">1</td><td>2</td><td data-datetime="2025-10-13T19:00:00+02:00">13-Oct</td></tr>
+              <tr><td class="level-1">1</td><td>3</td><td data-datetime="2025-10-20T19:00:00+02:00">20-Oct</td></tr>
+              <tr><td class="level-1">1</td><td>4</td><td data-datetime="2025-10-27T19:00:00+02:00">27-Oct</td></tr>
+              <tr><td></td><td class="mega-project">Mega Project</td><td class="mega-project">31/10–02/11</td></tr>
 
-<!-- Schedule -->
-<section id="schedule">
-  <div class="container">
-    <h1>Schedule</h1>
-    <p>
-      <strong>Meetings are held at 5:00 PM (GMT+3)</strong>. A
-      <strong>Microsoft Teams meeting link</strong> will be shared with participants before each session.<br>
-      After every session, <strong>a PDF Notes file</strong> will be provided to all participants.
-    </p>
+              <!-- Level 2: UPDATED to Saturdays at 7 PM (Cairo) -->
+              <tr><td class="level-2">2</td><td>5</td><td data-datetime="2025-11-08T19:00:00+02:00">08-Nov</td></tr>
+              <tr><td class="level-2">2</td><td>6</td><td data-datetime="2025-11-15T19:00:00+02:00">15-Nov</td></tr>
+              <tr><td class="level-2">2</td><td>7</td><td data-datetime="2025-11-22T19:00:00+02:00">22-Nov</td></tr>
+              <tr><td class="level-2">2</td><td>8</td><td data-datetime="2025-11-29T19:00:00+02:00">29-Nov</td></tr>
+              <tr><td class="level-2">2</td><td>9</td><td data-datetime="2025-12-06T19:00:00+02:00">06-Dec</td></tr>
 
-    <div class="schedule-wrapper">
-      <!-- Left Table -->
-      <table class="schedule-table" id="schedule-left">
-        <thead>
-          <tr>
-            <th>Level</th>
-            <th>Session</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="level-1">1</td><td>1</td><td>06-Oct</td></tr>
-          <tr><td class="level-1">1</td><td>2</td><td>13-Oct</td></tr>
-          <tr><td class="level-1">1</td><td>3</td><td>20-Oct</td></tr>
-          <tr><td class="level-1">1</td><td>4</td><td>27-Oct</td></tr>
-          <tr><td></td><td class="mega-project">Mega Project</td><td class="mega-project">31/10–02/11</td></tr>
-          <tr><td class="level-2">2</td><td>5</td><td>03-Nov</td></tr>
-          <tr><td class="level-2">2</td><td>6</td><td>10-Nov</td></tr>
-          <tr><td class="level-2">2</td><td>7</td><td>17-Nov</td></tr>
-          <tr><td class="level-2">2</td><td>8</td><td>24-Nov</td></tr>
-          <tr><td class="level-2">2</td><td>9</td><td>01-Dec</td></tr>
-          <tr><td></td><td class="mega-project">Mega Project</td><td class="mega-project">05/12–07/12</td></tr>
-        </tbody>
-      </table>
+              <!-- Level 2 Mega Project moved to Saturday between L2 & L3 -->
+              <tr><td></td><td class="mega-project">Mega Project</td><td class="mega-project" data-datetime="2025-12-13T19:00:00+02:00">13-Dec</td></tr>
+            </tbody>
+          </table>
 
-      <!-- Right Table -->
-      <table class="schedule-table" id="schedule-right">
-        <thead>
-          <tr>
-            <th>Level</th>
-            <th>Session</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="level-3">3</td><td>10</td><td>08-Dec</td></tr>
-          <tr><td class="level-3">3</td><td>11</td><td>15-Dec</td></tr>
-          <tr><td class="level-3">3</td><td>12</td><td>22-Dec</td></tr>
-          <tr><td class="level-3">3</td><td>13</td><td>29-Dec</td></tr>
-          <tr><td class="level-3">3</td><td>14</td><td>05-Jan</td></tr>
-          <tr><td class="mega-project">Mega Project</td><td colspan="2">09/01–11/01</td></tr>
-          <tr><td class="level-4">4</td><td>15</td><td>12-Jan</td></tr>
-          <tr><td class="level-4">4</td><td>16</td><td>19-Jan</td></tr>
-          <tr><td class="level-4">4</td><td>17</td><td>26-Jan</td></tr>
-          <tr><td class="level-4">4</td><td>18</td><td>02-Feb</td></tr>
-          <tr><td class="level-4">4</td><td>19</td><td>09-Feb</td></tr>
-          <tr><td class="mega-project">Final Mega Project</td><td colspan="2">13/02–19/02</td></tr>
-        </tbody>
-      </table>
-    </div>
+          <!-- Right Table -->
+          <table class="schedule-table" id="schedule-right">
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Session</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Level 3: UPDATED to Saturdays at 7 PM (Cairo) -->
+              <tr><td class="level-3">3</td><td>10</td><td data-datetime="2025-12-20T19:00:00+02:00">20-Dec</td></tr>
+              <tr><td class="level-3">3</td><td>11</td><td data-datetime="2025-12-27T19:00:00+02:00">27-Dec</td></tr>
+              <tr><td class="level-3">3</td><td>12</td><td data-datetime="2026-01-03T19:00:00+02:00">03-Jan</td></tr>
+              <tr><td class="level-3">3</td><td>13</td><td data-datetime="2026-01-10T19:00:00+02:00">10-Jan</td></tr>
+              <tr><td class="level-3">3</td><td>14</td><td data-datetime="2026-01-17T19:00:00+02:00">17-Jan</td></tr>
 
-    <p>
-      <strong><em>Note:</em></strong>
-      <em>
-        Mega Projects are due <strong>one month after being assigned.</strong><br>
-        Mini-Assignments will be given after each session and must be submitted
-        <strong>within one week of being assigned.</strong>
-      </em>
-    </p>
-  </div>
-</section>
+              <!-- Level 3 Mega Project moved to Saturday between L3 & L4 -->
+              <tr><td class="mega-project">Mega Project</td><td colspan="2" class="mega-project" data-datetime="2026-01-24T19:00:00+02:00">24-Jan</td></tr>
 
-<!-- ✅ Professional Styles -->
-<style>
-  /* Layout */
-  .schedule-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-  }
+              <!-- Level 4: UPDATED to Saturdays at 7 PM (Cairo) -->
+              <tr><td class="level-4">4</td><td>15</td><td data-datetime="2026-01-31T19:00:00+02:00">31-Jan</td></tr>
+              <tr><td class="level-4">4</td><td>16</td><td data-datetime="2026-02-07T19:00:00+02:00">07-Feb</td></tr>
+              <tr><td class="level-4">4</td><td>17</td><td data-datetime="2026-02-14T19:00:00+02:00">14-Feb</td></tr>
+              <tr><td class="level-4">4</td><td>18</td><td data-datetime="2026-02-21T19:00:00+02:00">21-Feb</td></tr>
+              <tr><td class="level-4">4</td><td>19</td><td data-datetime="2026-02-28T19:00:00+02:00">28-Feb</td></tr>
 
-  .schedule-table {
-    border-collapse: collapse;
-    width: 48%;
-    min-width: 320px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    font-family: "Segoe UI", Arial, sans-serif;
-  }
+              <!-- Final Mega Project left as original spanning week (no change) -->
+              <tr><td class="mega-project">Final Mega Project</td><td colspan="2">07-Mar</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-  @media (max-width: 900px) {
-    .schedule-table {
-      width: 100%;
-    }
-  }
+        <p>
+          <strong><em>Note:</em></strong>
+          <em>
+            Mega Projects are due <strong>one month after being assigned.</strong><br />
+            Mini-Assignments will be given after each session and must be submitted
+            <strong>within one week of being assigned.</strong>
+          </em>
+        </p>
+      </div>
+    </section>
 
-  /* Table appearance */
-  .schedule-table th,
-  .schedule-table td {
-    padding: 10px 14px;
-    border: 1px solid #dee2e6;
-    text-align: center;
-  }
+    <!-- ✅ Professional Styles -->
+    <style>
+      /* Layout */
+      .schedule-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: space-between;
+      }
 
-  .schedule-table th {
-    background-color: #f1f3f5;
-    color: #212529;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
+      .schedule-table {
+        border-collapse: collapse;
+        width: 48%;
+        min-width: 320px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
 
-  .schedule-table tr:nth-child(even) {
-    background-color: #f8f9fa;
-  }
-
-  .schedule-table tr:hover {
-    background-color: #f0f4ff;
-  }
-
-  /* Past session highlight */
-  .past-session {
-    background: #ffe6e6 !important;
-    color: #b00020;
-    font-weight: 500;
-    position: relative;
-  }
-
-  .past-session::after {
-    content: "✔ Past";
-    position: absolute;
-    right: 8px;
-    top: 6px;
-    font-size: 0.75em;
-    color: #b00020;
-    background: rgba(255, 0, 0, 0.08);
-    padding: 2px 6px;
-    border-radius: 5px;
-  }
-
-  /* Mega Project styling */
-  .mega-project {
-    font-weight: 600;
-    background: #fff8e1;
-  }
-</style>
-
-<!-- ✅ Functional Script -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const today = new Date("2025-10-21"); // Replace with new Date() for live use
-  const cells = document.querySelectorAll(".schedule-table td:nth-child(3), .schedule-table td[colspan='2']");
-
-  cells.forEach(cell => {
-    const text = cell.textContent.trim();
-    if (!text) return;
-
-    // Handle date ranges like "31/10–02/11"
-    let dateStr = text.split("–")[0].trim();
-    const match = dateStr.match(/(\d{1,2})[-\/](\w{3})/);
-    if (match) {
-      const day = parseInt(match[1]);
-      const monthStr = match[2].toLowerCase();
-      const months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
-      const monthIndex = months.indexOf(monthStr);
-      if (monthIndex >= 0) {
-        const year = monthIndex < 2 ? 2026 : 2025;
-        const sessionDate = new Date(year, monthIndex, day);
-        if (sessionDate < today) {
-          cell.parentElement.classList.add("past-session");
+      @media (max-width: 900px) {
+        .schedule-table {
+          width: 100%;
         }
       }
-    }
-  });
-});
-</script>
 
+      /* Table appearance */
+      .schedule-table th,
+      .schedule-table td {
+        padding: 10px 14px;
+        border: 1px solid #dee2e6;
+        text-align: center;
+      }
 
+      .schedule-table th {
+        background-color: #f1f3f5;
+        color: #212529;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .schedule-table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+
+      .schedule-table tr:hover {
+        background-color: #f0f4ff;
+      }
+
+      /* Past session highlight */
+      .past-session {
+        background: #ffe6e6 !important;
+        color: #b00020;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .past-session::after {
+        content: "✔ Past";
+        position: absolute;
+        right: 8px;
+        top: 6px;
+        font-size: 0.75em;
+        color: #b00020;
+        background: rgba(255, 0, 0, 0.08);
+        padding: 2px 6px;
+        border-radius: 5px;
+      }
+
+      /* Mega Project styling */
+      .mega-project {
+        font-weight: 600;
+        background: #fff8e1;
+      }
+    </style>
+
+    <!-- ✅ Functional Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Determine current Cairo time (GMT+2) robustly:
+      const nowLocal = new Date();
+      // Convert local now to UTC milliseconds
+      const utcMs = nowLocal.getTime() + nowLocal.getTimezoneOffset() * 60000;
+      // Cairo is UTC+2
+      const cairoOffsetMinutes = 2 * 60;
+      const cairoNow = new Date(utcMs + cairoOffsetMinutes * 60000);
+
+      // All cells that may have data-datetime attribute
+      const dateCells = document.querySelectorAll(".schedule-table td[data-datetime], .schedule-table td[colspan][data-datetime]");
+
+      dateCells.forEach(cell => {
+        const iso = cell.getAttribute("data-datetime");
+        if (!iso) return;
+        const sessionDate = new Date(iso); // ISO with offset parses correctly
+
+        // Compare using milliseconds (UTC under the hood) but against cairoNow
+        if (sessionDate.getTime() < cairoNow.getTime()) {
+          // mark the whole row as past
+          const row = cell.parentElement;
+          if (row) row.classList.add("past-session");
+        }
+      });
+
+      // Optional: if you also want to mark rows whose date text is a range (no data-datetime),
+      // you may extend logic to parse textual dates. For now we rely on data-datetime where present.
+    });
+    </script>
 
     <!-- Course Structure -->
     <section id="structure">
         <div class="shape-circle" style="width: 220px; height: 220px; bottom: -50px; right: -50px;"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1>Course Structure</h1>
                 <p>Our curriculum is carefully designed to build your knowledge from foundational concepts to advanced applications</p>
             </div>
-            
+
             <div class="card">
                 <h2>Level 1: Foundations of Substation Design</h2>
-                
+
                 <h3><i class="fas fa-bolt"></i> Session 1: Welcome to the Grid</h3>
                 <p>Substation types, voltage levels, layouts, and system roles.</p>
-                
+
                 <h3><i class="fas fa-brain"></i> Session 2: Brains of the System</h3>
                 <p>Conventional vs SAS Substation Control</p>
                 <p>Hierarchy and components in conventional and automated systems.</p>
-                
+
                 <h3><i class="fas fa-shield-alt"></i> Session 3: Protection System Basics</h3>
                 <p>Philosophies, protection elements, attributes, relay types.</p>
-                
+
                 <h3><i class="fas fa-cogs"></i> Session 4: Relay Types and Applications</h3>
                 <p>Overcurrent, differential, and distance relays.</p>
             </div>
-            
+
             <div class="card">
                 <h2>Level 2: Advanced Substation Design & Drawings [Base Design]</h2>
-                
+
                 <h3><i class="fas fa-project-diagram"></i> Session 1: Single Line Diagrams (SLD)</h3>
                 <p>Main SLD purpose, structure, IEC conventions.</p>
-                
+
                 <h3><i class="fas fa-tachometer-alt"></i> Session 2: Relay & Metering SLD</h3>
                 <p>CT/VT integration, relay layout.</p>
-                
+
                 <h3><i class="fas fa-route"></i> Session 3: Distance Protection Schemes</h3>
                 <p>Pilot-aided and non-pilot-aided schemes, zone settings.</p>
-                
+
                 <h3><i class="fas fa-lock"></i> Session 4: Interlocking Schemes, Alarm list</h3>
                 <p>Logic, maloperation prevention.</p>
-                
+
                 <h3><i class="fas fa-plug"></i> Session 5: AC/DC SLDs</h3>
                 <p>AC/DC SLDs</p>
             </div>
-            
+
             <div class="card">
                 <h2>Level 3: Engineering Calculations & Design Sizing</h2>
-                
+
                 <h3><i class="fas fa-calculator"></i> Session 1: Breaker and Cable Sizing</h3>
                 <p>IEC-based sizing for AC/DC breakers and cables.</p>
-                
+
                 <h3><i class="fas fa-transformer"></i> Session 2: Auxiliary Transformer & Zig-Zag Sizing</h3>
                 <p>Roles, calculation steps.</p>
-                
+
                 <h3><i class="fas fa-car-battery"></i> Session 3: Battery and Charger Sizing</h3>
                 <p>DC load profile, battery sizing.</p>
-                
+
                 <h3><i class="fas fa-exchange-alt"></i> Session 4: CT and VT Fundamentals</h3>
                 <p>CT classes, sizing, adequacy; VT basics.</p>
-                
+
                 <h3><i class="fas fa-sliders-h"></i> Session 5: Relay Setting Calculations</h3>
                 <p>Overcurrent, distance, unit protection.</p>
             </div>
-            
+
             <div class="card">
                 <h2>Level 4: Practical Interfacing & Field Applications</h2>
-                
+
                 <h3><i class="fas fa-wrench"></i> Session 1-2: Wiring Intelligence</h3>
                 <p>Control Schematics Session with symbols and wiring notations.</p>
                 <p>Reading Protection Schematics and how to trace reactions.</p>
                 <p>Exploring Key Circuits used in Electrical Control and Protection.</p>
                 <p>Exercise: Trace circuit logic in schematic</p>
-                
+
                 <h3><i class="fas fa-ruler-combined"></i> Session 3: The Last Meter</h3>
                 <p>Cable Schedules & Termination Charts</p>
                 <p>Assignment: Fill termination chart from drawing</p>
-                
+
                 <h3><i class="fas fa-th-list"></i> Session 4: Panel Contents</h3>
                 <p>Local/remote/protection schematics, signal list creation.</p>
                 <p>Assignment: Signal list + protection schematic.</p>
-                
+
                 <h3><i class="fas fa-file-contract"></i> Session 5: Final Wrap-Up and Submittals</h3>
                 <p>Document requirements, vendor deviations, Telecom Networks, starting real projects.</p>
             </div>
@@ -980,13 +990,13 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Certifications -->
     <section id="certifications">
         <div class="shape-square" style="width: 160px; height: 160px; top: 100px; right: 10%;"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1>Certifications</h1>
                 <p>Earn industry-recognized certifications as you progress through each level of the course</p>
             </div>
-            
+
             <h2>Completion Certifications:</h2>
             <div class="certification-container">
                 <div class="certification-card">
@@ -1006,7 +1016,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p><em>Practical Field Interfacing Expert</em></p>
                 </div>
             </div>
-            
+
             <h2>Attendance Certifications:</h2>
             <div class="certification-container">
                 <div class="certification-card">
@@ -1032,7 +1042,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Assignments -->
     <section id="assignments">
         <div class="shape-circle" style="width: 180px; height: 180px; bottom: 50px; left: -50px;"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1>Assignments Summary</h1>
@@ -1077,7 +1087,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Evaluation -->
     <section id="evaluation">
         <div class="shape-square" style="width: 140px; height: 140px; top: 80px; right: 15%;"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1>Evaluation Criteria</h1>
@@ -1112,14 +1122,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <footer>
         <div class="shape-circle" style="width: 300px; height: 300px; top: -150px; left: -150px; background-color: rgba(255,255,255,0.05);"></div>
         <div class="shape-square" style="width: 200px; height: 200px; bottom: -50px; right: 10%; background-color: rgba(255,255,255,0.05);"></div>
-        
+
         <div class="container">
             <div class="section-header">
                 <h1 style="color: white;">About the Instructor</h1>
             </div>
             <div class="instructor-info">
                 <div class="instructor-photo">
-                    <img src="CO/am.png" alt="Eng. Ahmed Metwally">
+                    <img src="CO/am.png" alt="Eng. Ahmed Metwally" />
                 </div>
                 <div class="instructor-bio">
                     <p>Ahmed Metwally is a substation engineering manager with over 16 years of hands-on experience in AIS and GIS substations, with a focus on control and protection schemes. Throughout his career, he has worked closely with multidisciplinary teams across primary, secondary, and telecom systems, gaining practical insight into the challenges of real-world project execution.</p>
@@ -1127,12 +1137,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     <p>Ahmed believes in sharing practical knowledge in a structured, accessible way, and is passionate about helping engineering students bridge the gap between theory and application.</p>
                 </div>
             </div>
-            
+
             <div class="company-logos">
-                <img src="CO/i1.png" alt="Company 1" class="company-logo">
-                <img src="CO/i2.png" alt="Company 2" class="company-logo">
-                <img src="CO/i3.png" alt="Company 3" class="company-logo">
-                <img src="CO/i4.png" alt="Company 4" class="company-logo">
+                <img src="CO/i1.png" alt="Company 1" class="company-logo" />
+                <img src="CO/i2.png" alt="Company 2" class="company-logo" />
+                <img src="CO/i3.png" alt="Company 3" class="company-logo" />
+                <img src="CO/i4.png" alt="Company 4" class="company-logo" />
             </div>
 
             <div class="copyright">
@@ -1142,5 +1152,3 @@ document.addEventListener("DOMContentLoaded", () => {
     </footer>
 </body>
 </html>
-
-
