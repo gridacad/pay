@@ -640,6 +640,31 @@
 }
 
 
+
+
+
+        .highlight-session {
+    background-color: #fff3cd;  /* light yellow */
+    font-weight: 700;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.highlight-note {
+    text-align: left;
+    font-style: italic;
+    background-color: #f1f3f5;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 0.95rem;
+}
+
+
+
+
+
+        
     </style>
 </head>
 <body>
@@ -875,6 +900,8 @@
       <!-- ================= ROUND 2 – LEVEL 2 (NEW) ================= -->
 
 
+        
+
       <table class="schedule-table schedule-table-full" id="schedule-round2-level2">
         <thead>
           <tr>
@@ -883,13 +910,22 @@
             <th>Date</th>
           </tr>
         </thead>
-        <tbody>
-          <tr><td class="level-2">2</td><td>5</td><td data-datetime="2025-12-31T20:00:00+02:00">31 Dec</td></tr>
-          <tr><td class="level-2">2</td><td>6</td><td data-datetime="2026-01-07T20:00:00+02:00">07 Jan</td></tr>
-          <tr><td class="level-2">2</td><td>7</td><td data-datetime="2026-01-14T20:00:00+02:00">14 Jan</td></tr>
-          <tr><td class="level-2">2</td><td>8</td><td data-datetime="2026-01-21T20:00:00+02:00">21 Jan</td></tr>
-          <tr><td class="level-2">2</td><td>9</td><td data-datetime="2026-01-28T20:00:00+02:00">28 Jan</td></tr>
-        </tbody>
+
+
+<tbody>
+  <tr class="highlight-session"><td class="level-2">2</td><td>5</td><td data-datetime="2026-01-01T20:00:00+02:00">01 Jan</td></tr>
+  <tr class="highlight-session"><td class="level-2">2</td><td>6</td><td data-datetime="2026-01-05T20:00:00+02:00">08 Jan</td></tr>
+  <tr><td class="level-2">2</td><td>7</td><td data-datetime="2026-01-14T20:00:00+02:00">14 Jan</td></tr>
+  <tr><td class="level-2">2</td><td>8</td><td data-datetime="2026-01-21T20:00:00+02:00">21 Jan</td></tr>
+  <tr><td class="level-2">2</td><td>9</td><td data-datetime="2026-01-28T20:00:00+02:00">28 Jan</td></tr>
+</tbody>
+
+          <div class="highlight-note">* sessions are on Thursday</div>
+
+
+
+
+          
       </table>
 
     </div>
@@ -1303,6 +1339,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
