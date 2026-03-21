@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — PV Systems Engineering Payment Options</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* ── TOP NAV ── */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(44,62,80,0.97);
+      backdrop-filter: blur(10px);
+      padding: 12px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-brand {
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand i { color: #00b37d; }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: white; }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .nav-course-badge {
+      background: #2471a3;
+      color: white;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* ── PAGE BODY ── */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+    }
+    .page-body { padding: 32px 20px; }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 { color: #009268; margin-top: 0; }
+    h1 { font-size: 28px; margin-bottom: 32px; }
+    h2 { font-size: 22px; margin-bottom: 20px; }
+    p { line-height: 1.5; }
+
+    .section { margin-bottom: 28px; }
+
+    .pay-method {
+      margin-bottom: 16px;
+      padding: 16px;
+      border: 1px solid #009268;
+      border-radius: 8px;
+      background: #E6F4F1;
+    }
+
+    .qr { text-align: center; margin: 16px 0 8px; }
+    .qr img { max-width: 200px; border-radius: 8px; border: 2px solid #009268; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #009268;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover { background: #007a56; }
+    .btn-blue { background: #2471a3; }
+    .btn-blue:hover { background: #1a5276; }
+
+    .number-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .copy-btn {
+      background: #009268;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .copy-btn:hover { background: #007a56; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 8px;
+      text-align: center;
+    }
+    th { background: #E6F4F1; font-weight: 600; }
+
+    /* Level colour coding — blue tones for PV */
+    tr.lv-1 { background: #d0e9fa; }
+    tr.lv-2 { background: #a8d5f5; }
+    tr.lv-3 { background: #7abfe8; }
+    tr.lv-4 { background: #c8e6c9; }
+    tr.lv-5 { background: #a5d6a7; }
+    tr.tba  { background: #f3f4f6; color: #9ca3af; font-style: italic; }
+
+    .highlight {
+      background: #E6F4F1;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+
+    .note { font-size: 13px; color: #6b7280; margin-top: 8px; }
+
+    .tba-banner {
+      background: #fef9c3;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size: 0.92rem;
+      color: #92400e;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .tba-banner i { margin-top: 2px; flex-shrink: 0; }
+
+    .form-section {
+      background: #E6F4F1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .breadcrumb {
+      max-width: 800px;
+      margin: 0 auto 16px;
+      padding: 14px 20px 0;
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+    .breadcrumb a { color: #009268; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+
+    .course-header-strip {
+      background: linear-gradient(135deg, #1a5276, #2471a3);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .course-header-strip i { font-size: 2rem; opacity: 0.9; }
+    .course-header-strip h2 { color: white; margin: 0; font-size: 1.1rem; }
+    .course-header-strip p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.85; }
+  </style>
+
+  <script>
+    function copyNumber() {
+      navigator.clipboard.writeText("01090855647");
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy", 2000);
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-back">
+          <i class="fas fa-chevron-left"></i> All Courses
+        </a>
+        <a href="index.html" class="nav-brand">
+          <i class="fas fa-bolt"></i> GRID ACADEMY
+        </a>
+      </div>
+      <span class="nav-course-badge">
+        <i class="fas fa-solar-panel" style="margin-right:5px;"></i> PV Systems Engineering
+      </span>
+    </div>
+  </nav>
+
+  <div class="page-body">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="index.html">All Courses</a>
+      <span>›</span>
+      <a href="PV.html">PV Systems Engineering</a>
+      <span>›</span>
+      Payment
+    </div>
+
+    <div class="container">
+
+      <div style="display:flex;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+        <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
+        <div>
+          <h1 style="margin:0;font-size:24px;">Grid Academy — Payment Options</h1>
+          <p style="margin:4px 0 0;color:#6b7280;font-size:0.9rem;">Photovoltaic Systems Engineering Course</p>
+        </div>
+      </div>
+
+      <!-- COURSE STRIP -->
+      <div class="course-header-strip">
+        <i class="fas fa-solar-panel"></i>
+        <div>
+          <h2>Photovoltaic Systems Engineering</h2>
+          <p>5 Levels &nbsp;·&nbsp; 20 Sessions &nbsp;·&nbsp; Eng. Amr Farouk &nbsp;·&nbsp; Starting 14 April 2026</p>
+        </div>
+      </div>
+
+      <!-- BACK TO COURSE -->
+      <div style="margin-bottom:24px;">
+        <a href="PV.html" style="color:#009268;text-decoration:none;font-size:0.92rem;font-weight:600;">
+          <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Back to Course Page
+        </a>
+      </div>
+
+      
+
+      <!-- HOW TO PAY -->
+      <div class="section">
+        <h2>How to Pay</h2>
+
+        <div class="pay-method">
+          <strong>Instapay</strong><br>
+          Scan the following QR or use the link to send from mobile.
+          <div class="qr">
+            <img src="instapay-qr.jpg" alt="Instapay QR">
+          </div>
+          <div style="text-align:center;">
+            <a href="https://ipn.eg/S/minanbe2/instapay/2IxLCC" class="btn">
+              <i class="fas fa-external-link-alt" style="margin-right:5px;"></i> Open Instapay
+            </a>
+          </div>
+        </div>
+
+        <div class="pay-method">
+          <strong>Vodafone Cash</strong>
+          <div class="number-box">
+            <span>01090855647</span>
+            <button id="copyBtn" class="copy-btn" onclick="copyNumber()">Copy</button>
+          </div>
+        </div>
+
+        <div class="pay-method">
+          <strong>Bank Transfer</strong><br>
+          Kindly contact us for bank details.
+        </div>
+
+        <div class="pay-method" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <div>
+            <strong>External Transfers</strong><br>
+            Please message us on WhatsApp to receive full details.
+          </div>
+          <a href="https://wa.me/201090855647" class="btn">
+            <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Message on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- PROFESSIONALS -->
+      <div class="section">
+        <h2>For Professionals</h2>
+        <table>
+          <tr>
+            <th>Level</th>
+            <th>Sessions</th>
+            <th>Price / Level (Opt. B)</th>
+            <th>Instead of</th>
+          </tr>
+          <tr class="lv-1"><td>1 — Solar Foundations</td><td>5</td><td>EGP 2,500</td><td style="text-decoration:line-through;font-weight:500;">2,750</td></tr>
+          <tr class="lv-2"><td>2 — Grid-Tied Design</td><td>6</td><td>EGP 3,600</td><td style="text-decoration:line-through;font-weight:500;">3,900</td></tr>
+          <tr class="lv-3"><td>3 — Off-Grid &amp; Hybrid</td><td>4</td><td>EGP 4,000</td><td style="text-decoration:line-through;font-weight:500;">4,400</td></tr>
+          <tr class="lv-4"><td>4 — Solar Pumping</td><td>2</td><td>EGP 2,000</td><td style="text-decoration:line-through;font-weight:500;">2,200</td></tr>
+          <tr class="lv-5"><td>5 — Projects &amp; Finance</td><td>3</td><td>EGP 3,000</td><td style="text-decoration:line-through;font-weight:500;">3,300</td></tr>
+        </table>
+        <div class="highlight">
+          Full Course (All 5 Levels — Opt. C): &nbsp;<strong>EGP 13,500</strong> &nbsp;
+          <span style="text-decoration:line-through;color:#6b7280;font-weight:normal;">Instead of EGP 15,100</span>
+        </div>
+        <p class="note">Opt. B — per level &nbsp;•&nbsp; Opt. C — full course package (best value)</p>
+      </div>
+
+      <!-- STUDENTS -->
+      <div class="section">
+        <h2>For Full-time Students</h2>
+        <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
+        <table>
+          <tr>
+            <th>Level</th>
+            <th>Sessions</th>
+            <th>Price / Level (Opt. B)</th>
+          </tr>
+          <tr class="lv-1"><td>1 — Solar Foundations</td><td>5</td><td>EGP 750</td></tr>
+          <tr class="lv-2"><td>2 — Grid-Tied Design</td><td>6</td><td>EGP 1,500</td></tr>
+          <tr class="lv-3"><td>3 — Off-Grid &amp; Hybrid</td><td>4</td><td>EGP 1,200</td></tr>
+          <tr class="lv-4"><td>4 — Solar Pumping</td><td>2</td><td>EGP 600</td></tr>
+          <tr class="lv-5"><td>5 — Projects &amp; Finance</td><td>3</td><td>EGP 900</td></tr>
+        </table>
+        <div class="highlight">
+          Full Course (All 5 Levels — Opt. C): &nbsp;<strong>EGP 4,700</strong>
+        </div>
+        <p class="note">Opt. B — per level &nbsp;•&nbsp; Opt. C — full course package</p>
+        <p class="note">Note: Student discount requires valid Faculty ID at time of payment. Package Deals are for existing Clients.</p>
+      </div>
+
+      <!-- REGISTRATION FORM -->
+      <div class="form-section">
+        <h3>Reserve Your Seat</h3>
+        <p>To register your interest or complete enrollment after payment, use the links below:</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+          <a href="https://forms.gle/AZ5d8w1Aky7kqrGt6" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-briefcase" style="margin-right:6px;"></i> For Professionals
+          </a>
+          <a href="https://forms.gle/6AAiKed1huC28YZK8" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-graduation-cap" style="margin-right:6px;"></i> For Undergrads
+          </a>
+        </div>
+        <p class="note" style="margin-top:16px;">
+          Please include: Transfer screenshot/reference number, your ID, and any required attachments.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
