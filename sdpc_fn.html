@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="icon" type="image/svg+xml" href="Sm1.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+  <link rel="apple-touch-icon" href="Sm1.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — SDPC International Payment (USD)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    .top-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(44,62,80,0.97); backdrop-filter: blur(10px);
+      padding: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .nav-logo { height: 28px; width: auto; filter: brightness(0) invert(1); display: block; flex-shrink: 0; }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .nav-brand {
+      font-family: Arial, sans-serif; font-size: 1.05rem; font-weight: 800; color: white;
+      text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.75);
+      text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-back:hover { color: white; }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .nav-course-badge {
+      background: #009268; color: white; padding: 5px 14px;
+      border-radius: 20px; font-size: 0.82rem; font-weight: 700;
+    }
+
+    body { font-family: Arial, Helvetica, sans-serif; background: #f9fafb; color: #111827; margin: 0; padding: 0; }
+    .page-body { padding: 32px 20px; }
+    .container {
+      max-width: 800px; margin: 0 auto; background: #fff;
+      border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1, h2, h3 { color: #009268; margin-top: 0; }
+    h1 { font-size: 24px; margin-bottom: 4px; }
+    h2 { font-size: 20px; margin-bottom: 16px; }
+    h3 { font-size: 15px; margin-bottom: 10px; }
+    p { line-height: 1.5; }
+    .section { margin-bottom: 32px; }
+
+    .pay-method {
+      margin-bottom: 16px; padding: 16px;
+      border: 1px solid #009268; border-radius: 8px; background: #E6F4F1;
+    }
+    .btn {
+      display: inline-block; padding: 9px 14px; background: #009268; color: #fff;
+      text-decoration: none; border-radius: 6px; font-weight: 600;
+      transition: background-color 0.3s ease; font-size: 0.85rem; white-space: nowrap;
+    }
+    .btn:hover { background: #007a56; }
+    .btn-paypal { background: #003087; }
+    .btn-paypal:hover { background: #001f5c; }
+    .btn-grey { background: #1f2937; }
+    .btn-grey:hover { background: #111827; }
+
+    .note { font-size: 13px; color: #6b7280; margin-top: 8px; }
+    .form-section { background: #E6F4F1; padding: 20px; border-radius: 8px; margin-top: 32px; text-align: center; }
+
+    .breadcrumb {
+      max-width: 800px; margin: 0 auto 16px; padding: 14px 20px 0;
+      font-size: 0.88rem; color: #6b7280;
+    }
+    .breadcrumb a { color: #009268; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+
+    .usd-banner {
+      background: linear-gradient(135deg, #009268 0%, #006d4e 100%);
+      color: white; padding: 14px 18px; border-radius: 8px; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px; font-size: 0.93rem;
+    }
+    .usd-banner i { font-size: 1.3rem; opacity: 0.9; flex-shrink: 0; }
+
+    /* Platform block */
+    .platform-block { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+    .platform-block-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; font-weight: 700; font-size: 1rem;
+    }
+    .platform-block-header.paypal { background: #eef2ff; color: #003087; border-bottom: 1px solid #c7d4f0; }
+    .platform-block-header.grey   { background: #f3f4f6; color: #1f2937;  border-bottom: 1px solid #d1d5db; }
+    .platform-block-body { padding: 18px; }
+
+    /* Audience label */
+    .audience-section { margin-bottom: 20px; }
+    .audience-label {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .audience-label.prof { background: #fff7ed; color: #92400e; border: 1px solid #fed7aa; }
+    .audience-label.stud { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+    /* Level cards — 4 across */
+    .level-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    }
+    @media (max-width: 580px) { .level-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .level-card {
+      border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 10px;
+      background: #fff; display: flex; flex-direction: column;
+      gap: 7px; align-items: center; text-align: center;
+    }
+    .level-num {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem; font-weight: 800;
+    }
+    .level-num.pp { background: #eef2ff; color: #003087; }
+    .level-num.gr { background: #f3f4f6; color: #1f2937; }
+    .level-sessions { font-size: 0.77rem; color: #6b7280; }
+    .level-price    { font-size: 1rem; font-weight: 700; color: #009268; }
+
+    /* Placeholder tags — remove before going live */
+    .ph {
+      display: block; font-size: 0.68rem; color: #b45309; font-family: monospace;
+      background: #fffbeb; border: 1px dashed #f59e0b; border-radius: 3px;
+      padding: 2px 5px; width: 100%; text-align: center; box-sizing: border-box;
+    }
+
+    .bundle-row {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;
+      padding: 12px 16px; margin-top: 12px;
+    }
+    .bundle-row strong { font-size: 0.9rem; }
+    .bundle-row p { margin: 3px 0 0; font-size: 0.83rem; color: #6b7280; }
+
+    .fee-note {
+      font-size: 0.8rem; color: #6b7280; background: #f9fafb;
+      border: 1px solid #e5e7eb; border-radius: 6px; padding: 8px 12px; margin-bottom: 16px;
+    }
+    .divider { border: none; border-top: 1px solid #e5e7eb; margin: 20px 0; }
+  </style>
+</head>
+
+<body>
+
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/course/index.html" class="nav-back">
+          <i class="fas fa-chevron-left"></i> All Courses
+        </a>
+        <a href="/course/index.html" class="nav-brand">
+          <img src="Sm1.svg" alt="Grid Academy Logo" class="nav-logo">
+          GRID ACADEMY
+        </a>
+      </div>
+      <span class="nav-course-badge">Substation Design &amp; Protection</span>
+    </div>
+  </nav>
+
+  <div class="page-body">
+
+    <div class="breadcrumb">
+      <a href="/course/index.html">All Courses</a>
+      <span>›</span>
+      <a href="/course/SDPC.html">Substation Design &amp; Protection</a>
+      <span>›</span>
+      <a href="SDPC-payment.html">Payment</a>
+      <span>›</span>
+      International (USD)
+    </div>
+
+    <div class="container">
+
+      <!-- HEADER -->
+      <div style="display:flex;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+        <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
+        <div>
+          <h1>International Payment — USD</h1>
+          <p style="margin:4px 0 0;color:#6b7280;font-size:0.9rem;">Substation Design &amp; Protection Course (SDPC)</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <a href="SDPC-payment.html" style="color:#009268;text-decoration:none;font-size:0.92rem;font-weight:600;">
+          <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Back to Payment Options
+        </a>
+      </div>
+
+      <div class="usd-banner">
+        <i class="fas fa-globe"></i>
+        <div>
+          <strong>Paying from outside Egypt?</strong><br>
+          <span style="font-size:0.88rem;opacity:0.92;">
+            All prices are in <strong>USD</strong>. Choose your platform, find your level, and click Pay — the correct amount is pre-set.
+          </span>
+        </div>
+      </div>
+
+
+      <!-- ═══════════════════════════ PAYPAL ═══════════════════════════ -->
+      <div class="section">
+        <h2><i class="fab fa-paypal" style="margin-right:8px;color:#003087;"></i>Pay via PayPal</h2>
+        <div class="fee-note">
+          <i class="fas fa-info-circle" style="color:#009268;margin-right:5px;"></i>
+          PayPal applies a standard international fee (typically 3–5%). The amounts shown factor this in — contact us if unsure.
+        </div>
+
+        <div class="platform-block">
+          <div class="platform-block-header paypal">
+            <i class="fab fa-paypal"></i> PayPal — Payment Links
+          </div>
+          <div class="platform-block-body">
+
+            <!-- PAYPAL · PROFESSIONALS -->
+            <div class="audience-section">
+              <span class="audience-label prof"><i class="fas fa-briefcase"></i> For Professionals</span>
+              <div class="level-grid">
+
+                <div class="level-card">
+                  <div class="level-num pp">1</div>
+                  <div class="level-sessions">4 sessions</div>
+                  <div class="level-price">~$42</div>
+                  <!-- ████ PLACEHOLDER 1 ████ -->
+                  <a href="PAYPAL_LINK_PROF_LVL1" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 1</a>
+                  <span class="ph">PH 1 · PayPal · Prof · Lvl 1</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num pp">2</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$62</div>
+                  <!-- ████ PLACEHOLDER 2 ████ -->
+                  <a href="PAYPAL_LINK_PROF_LVL2" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 2</a>
+                  <span class="ph">PH 2 · PayPal · Prof · Lvl 2</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num pp">3</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$100</div>
+                  <!-- ████ PLACEHOLDER 3 ████ -->
+                  <a href="PAYPAL_LINK_PROF_LVL3" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 3</a>
+                  <span class="ph">PH 3 · PayPal · Prof · Lvl 3</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num pp">4</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$100</div>
+                  <!-- ████ PLACEHOLDER 4 ████ -->
+                  <a href="PAYPAL_LINK_PROF_LVL4" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 4</a>
+                  <span class="ph">PH 4 · PayPal · Prof · Lvl 4</span>
+                </div>
+
+              </div>
+              <div class="bundle-row">
+                <div>
+                  <strong>All 4 Levels — Special Discount</strong>
+                  <p>Contact us for a bundled USD rate via PayPal.</p>
+                </div>
+                <!-- ████ PLACEHOLDER 5 · PayPal · Prof · All Levels ████ -->
+                <a href="https://wa.me/201090855647?text=PayPal+bundle+all+4+SDPC+levels+(Professional)"
+                   class="btn" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Get Bundle Price
+                </a>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- PAYPAL · STUDENTS -->
+            <div class="audience-section" style="margin-bottom:0;">
+              <span class="audience-label stud"><i class="fas fa-graduation-cap"></i> For Full-time Students</span>
+              <p style="font-size:0.82rem;color:#6b7280;margin:-4px 0 12px;">
+                <i class="fas fa-id-card" style="margin-right:4px;"></i>
+                Present your Faculty ID when registering to confirm your student rate.
+              </p>
+              <div class="level-grid">
+
+                <div class="level-card">
+                  <div class="level-num pp">1</div>
+                  <div class="level-sessions">4 sessions</div>
+                  <div class="level-price">~$12</div>
+                  <!-- ████ PLACEHOLDER 6 ████ -->
+                  <a href="PAYPAL_LINK_STUD_LVL1" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 1</a>
+                  <span class="ph">PH 6 · PayPal · Stud · Lvl 1</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num pp">2</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$25</div>
+                  <!-- ████ PLACEHOLDER 7 ████ -->
+                  <a href="PAYPAL_LINK_STUD_LVL2" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 2</a>
+                  <span class="ph">PH 7 · PayPal · Stud · Lvl 2</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num pp">3</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$30</div>
+                  <!-- ████ PLACEHOLDER 8 ████ -->
+                  <a href="PAYPAL_LINK_STUD_LVL3" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 3</a>
+                  <span class="ph">PH 8 · PayPal · Stud · Lvl 3</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num pp">4</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$30</div>
+                  <!-- ████ PLACEHOLDER 9 ████ -->
+                  <a href="PAYPAL_LINK_STUD_LVL4" class="btn btn-paypal" target="_blank" rel="noopener">Pay Level 4</a>
+                  <span class="ph">PH 9 · PayPal · Stud · Lvl 4</span>
+                </div>
+
+              </div>
+              <div class="bundle-row">
+                <div>
+                  <strong>All 4 Levels — Special Discount</strong>
+                  <p>Contact us for a bundled student USD rate via PayPal.</p>
+                </div>
+                <!-- ████ PLACEHOLDER 10 · PayPal · Stud · All Levels ████ -->
+                <a href="https://wa.me/201090855647?text=PayPal+bundle+all+4+SDPC+levels+(Student)"
+                   class="btn" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Get Bundle Price
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /PayPal section -->
+
+
+      <!-- ═══════════════════════════ GREY ═══════════════════════════ -->
+      <div class="section">
+        <h2><i class="fas fa-exchange-alt" style="margin-right:8px;color:#1f2937;"></i>Pay via Grey</h2>
+        <div class="fee-note">
+          <i class="fas fa-info-circle" style="color:#009268;margin-right:5px;"></i>
+          Grey is a USD-account platform popular in Egypt &amp; Africa. Transfer fees vary by account type — confirm the final amount in the Grey app before sending.
+        </div>
+
+        <div class="platform-block">
+          <div class="platform-block-header grey">
+            <i class="fas fa-exchange-alt"></i> Grey — Payment Links
+          </div>
+          <div class="platform-block-body">
+
+            <!-- GREY · PROFESSIONALS -->
+            <div class="audience-section">
+              <span class="audience-label prof"><i class="fas fa-briefcase"></i> For Professionals</span>
+              <div class="level-grid">
+
+                <div class="level-card">
+                  <div class="level-num gr">1</div>
+                  <div class="level-sessions">4 sessions</div>
+                  <div class="level-price">~$42</div>
+                  <!-- ████ PLACEHOLDER 11 ████ -->
+                  <a href="GREY_LINK_PROF_LVL1" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 1</a>
+                  <span class="ph">PH 11 · Grey · Prof · Lvl 1</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num gr">2</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$62</div>
+                  <!-- ████ PLACEHOLDER 12 ████ -->
+                  <a href="GREY_LINK_PROF_LVL2" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 2</a>
+                  <span class="ph">PH 12 · Grey · Prof · Lvl 2</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num gr">3</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$100</div>
+                  <!-- ████ PLACEHOLDER 13 ████ -->
+                  <a href="GREY_LINK_PROF_LVL3" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 3</a>
+                  <span class="ph">PH 13 · Grey · Prof · Lvl 3</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num gr">4</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$100</div>
+                  <!-- ████ PLACEHOLDER 14 ████ -->
+                  <a href="GREY_LINK_PROF_LVL4" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 4</a>
+                  <span class="ph">PH 14 · Grey · Prof · Lvl 4</span>
+                </div>
+
+              </div>
+              <div class="bundle-row">
+                <div>
+                  <strong>All 4 Levels — Special Discount</strong>
+                  <p>Contact us for a bundled USD rate via Grey.</p>
+                </div>
+                <!-- ████ PLACEHOLDER 15 · Grey · Prof · All Levels ████ -->
+                <a href="https://wa.me/201090855647?text=Grey+bundle+all+4+SDPC+levels+(Professional)"
+                   class="btn" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Get Bundle Price
+                </a>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- GREY · STUDENTS -->
+            <div class="audience-section" style="margin-bottom:0;">
+              <span class="audience-label stud"><i class="fas fa-graduation-cap"></i> For Full-time Students</span>
+              <p style="font-size:0.82rem;color:#6b7280;margin:-4px 0 12px;">
+                <i class="fas fa-id-card" style="margin-right:4px;"></i>
+                Present your Faculty ID when registering to confirm your student rate.
+              </p>
+              <div class="level-grid">
+
+                <div class="level-card">
+                  <div class="level-num gr">1</div>
+                  <div class="level-sessions">4 sessions</div>
+                  <div class="level-price">~$12</div>
+                  <!-- ████ PLACEHOLDER 16 ████ -->
+                  <a href="GREY_LINK_STUD_LVL1" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 1</a>
+                  <span class="ph">PH 16 · Grey · Stud · Lvl 1</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num gr">2</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$25</div>
+                  <!-- ████ PLACEHOLDER 17 ████ -->
+                  <a href="GREY_LINK_STUD_LVL2" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 2</a>
+                  <span class="ph">PH 17 · Grey · Stud · Lvl 2</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num gr">3</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$30</div>
+                  <!-- ████ PLACEHOLDER 18 ████ -->
+                  <a href="GREY_LINK_STUD_LVL3" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 3</a>
+                  <span class="ph">PH 18 · Grey · Stud · Lvl 3</span>
+                </div>
+
+                <div class="level-card">
+                  <div class="level-num gr">4</div>
+                  <div class="level-sessions">5 sessions</div>
+                  <div class="level-price">~$30</div>
+                  <!-- ████ PLACEHOLDER 19 ████ -->
+                  <a href="GREY_LINK_STUD_LVL4" class="btn btn-grey" target="_blank" rel="noopener">Pay Level 4</a>
+                  <span class="ph">PH 19 · Grey · Stud · Lvl 4</span>
+                </div>
+
+              </div>
+              <div class="bundle-row">
+                <div>
+                  <strong>All 4 Levels — Special Discount</strong>
+                  <p>Contact us for a bundled student USD rate via Grey.</p>
+                </div>
+                <!-- ████ PLACEHOLDER 20 · Grey · Stud · All Levels ████ -->
+                <a href="https://wa.me/201090855647?text=Grey+bundle+all+4+SDPC+levels+(Student)"
+                   class="btn" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Get Bundle Price
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /Grey section -->
+
+
+      <!-- NEED HELP -->
+      <div class="pay-method" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div>
+          <strong>Not sure which option to use?</strong><br>
+          <span style="font-size:0.88rem;">Message us on WhatsApp — we'll send you a direct link for your exact level.</span>
+        </div>
+        <a href="https://wa.me/201090855647" class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" style="margin-right:5px;"></i> WhatsApp Us
+        </a>
+      </div>
+
+      <!-- REGISTRATION FORM -->
+      <div class="form-section">
+        <h3>Complete Your Registration</h3>
+        <p>After payment, submit your details and payment screenshot using the form below:</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+          <a href="https://forms.gle/AZ5d8w1Aky7kqrGt6" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-briefcase" style="margin-right:6px;"></i> For Professionals
+          </a>
+          <a href="https://forms.gle/6AAiKed1huC28YZK8" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-graduation-cap" style="margin-right:6px;"></i> For Undergrads
+          </a>
+        </div>
+        <p class="note" style="margin-top:16px;">
+          Include: payment screenshot or transaction ID, your full name, Faculty ID (students), and the level(s) you are registering for.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
