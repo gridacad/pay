@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="icon" type="image/svg+xml" href="Sm1.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+  <link rel="apple-touch-icon" href="Sm1.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — Power System Studies International Payment (USD)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --color-primary: #6b21a8;
+      --color-primary-dark: #581c87;
+      --color-primary-bg: #f5eefb;
+      --color-primary-light: #a855f7;
+      --color-text: #111827;
+      --color-text-muted: #6b7280;
+      --color-border: #e5e7eb;
+    }
+
+    .top-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(30,16,46,0.97); backdrop-filter: blur(10px);
+      padding: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .nav-logo { height: 28px; width: auto; filter: brightness(0) invert(1); display: block; flex-shrink: 0; }
+    .nav-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .nav-brand {
+      font-family: Arial, sans-serif; font-size: 1.05rem; font-weight: 800; color: white;
+      text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.75);
+      text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-back:hover { color: white; }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .nav-course-badge {
+      background: var(--color-primary); color: white; padding: 5px 14px;
+      border-radius: 20px; font-size: 0.82rem; font-weight: 700;
+    }
+
+    body { font-family: Arial, Helvetica, sans-serif; background: #f9fafb; color: var(--color-text); margin: 0; padding: 0; }
+    .page-body { padding: 32px 20px; }
+    .container {
+      max-width: 800px; margin: 0 auto; background: #fff;
+      border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1, h2, h3 { color: var(--color-primary); margin-top: 0; }
+    h1 { font-size: 24px; margin-bottom: 4px; }
+    h2 { font-size: 20px; margin-bottom: 16px; }
+    h3 { font-size: 15px; margin-bottom: 10px; }
+    p { line-height: 1.5; }
+    .section { margin-bottom: 32px; }
+
+    .pay-method {
+      margin-bottom: 16px; padding: 16px;
+      border: 1px solid var(--color-primary); border-radius: 8px; background: var(--color-primary-bg);
+    }
+    .btn {
+      display: inline-block; padding: 9px 14px; background: var(--color-primary); color: #fff;
+      text-decoration: none; border-radius: 6px; font-weight: 600;
+      transition: background-color 0.3s ease; font-size: 0.85rem; white-space: nowrap;
+    }
+    .btn:hover { background: var(--color-primary-dark); }
+    .btn-paypal { background: #003087; }
+    .btn-paypal:hover { background: #001f5c; }
+    .btn-grey { background: #1f2937; }
+    .btn-grey:hover { background: #111827; }
+
+    .note { font-size: 13px; color: var(--color-text-muted); margin-top: 8px; }
+    .form-section { background: var(--color-primary-bg); padding: 20px; border-radius: 8px; margin-top: 32px; text-align: center; }
+
+    .breadcrumb {
+      max-width: 800px; margin: 0 auto 16px; padding: 14px 20px 0;
+      font-size: 0.88rem; color: var(--color-text-muted);
+    }
+    .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* course strip */
+    .course-header-strip {
+      background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+      border-radius: 10px; padding: 16px 20px; margin-bottom: 24px;
+      color: white; display: flex; align-items: center; gap: 14px;
+    }
+    .course-header-strip i { font-size: 1.8rem; opacity: 0.9; flex-shrink: 0; }
+    .course-header-strip h2 { color: white; margin: 0; font-size: 1.05rem; }
+    .course-header-strip p { margin: 4px 0 0; font-size: 0.83rem; opacity: 0.85; }
+
+    .usd-banner {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      color: white; padding: 14px 18px; border-radius: 8px; margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px; font-size: 0.93rem;
+    }
+    .usd-banner i { font-size: 1.3rem; opacity: 0.9; flex-shrink: 0; }
+
+    /* platform block */
+    .platform-block { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+    .platform-block-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; font-weight: 700; font-size: 1rem;
+    }
+    .platform-block-header.paypal { background: #eef2ff; color: #003087; border-bottom: 1px solid #c7d4f0; }
+    .platform-block-header.grey   { background: #f3f4f6; color: #1f2937;  border-bottom: 1px solid #d1d5db; }
+    .platform-block-body { padding: 18px; }
+
+    .audience-section { margin-bottom: 20px; }
+    .audience-label {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .audience-label.prof { background: #f5eefb; color: var(--color-primary-dark); border: 1px solid #e2c9f5; }
+    .audience-label.stud { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+    /* single bundle price row (no per-level breakdown) */
+    .bundle-row {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;
+      padding: 14px 18px; margin-top: 4px;
+    }
+    .bundle-row strong { font-size: 0.95rem; }
+    .bundle-row .bundle-amount {
+      font-size: 1.3rem; font-weight: 800; color: var(--color-primary); display: block; margin: 2px 0 3px;
+    }
+    .bundle-row p { margin: 0; font-size: 0.83rem; color: var(--color-text-muted); }
+
+    .fee-note {
+      font-size: 0.8rem; color: var(--color-text-muted); background: #f9fafb;
+      border: 1px solid #e5e7eb; border-radius: 6px; padding: 8px 12px; margin-bottom: 16px;
+    }
+    .fee-note i { color: var(--color-primary); }
+    .divider { border: none; border-top: 1px solid #e5e7eb; margin: 20px 0; }
+  </style>
+</head>
+
+<body>
+
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/course/index.html" class="nav-back">
+          <i class="fas fa-chevron-left"></i> All Courses
+        </a>
+        <a href="/course/index.html" class="nav-brand">
+          <img src="Sm1.svg" alt="Grid Academy Logo" class="nav-logo">
+          GRID ACADEMY
+        </a>
+      </div>
+      <span class="nav-course-badge">
+        <i class="fas fa-bolt" style="margin-right:5px;"></i> Power System Studies
+      </span>
+    </div>
+  </nav>
+
+  <div class="page-body">
+
+    <div class="breadcrumb">
+      <a href="/course/index.html">All Courses</a>
+      <span>›</span>
+      <a href="/course/pss.html">Power System Studies</a>
+      <span>›</span>
+      <a href="sdpc.html">Payment</a>
+      <span>›</span>
+      International (USD)
+    </div>
+
+    <div class="container">
+
+      <!-- HEADER -->
+      <div style="display:flex;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+        <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
+        <div>
+          <h1>International Payment — USD</h1>
+          <p style="margin:4px 0 0;color:var(--color-text-muted);font-size:0.9rem;">Power System Studies (PSS) Course</p>
+        </div>
+      </div>
+
+      <!-- COURSE STRIP -->
+      <div class="course-header-strip">
+        <i class="fas fa-bolt"></i>
+        <div>
+          <h2>Power System Studies</h2>
+          <p>6 Sessions &nbsp;·&nbsp; Live Online &nbsp;·&nbsp; Starting 15 August 2026</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <a href="sdpc.html" style="color:var(--color-primary);text-decoration:none;font-size:0.92rem;font-weight:600;">
+          <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Back to Payment Options
+        </a>
+      </div>
+
+      <div class="usd-banner">
+        <i class="fas fa-globe"></i>
+        <div>
+          <strong>Paying from outside Egypt?</strong><br>
+          <span style="font-size:0.88rem;opacity:0.92;">
+            All prices are in <strong>USD</strong>. Choose your platform below and click Pay — the full-program amount is pre-set.
+          </span>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════ PAYPAL ═══════════════════════════ -->
+      <div class="section">
+        <h2><i class="fab fa-paypal" style="margin-right:8px;color:#003087;"></i>Pay via PayPal</h2>
+        <div class="fee-note">
+          <i class="fas fa-info-circle" style="margin-right:5px;"></i>
+          PayPal applies a standard international fee (typically 3–5%). The amounts shown factor this in — contact us if unsure.
+        </div>
+
+        <div class="platform-block">
+          <div class="platform-block-header paypal">
+            <i class="fab fa-paypal"></i> PayPal — Payment Links
+          </div>
+          <div class="platform-block-body">
+
+            <!-- PAYPAL · PROFESSIONALS -->
+            <div class="audience-section">
+              <span class="audience-label prof"><i class="fas fa-briefcase"></i> For Professionals</span>
+              <div class="bundle-row">
+                <div>
+                  <strong>Full Program — All Levels</strong>
+                  <span class="bundle-amount">$120</span>
+                  <p>One-time payment · Covers the complete course</p>
+                </div>
+                <!-- ████ PLACEHOLDER · PayPal · Prof · Full Program ████ -->
+                <a href="PAYPAL_LINK_PROF_FULL" class="btn btn-paypal" target="_blank" rel="noopener">Pay via PayPal</a>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- PAYPAL · STUDENTS -->
+            <div class="audience-section">
+              <span class="audience-label stud"><i class="fas fa-graduation-cap"></i> For Full-time Students</span>
+              <div class="bundle-row">
+                <div>
+                  <strong>Full Program — All Levels</strong>
+                  <span class="bundle-amount">$80</span>
+                  <p>One-time payment · Valid Faculty ID required</p>
+                </div>
+                <!-- ████ PLACEHOLDER · PayPal · Stud · Full Program ████ -->
+                <a href="PAYPAL_LINK_STUD_FULL" class="btn btn-paypal" target="_blank" rel="noopener">Pay via PayPal</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /PayPal section -->
+
+      <!-- ═══════════════════════════ GREY ═══════════════════════════ -->
+      <div class="section">
+        <h2><i class="fas fa-exchange-alt" style="margin-right:8px;color:#1f2937;"></i>Pay via Grey</h2>
+        <div class="fee-note">
+          <i class="fas fa-info-circle" style="margin-right:5px;"></i>
+          Grey is a USD-account platform popular in Egypt &amp; Africa. Transfer fees vary by account type — confirm the final amount in the Grey app before sending.
+        </div>
+
+        <div class="platform-block">
+          <div class="platform-block-header grey">
+            <i class="fas fa-exchange-alt"></i> Grey — Payment Links
+          </div>
+          <div class="platform-block-body">
+
+            <!-- GREY · PROFESSIONALS -->
+            <div class="audience-section">
+              <span class="audience-label prof"><i class="fas fa-briefcase"></i> For Professionals</span>
+              <div class="bundle-row">
+                <div>
+                  <strong>Full Program — All Levels</strong>
+                  <span class="bundle-amount">$120</span>
+                  <p>One-time payment · Covers the complete course</p>
+                </div>
+                <!-- ████ PLACEHOLDER · Grey · Prof · Full Program ████ -->
+                <a href="GREY_LINK_PROF_FULL" class="btn btn-grey" target="_blank" rel="noopener">Pay via Grey</a>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- GREY · STUDENTS -->
+            <div class="audience-section">
+              <span class="audience-label stud"><i class="fas fa-graduation-cap"></i> For Full-time Students</span>
+              <div class="bundle-row">
+                <div>
+                  <strong>Full Program — All Levels</strong>
+                  <span class="bundle-amount">$80</span>
+                  <p>One-time payment · Valid Faculty ID required</p>
+                </div>
+                <!-- ████ PLACEHOLDER · Grey · Stud · Full Program ████ -->
+                <a href="GREY_LINK_STUD_FULL" class="btn btn-grey" target="_blank" rel="noopener">Pay via Grey</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /Grey section -->
+
+      <!-- NEED HELP -->
+      <div class="pay-method" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div>
+          <strong>Not sure which option to use?</strong><br>
+          <span style="font-size:0.88rem;">Message us on WhatsApp — we'll send you a direct payment link.</span>
+        </div>
+        <a href="https://wa.me/201090855647?text=International+PSS+course+payment" class="btn" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" style="margin-right:5px;"></i> WhatsApp Us
+        </a>
+      </div>
+
+      <!-- REGISTRATION FORM -->
+      <div class="form-section">
+        <h3>Reserve Your Seat</h3>
+        <p>After payment, submit your details and payment screenshot using the form below:</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+          <a href="https://forms.gle/AZ5d8w1Aky7kqrGt6" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-briefcase" style="margin-right:6px;"></i> For Professionals
+          </a>
+          <a href="https://forms.gle/6AAiKed1huC28YZK8" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-graduation-cap" style="margin-right:6px;"></i> For Undergrads
+          </a>
+        </div>
+        <p class="note" style="margin-top:16px;">
+          Please include: Transfer screenshot/reference number, your ID, and any required attachments as mentioned in your email.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
