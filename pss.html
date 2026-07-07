@@ -267,6 +267,18 @@
       color: var(--color-text-muted);
     }
 
+    .price-card__amount span.original-price {
+      font-size: 1.5rem;
+      color: #95a5a6;
+      text-decoration: line-through;
+      margin-right: 8px;
+      font-weight: 800;
+    }
+    .price-card__amount span.discounted-price {
+      font-size: 2.2rem;
+      color: var(--color-primary);
+      font-weight: 800;
+    }
     .price-card__was {
       font-size: 0.85rem;
       color: var(--color-text-muted);
@@ -299,6 +311,29 @@
     .breadcrumb a { color: var(--color-primary); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
     .breadcrumb span { margin: 0 6px; }
+
+    /* Early bird badge */
+    .early-bird {
+      display: inline-block;
+      background: #fff3cd;
+      color: #856404;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ffeaa7;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: #95a5a6;
+      margin-right: 8px;
+      font-size: 1.5rem;
+    }
+    .discounted-price {
+      color: var(--color-primary);
+      font-weight: bold;
+      font-size: 2.2rem;
+    }
   </style>
 
   <script>
@@ -427,44 +462,87 @@
         </div>
       </div>
 
-      <!-- PROFESSIONALS -->
-      <div class="section">
-        <h2>For Professionals</h2>
-        <div class="price-grid">
-          <div class="price-card price-card--full">
-            <div class="price-card__badge">Best Value</div>
-            <div class="price-card__label">Full Program</div>
-            <div class="price-card__amount">EGP 5,000</div>
-            <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
-          </div>
-          <div class="price-card">
-            <div class="price-card__label">Weekly Payment</div>
-            <div class="price-card__amount">EGP 650<span>/week</span></div>
-            <div class="price-card__desc">Pay weekly as the course progresses.</div>
-          </div>
-        </div>
-        <p class="note">Choose whichever fits your budget — the full-program rate is the more economical option overall.</p>
-      </div>
 
-      <!-- STUDENTS -->
-      <div class="section">
-        <h2>For Full-time Students</h2>
-        <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
-        <div class="price-grid">
-          <div class="price-card price-card--full">
-            <div class="price-card__badge">Best Value</div>
-            <div class="price-card__label">Full Program</div>
-            <div class="price-card__amount">EGP 3,000</div>
-            <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
-          </div>
-          <div class="price-card">
-            <div class="price-card__label">Weekly Payment</div>
-            <div class="price-card__amount">EGP 400<span>/week</span></div>
-            <div class="price-card__desc">Pay weekly as the course progresses.</div>
-          </div>
-        </div>
-        <p class="note">Student discount applies with a valid Faculty ID presented at time of payment.</p>
+<!-- PROFESSIONALS -->
+<div class="section">
+  <h2>For Professionals</h2>
+  <div class="price-grid">
+    <div class="price-card price-card--full">
+      <div class="price-card__badge">Best Value</div>
+      <div class="price-card__label">Full Program</div>
+      <div class="price-card__amount">
+        <span class="original-price">EGP 5,000</span><br>
+        <span class="discounted-price">EGP 4,500</span>
       </div>
+      <div class="price-card__desc">one payment covers the entire course, all levels included.</div>
+      <div class="early-bird">Early Bird – ends in <span class="countdown"></span></div>
+    </div>
+    <div class="price-card">
+      <div class="price-card__label">Weekly Payment</div>
+      <div class="price-card__amount">EGP 650<span>/week</span></div>
+      <div class="price-card__desc">Pay weekly as the course progresses.</div>
+    </div>
+  </div>
+  <p class="note">Choose whichever fits your budget — the full-program rate is the more economical option overall.</p>
+</div>
+
+<!-- STUDENTS -->
+<div class="section">
+  <h2>For Full-time Students</h2>
+  <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
+  <div class="price-grid">
+    <div class="price-card price-card--full">
+      <div class="price-card__badge">Best Value</div>
+      <div class="price-card__label">Full Program</div>
+      <div class="price-card__amount">
+        <span class="original-price">EGP 3,000</span><br>
+        <span class="discounted-price">EGP 2,700</span>
+      </div>
+      <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
+      <div class="early-bird">Early Bird – ends in <span class="countdown"></span></div>
+    </div>
+    <div class="price-card">
+      <div class="price-card__label">Weekly Payment</div>
+      <div class="price-card__amount">EGP 400<span>/week</span></div>
+      <div class="price-card__desc">Pay weekly as the course progresses.</div>
+    </div>
+  </div>
+  <p class="note">Student discount applies with a valid Faculty ID presented at time of payment.</p>
+</div>
+
+<script>
+  // Countdown to August 1, 2026 23:59:59
+  const countDownDate = new Date('July 31, 2026 23:59:59').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+
+    if (distance < 0) {
+      document.querySelectorAll('.countdown').forEach(el => {
+        el.textContent = 'Expired';
+      });
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const timeLeft = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    document.querySelectorAll('.countdown').forEach(el => {
+      el.textContent = timeLeft;
+    });
+  }
+
+  // Update every second
+  setInterval(updateCountdown, 1000);
+  // Initial call
+  updateCountdown();
+</script>
+
+
 
       <!-- REGISTRATION FORM -->
       <div class="form-section">
