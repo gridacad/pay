@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HJX4Q5JN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M6HJX4Q5JN');
+</script>
+  	<!-- Modern browsers -->
+<link rel="icon" type="image/svg+xml" href="Sm1.svg">
+
+<!-- Fallback for most browsers -->
+<link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+
+<!-- Legacy fallback -->
+<!--<link rel="icon" href="Sm1.ico">
+
+<!-- Optional: iOS home screen -->
+<link rel="apple-touch-icon" href="Sm1.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4NWHLNQS1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y4NWHLNQS1');
+</script>
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — PSS Payment Options</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --color-primary: #6b21a8;
+      --color-primary-dark: #581c87;
+      --color-primary-bg: #f5eefb;
+      --color-primary-light: #a855f7;
+      --color-text: #111827;
+      --color-text-muted: #6b7280;
+      --color-border: #e5e7eb;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-full: 999px;
+      --duration: 0.25s;
+      --ease: ease;
+    }
+
+    /* ── TOP NAV ── */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(30, 16, 46, 0.97);
+      backdrop-filter: blur(10px);
+      padding: 12px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .nav-logo {
+      height: 28px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      display: block;
+      flex-shrink: 0;
+    }
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-brand {
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand i { color: var(--color-primary-light); }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--duration) var(--ease);
+    }
+    .nav-back:hover { color: white; }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .nav-course-badge {
+      background: var(--color-primary);
+      color: white;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* ── PAGE BODY ── */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f9fafb;
+      color: var(--color-text);
+      margin: 0;
+      padding: 0;
+    }
+    .page-body { padding: 32px 20px; }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 { color: var(--color-primary); margin-top: 0; }
+    h1 { font-size: 28px; margin-bottom: 32px; }
+    h2 { font-size: 22px; margin-bottom: 20px; }
+    p { line-height: 1.5; }
+
+    .section { margin-bottom: 28px; }
+
+    .pay-method {
+      margin-bottom: 16px;
+      padding: 16px;
+      border: 1px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      background: var(--color-primary-bg);
+    }
+
+    .qr { text-align: center; margin: 16px 0 8px; }
+    .qr img { max-width: 200px; border-radius: var(--radius-md); border: 2px solid var(--color-primary); }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: var(--color-primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color var(--duration) var(--ease);
+    }
+    .btn:hover { background: var(--color-primary-dark); }
+
+    .number-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .copy-btn {
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background-color var(--duration) var(--ease);
+    }
+    .copy-btn:hover { background: var(--color-primary-dark); }
+
+    .note { font-size: 13px; color: var(--color-text-muted); margin-top: 8px; }
+
+    /* ── PRICING CARDS ── */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .price-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+
+    .price-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
+    }
+
+    .price-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(107, 33, 168, 0.14);
+      border-color: var(--color-primary);
+    }
+
+    .price-card--full {
+      background: linear-gradient(135deg, #fff 0%, var(--color-primary-bg) 100%);
+    }
+
+    .price-card__badge {
+      display: inline-block;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+    }
+
+    .price-card__label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+
+    .price-card__amount {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .price-card__amount span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+
+    .price-card__was {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      margin-bottom: 10px;
+    }
+
+    .price-card__desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .form-section {
+      background: var(--color-primary-bg);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .breadcrumb {
+      max-width: 800px;
+      margin: 0 auto 16px;
+      padding: 14px 20px 0;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+    }
+    .breadcrumb a { color: var(--color-primary); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 6px; }
+  </style>
+
+  <script>
+    function copyNumber() {
+      navigator.clipboard.writeText("01090855647");
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy", 2000);
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/course/index.html" class="nav-back">
+          <i class="fas fa-chevron-left"></i> All Courses
+        </a>
+    <a href="/course/index.html" class="nav-brand">
+      <img src="Sm1.svg" alt="Grid Academy Logo" class="nav-logo">
+      GRID ACADEMY
+    </a>
+      </div>
+      <span class="nav-course-badge">Power System Studies</span>
+    </div>
+  </nav>
+
+  <div class="page-body">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="/course/index.html">All Courses</a>
+      <span>›</span>
+      <a href="/course/pss.html">Power System Studies</a>
+      <span>›</span>
+      Payment
+    </div>
+
+    <div class="container">
+
+
+
+
+
+
+      <div style="display:flex;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+        <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
+        <div>
+          <h1 style="margin:0;font-size:24px;">Grid Academy — Payment Options</h1>
+          <p style="margin:4px 0 0;color:var(--color-text-muted);font-size:0.9rem;">Power System Studies (PSS)</p>
+        </div>
+      </div>
+
+      <!-- BACK TO COURSE LINK -->
+      <div style="margin-bottom:24px;">
+        <a href="/course/pss.html" style="color:var(--color-primary);text-decoration:none;font-size:0.92rem;font-weight:600;">
+          <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Back to Course Page
+        </a>
+      </div>
+
+      <!-- HOW TO PAY -->
+      <div class="section">
+        <h2>How to Pay</h2>
+
+        <div class="pay-method">
+          <strong>Instapay</strong><br>
+          Scan the following QR or use the link to send from mobile.
+          <div class="qr">
+            <img src="instapay-qr.jpg" alt="Instapay QR">
+          </div>
+          <div style="text-align:center;">
+            <a href="https://ipn.eg/S/minanbe2/instapay/2IxLCC" class="btn">
+              <i class="fas fa-external-link-alt" style="margin-right:5px;"></i> Open Instapay
+            </a>
+          </div>
+        </div>
+
+        <div class="pay-method">
+          <strong>Vodafone Cash</strong>
+          <div class="number-box">
+            <span>01090855647</span>
+            <button id="copyBtn" class="copy-btn" onclick="copyNumber()">Copy</button>
+          </div>
+        </div>
+
+        <div class="pay-method">
+          <strong>Bank Transfer</strong><br>
+          Kindly contact us for bank details.
+        </div>
+
+        <!-- ── PAY ONLINE ── -->
+        <div class="pay-method">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+            <div>
+              <strong>
+                <i class="fas fa-credit-card" style="margin-right:6px;color:var(--color-primary);"></i>
+                Pay Online — Visa / Mastercard
+              </strong>
+              <p style="margin:6px 0 4px;font-size:0.93rem;color:#374151;">
+                Instant, secure card payment powered by a licensed fintech gateway (Paybal / Grey).
+                Accepted from any bank — no app or account needed.
+              </p>
+              <p style="margin:0;font-size:0.82rem;color:var(--color-text-muted);">
+                <i class="fas fa-info-circle" style="margin-right:4px;"></i>
+                A small processing fee (typically 2–3%) applies — charged by the payment gateway.
+              </p>
+            </div>
+            <a href="pss_fin.html" class="btn" target="_blank" rel="noopener"
+               style="white-space:nowrap;align-self:center;">
+              <i class="fas fa-lock" style="margin-right:6px;"></i> Pay by Card
+            </a>
+          </div>
+        </div>
+
+        <div class="pay-method" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <div>
+            <strong>External Transfers</strong><br>
+            Please message us on WhatsApp to receive full details.
+          </div>
+          <a href="https://wa.me/201090855647" class="btn">
+            <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Message on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- PROFESSIONALS -->
+      <div class="section">
+        <h2>For Professionals</h2>
+        <div class="price-grid">
+          <div class="price-card price-card--full">
+            <div class="price-card__badge">Best Value</div>
+            <div class="price-card__label">Full Program</div>
+            <div class="price-card__amount">EGP 5,000</div>
+            <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card__label">Weekly Payment</div>
+            <div class="price-card__amount">EGP 650<span>/week</span></div>
+            <div class="price-card__desc">Pay weekly as the course progresses.</div>
+          </div>
+        </div>
+        <p class="note">Choose whichever fits your budget — the full-program rate is the more economical option overall.</p>
+      </div>
+
+      <!-- STUDENTS -->
+      <div class="section">
+        <h2>For Full-time Students</h2>
+        <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
+        <div class="price-grid">
+          <div class="price-card price-card--full">
+            <div class="price-card__badge">Best Value</div>
+            <div class="price-card__label">Full Program</div>
+            <div class="price-card__amount">EGP 3,000</div>
+            <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card__label">Weekly Payment</div>
+            <div class="price-card__amount">EGP 400<span>/week</span></div>
+            <div class="price-card__desc">Pay weekly as the course progresses.</div>
+          </div>
+        </div>
+        <p class="note">Student discount applies with a valid Faculty ID presented at time of payment.</p>
+      </div>
+
+      <!-- REGISTRATION FORM -->
+      <div class="form-section">
+        <h3>Complete Your Registration</h3>
+        <p>After making your payment, please submit your details and payment proof using the form below:</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+          <a href="https://forms.gle/Qe4TR5rzFCtd8TfN9" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-briefcase" style="margin-right:6px;"></i> Submit Payment Proof
+          </a>
+          
+        </div>
+        <p class="note" style="margin-top:16px;">
+          Please include: Transfer screenshot/reference number, your ID, and any required attachments as mentioned in your email.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
