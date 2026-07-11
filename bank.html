@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Modern browsers -->
+    <link rel="icon" type="image/svg+xml" href="Sm1.svg">
+    <!-- Fallback for most browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+    <!-- Legacy fallback -->
+    <!--<link rel="icon" href="Sm1.ico">-->
+    <!-- Optional: iOS home screen -->
+    <link rel="apple-touch-icon" href="Sm1.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4NWHLNQS1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y4NWHLNQS1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Information - National Bank of Egypt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* ── TOP NAV ── */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(44,62,80,0.97);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+
+        .nav-logo {
+            height: 28px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            display: block;
+            flex-shrink: 0;
+        }
+        .nav-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .nav-brand {
+            font-family: Arial, sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-brand i { color: #00b37d; }
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: white; }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        .nav-course-badge {
+            background: #009268;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        /* ── PAGE BODY ── */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f9fafb;
+            color: #111827;
+            margin: 0;
+            padding: 0;
+        }
+        .page-body { padding: 32px 20px; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        h1, h2, h3 { color: #009268; margin-top: 0; }
+        h1 { font-size: 28px; margin-bottom: 32px; }
+        h2 { font-size: 22px; margin-bottom: 20px; }
+        p { line-height: 1.5; }
+
+        .section { margin-bottom: 28px; }
+
+        .info-box {
+            margin-bottom: 16px;
+            padding: 16px;
+            border: 1px solid #009268;
+            border-radius: 8px;
+            background: #E6F4F1;
+        }
+
+        .qr { text-align: center; margin: 16px 0 8px; }
+        .qr img { max-width: 200px; border-radius: 8px; border: 2px solid #009268; }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #009268;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover { background: #007a56; }
+
+        .number-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px 12px;
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            background: #009268;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .copy-btn:hover { background: #007a56; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 8px;
+            text-align: center;
+        }
+        th { background: #E6F4F1; font-weight: 600; }
+        tr.level-1 { background: #A6A6A6; color: #6b7280; }
+
+        .highlight {
+            background: #E6F4F1;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 16px 0;
+        }
+
+        .note { font-size: 13px; color: #6b7280; margin-top: 8px; }
+
+        .form-section {
+            background: #E6F4F1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            max-width: 800px;
+            margin: 0 auto 16px;
+            padding: 14px 20px 0;
+            font-size: 0.88rem;
+            color: #6b7280;
+        }
+        .breadcrumb a { color: #009268; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 6px; }
+
+        /* Copy feedback */
+        .copied-feedback {
+            position: absolute;
+            background: #009268;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .copied-feedback.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP NAV -->
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <div class="nav-left">
+                <a href="#" class="nav-back">
+                    <i class="fas fa-chevron-left"></i> Back to Home
+                </a>
+                <a href="#" class="nav-brand">
+                    <img src="Sm1.svg" alt="Bank Logo" class="nav-logo">
+                    NATIONAL BANK OF EGYPT
+                </a>
+            </div>
+            <span class="nav-course-badge">Account Information</span>
+        </div>
+    </nav>
+
+    <div class="page-body">
+        <!-- BREADCRUMB -->
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <span>›</span>
+            <span>Account Information</span>
+        </div>
+
+        <div class="container">
+            <!-- HEADER -->
+            <div style="display:flex;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+                <img src="Sm1.svg" alt="Bank Logo" style="width:60px;">
+                <div>
+                    <h1 style="margin:0;font-size:24px;">Bank Account Information</h1>
+                    <p style="margin:4px 0 0;color:#6b7280;font-size:0.9rem;">National Bank of Egypt</p>
+                </div>
+            </div>
+
+            <!-- BACK TO HOME LINK -->
+            <div style="margin-bottom:24px;">
+                <a href="#" style="color:#009268;text-decoration:none;font-size:0.92rem;font-weight:600;">
+                    <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Back to Home
+                </a>
+            </div>
+
+            <!-- CUSTOMER INFORMATION -->
+            <div class="section">
+                <h2>Customer Information</h2>
+
+                <!-- Customer Name -->
+                <div class="info-box">
+                    <strong>Customer Name</strong>
+                    <div class="number-box">
+                        <span id="customerName">مينا نبيل ديب عطا الله</span>
+                        <button class="copy-btn" onclick="copyToClipboard('customerName', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Customer Number (CIF) -->
+                <div class="info-box">
+                    <strong>Customer Number (CIF)</strong>
+                    <div class="number-box">
+                        <span id="customerNumber">10763290</span>
+                        <button class="copy-btn" onclick="copyToClipboard('customerNumber', this)">Copy</button>
+                    </div>
+                
+            </div>
+
+         <!-- Bank -->
+                <div class="info-box">
+                    <strong> Bank Name</strong>
+                    <div class="number-box">
+                        <span id="BankName">National Bank of Egypt</span>
+                        <button class="copy-btn" onclick="copyToClipboard('BankName', this)">Copy</button>
+                    </div>             
+       </div>
+            <!-- ACCOUNT 1 INFORMATION -->
+            <div class="section">
+                <h2>Account 1 - Savings Account (USD)</h2>
+
+                <!-- Account Number -->
+                <div class="info-box">
+                    <strong>Account Number</strong>
+                    <div class="number-box">
+                        <span id="account1Number">0965001076329000012</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1Number', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Account Type -->
+                <div class="info-box">
+                    <strong>Account Type</strong>
+                    <div class="number-box">
+                        <span id="account1Type">SAVING</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1Type', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Branch Number -->
+                <div class="info-box">
+                    <strong>Branch Number</strong>
+                    <div class="number-box">
+                        <span id="account1BranchNumber">096</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1BranchNumber', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Branch Name -->
+                <div class="info-box">
+                    <strong>Branch Name</strong>
+                    <div class="number-box">
+                        <span id="account1BranchName">Zahraa Al Maadi</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1BranchName', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Currency -->
+                <div class="info-box">
+                    <strong>Currency</strong>
+                    <div class="number-box">
+                        <span id="account1Currency">US DOLLAR</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1Currency', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- IBAN -->
+                <div class="info-box">
+                    <strong>International Bank Account Number (IBAN)</strong>
+                    <div class="number-box">
+                        <span id="account1Iban">EG860003009650010763290000120</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1Iban', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- SWIFT/BIC -->
+                <div class="info-box">
+                    <strong>SWIFT/BIC Code</strong>
+                    <div class="number-box">
+                        <span id="account1Swift">NBEGEGCX096</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1Swift', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Branch Address -->
+                <div class="info-box">
+                    <strong>Branch Address</strong>
+                    <div class="number-box">
+                        <span id="account1BranchAddress">Plot 10062, Carrefour Road, 10th Neighbourhood, El Mearag City, Zahraa El Maadi, Maadi, Cairo, Egypt</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account1BranchAddress', this)">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCOUNT 2 INFORMATION -->
+            <div class="section">
+                <h2>Account 2 - Savings Account (EGP)</h2>
+
+                <!-- Account Number -->
+                <div class="info-box">
+                    <strong>Account Number</strong>
+                    <div class="number-box">
+                        <span id="account2Number">0705001076329001019</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2Number', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Account Type -->
+                <div class="info-box">
+                    <strong>Account Type</strong>
+                    <div class="number-box">
+                        <span id="account2Type">SAVING</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2Type', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Branch Number -->
+                <div class="info-box">
+                    <strong>Branch Number</strong>
+                    <div class="number-box">
+                        <span id="account2BranchNumber">070</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2BranchNumber', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Branch Name -->
+                <div class="info-box">
+                    <strong>Branch Name</strong>
+                    <div class="number-box">
+                        <span id="account2BranchName">Dandy Mall</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2BranchName', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Currency -->
+                <div class="info-box">
+                    <strong>Currency</strong>
+                    <div class="number-box">
+                        <span id="account2Currency">EGYPTIAN POUND</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2Currency', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- IBAN -->
+                <div class="info-box">
+                    <strong>International Bank Account Number (IBAN)</strong>
+                    <div class="number-box">
+                        <span id="account2Iban">EG880003007050010763290010190</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2Iban', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- SWIFT/BIC -->
+                <div class="info-box">
+                    <strong>SWIFT/BIC Code</strong>
+                    <div class="number-box">
+                        <span id="account2Swift">CIBEEGCX095</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2Swift', this)">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Branch Address -->
+                <div class="info-box">
+                    <strong>Branch Address</strong>
+                    <div class="number-box">
+                        <span id="account2BranchAddress">Inside Dandy Mega Mall, 1st Floor, Km 28, Cairo-Alexandria Desert Road, Giza, 6th of October City, Egypt</span>
+                        <button class="copy-btn" onclick="copyToClipboard('account2BranchAddress', this)">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- USAGE INSTRUCTIONS -->
+            <div class="section">
+                <h2>How to Use This Information</h2>
+                <div class="info-box">
+                    <ol>
+                        <li><strong>For Local Transfers in Egypt:</strong> Use the Account Number and Bank Name</li>
+                        <li><strong>For International Transfers:</strong> Use the IBAN and SWIFT/BIC codes</li>
+                        <li><strong>For USD Transfers:</strong> Use Account 1 details</li>
+                        <li><strong>For EGP Transfers:</strong> Use Account 2 details</li>
+                        <li><strong>Always verify:</strong> Double-check all details before initiating any transfer</li>
+                    </ol>
+                    <p class="note"><strong>Security Note:</strong> Share this information only with trusted parties and secure channels.</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId, button) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent || element.innerText;
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Change button text to show success
+                const originalText = button.textContent;
+                button.textContent = "Copied!";
+                button.style.backgroundColor = "#007a56";
+
+                // Show feedback tooltip
+                showCopyFeedback(button);
+
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = "#009268";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                button.textContent = "Error!";
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                }, 2000);
+            });
+        }
+
+        function showCopyFeedback(button) {
+            // Remove any existing feedback
+            const existingFeedback = button.parentElement.querySelector('.copied-feedback');
+            if (existingFeedback) {
+                existingFeedback.remove();
+            }
+
+            // Create feedback element
+            const feedback = document.createElement('div');
+            feedback.className = 'copied-feedback show';
+            feedback.textContent = 'Copied!';
+
+            // Position it above the button
+            const buttonRect = button.getBoundingClientRect();
+            feedback.style.left = `${buttonRect.left + buttonRect.width / 2 - 15}px`;
+            feedback.style.top = `${buttonRect.top - 25}px`;
+
+            // Add to DOM
+            button.parentElement.appendChild(feedback);
+
+            // Remove after animation
+            setTimeout(() => {
+                feedback.remove();
+            }, 500);
+        }
+    </script>
+</body>
+</html>
