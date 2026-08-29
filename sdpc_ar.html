@@ -29,7 +29,7 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grid Academy — SDPC Payment Options</title>
+  <title>Grid Academy — SDPC Payment Options (Arabic Course)</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     /* ── TOP NAV ── */
@@ -235,7 +235,7 @@
       GRID ACADEMY
     </a>
       </div>
-      <span class="nav-course-badge">Substation Design &amp; Protection</span>
+      <span class="nav-course-badge">Substation Design &amp; Protection — Arabic</span>
     </div>
   </nav>
 
@@ -256,7 +256,7 @@
         <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
         <div>
           <h1 style="margin:0;font-size:24px;">Grid Academy — Payment Options</h1>
-          <p style="margin:4px 0 0;color:#6b7280;font-size:0.9rem;">Substation Design &amp; Protection Course (SDPC)</p>
+          <p style="margin:4px 0 0;color:#6b7280;font-size:0.9rem;">Substation Design &amp; Protection Course (SDPC) — <strong style="color:#009268;">Arabic Course</strong></p>
         </div>
       </div>
 
@@ -267,18 +267,130 @@
         </a>
       </div>
 
-      <!-- LANGUAGE SELECTION -->
-      <div class="section" style="text-align:center;">
-        <h2>Select Your Course Language</h2>
-        <p style="color:#6b7280;">Please choose the language of the course you're enrolled in to see the correct payment options and pricing.</p>
-        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-          <a href="sdpc_ar.html" class="btn" style="font-size:18px;padding:18px 32px;">
-            <i class="fas fa-language" style="margin-right:8px;"></i> Arabic Course
-          </a>
-          <a href="sdpc_eng.html" class="btn" style="font-size:18px;padding:18px 32px;">
-            <i class="fas fa-globe" style="margin-right:8px;"></i> English Course
+      <!-- HOW TO PAY -->
+      <div class="section">
+        <h2>How to Pay</h2>
+
+        <div class="pay-method">
+          <strong>Instapay</strong><br>
+Scan the QR code or use the button below to open Instapay with our payment address loaded. Enter the amount and proceed with your payment.          <div class="qr">
+            <img src="instapay-qr.jpg" alt="Instapay QR">
+          </div>
+          <div style="text-align:center;">
+            <a href="https://ipn.eg/S/minanbe2/instapay/2IxLCC" class="btn">
+              <i class="fas fa-external-link-alt" style="margin-right:5px;"></i> Open Instapay
+            </a>
+          </div>
+        </div>
+
+        <div class="pay-method">
+          <strong>Vodafone Cash</strong>
+          <div class="number-box">
+            <span>01090855647</span>
+            <button id="copyBtn" class="copy-btn" onclick="copyNumber()">Copy</button>
+          </div>
+        </div>
+
+        <div class="pay-method">
+          <strong>Bank Transfer</strong><br>
+          Kindly contact us for bank details.
+        </div>
+
+
+
+<!-- ── INSERT AFTER INSTAPAY BLOCK ── -->
+<div class="pay-method" style="border-color: #009268; background: #E6F4F1;">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+    <div>
+      <strong>
+        <i class="fas fa-credit-card" style="margin-right:6px;color:#009268;"></i>
+        Pay Online — Visa / Mastercard
+      </strong>
+      <p style="margin:6px 0 4px;font-size:0.93rem;color:#374151;">
+        Instant, secure card payment powered by a licensed fintech gateway (Paybal / Grey).
+        Accepted from any bank — no app or account needed.
+      </p>
+      <p style="margin:0;font-size:0.82rem;color:#6b7280;">
+        <i class="fas fa-info-circle" style="margin-right:4px;"></i>
+        A small processing fee (typically 2–3%) applies — charged by the payment gateway.
+      </p>
+    </div>
+    <a href="sdpc_fin.html" class="btn" target="_blank" rel="noopener"
+       style="white-space:nowrap;align-self:center;">
+      <i class="fas fa-lock" style="margin-right:6px;"></i> Pay by Card
+    </a>
+  </div>
+</div>
+<!-- ── END INSERT ── -->
+        
+
+        <div class="pay-method" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+          <div>
+            <strong>External Transfers</strong><br>
+            Please message us on WhatsApp to receive full details.
+          </div>
+          <a href="https://wa.me/201090855647" class="btn">
+            <i class="fab fa-whatsapp" style="margin-right:5px;"></i> Message on WhatsApp
           </a>
         </div>
+      </div>
+
+      <!-- PROFESSIONALS -->
+      <div class="section">
+        <h2>For Professionals</h2>
+        <table>
+          <tr>
+            <th>Level</th>
+            <th>Sessions</th>
+            <th>Price / Session (Opt. A)</th>
+            <th>Price / Level (Opt. B)</th>
+            <th>Instead of</th>
+          </tr>
+
+           <!-- <tr class="level-1"> instead of <tr> for over -->
+          <tr><td>1</td><td>4</td><td>EGP 550</td><td>EGP 2,100</td><td style="text-decoration:line-through;font-weight:500;">2,200</td></tr>
+          <tr><td>2</td><td>6</td><td>EGP 640</td><td>EGP 3,700</td><td style="text-decoration:line-through;font-weight:500;">3,840</td></tr>
+          <tr><td>3</td><td>5</td><td>EGP 1,040</td><td>EGP 5,000</td><td style="text-decoration:line-through;font-weight:500;">5,200</td></tr>
+          <tr><td>4</td><td>5</td><td>EGP 1,040</td><td>EGP 5,000</td><td style="text-decoration:line-through;font-weight:500;">5,200</td></tr>
+        </table>
+        <p class="note">Payment Options: Opt. A — per session &nbsp;•&nbsp; Opt. B — per level &nbsp;•&nbsp;</p>
+      </div>
+
+      <!-- STUDENTS -->
+      <div class="section">
+        <h2>For Full-time Students</h2>
+        <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
+        <table>
+          <tr>
+            <th>Level</th>
+            <th>Sessions</th>
+            <th>Price / Session (Opt. A)</th>
+            <th>Price / Level (Opt. B)</th>
+          </tr>
+          <tr><td>1</td><td>4</td><td>EGP 150</td><td>EGP 600</td></tr>
+          <tr><td>2</td><td>6</td><td>EGP 250</td><td>EGP 1,500</td></tr>
+          <tr><td>3</td><td>5</td><td>EGP 300</td><td>EGP 1,500</td></tr>
+          <tr><td>4</td><td>5</td><td>EGP 300</td><td>EGP 1,500</td></tr>
+        </table>
+        <p class="note">Payment Options: Opt. A — per session &nbsp;•&nbsp; Opt. B — per level &nbsp;•&nbsp;</p>
+        
+      </div>
+
+      <!-- REGISTRATION FORM -->
+      <div class="form-section">
+        <h3>Complete Your Registration</h3>
+        <p>After making your payment, please submit your details and payment proof using the form below:</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+          <a href="https://forms.gle/AZ5d8w1Aky7kqrGt6" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-briefcase" style="margin-right:6px;"></i> For Professionals
+          </a>
+          <a href="https://forms.gle/6AAiKed1huC28YZK8" class="btn" style="font-size:16px;padding:14px 24px;">
+            <i class="fas fa-graduation-cap" style="margin-right:6px;"></i> For Undergrads
+          </a>
+        </div>
+        <p class="note" style="margin-top:16px;">
+          Please include: Transfer screenshot/reference number, your ID, and any required attachments as mentioned in your email.
+        </p>
       </div>
 
     </div>
