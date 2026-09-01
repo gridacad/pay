@@ -376,11 +376,11 @@
       setTimeout(() => btn.textContent = "Copy", 2000);
     }
 
-    // Early bird countdown — ends Sept 5, 2026 (00:00 local time)
+    // Early bird countdown — ends Sept 20, 2026 (00:00 local time)
     function startEarlyBirdCountdown() {
       const el = document.getElementById('earlyBirdCountdown');
       if (!el) return;
-      const deadline = new Date('2026-09-05T00:00:00');
+      const deadline = new Date('2026-09-20T00:00:00');
 
       function update() {
         const now = new Date();
