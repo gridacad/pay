@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Modern browsers -->
+<link rel="icon" type="image/svg+xml" href="Sm1.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+<link rel="apple-touch-icon" href="Sm1.png">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GRID ACADEMY | Power Systems Engineering Courses</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Core brand */
+    --ink:            #0b1613;
+    --ink-soft:       #12211d;
+    --paper:          #f7f5f0;
+    --paper-dim:      #efece4;
+    --white:          #FFFFFF;
+    --text-dark:      #16211d;
+    --text-mute:      #5c6a63;
+
+    --emerald:        #009268;
+    --emerald-dark:   #045c40;
+    --emerald-light:  #00b37d;
+    --emerald-glow:   rgba(0,146,104,0.15);
+
+    /* Copper accent, used sparingly for premium touches */
+    --copper:         #c1893f;
+    --copper-dark:    #9c6c2c;
+    --copper-glow:    rgba(193,137,63,0.16);
+
+    --line-dark:      rgba(255,255,255,0.12);
+    --line-light:     rgba(22,33,29,0.12);
+    --shadow:         0 10px 30px rgba(11,22,19,0.10);
+    --shadow-lift:    0 20px 48px rgba(11,22,19,0.16);
+    --radius:         10px;
+
+    /* Course identities */
+    --pv-primary:      #1a5276;
+    --pv-primary-dark: #123c56;
+    --pv-glow:         rgba(26,82,118,0.15);
+
+    --pss-primary:      #6b21a8;
+    --pss-primary-dark: #4c1877;
+    --pss-glow:         rgba(107,33,168,0.15);
+
+    --pd-primary:       #b5541c;
+    --pd-primary-dark:  #8f4116;
+    --pd-glow:          rgba(181,84,28,0.15);
+
+    --psse-primary:      #115e59;
+    --psse-primary-dark: #0b3f3b;
+    --psse-glow:         rgba(17,94,89,0.15);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  html[dir="rtl"] body,
+  html[dir="rtl"] h1,
+  html[dir="rtl"] h2,
+  html[dir="rtl"] h3,
+  html[dir="rtl"] .display {
+    font-family: 'Tajawal', 'IBM Plex Sans', sans-serif;
+  }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--emerald); color: white; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--copper);
+    outline-offset: 3px;
+  }
+
+  /* ── NAV ── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,22,19,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .nav-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-brand {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  .nav-logo { height: 26px; width: auto; filter: brightness(0) invert(1); flex-shrink: 0; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .nav-year {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    display: none;
+  }
+  .btn-notify {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--copper);
+    color: var(--ink);
+    padding: 9px 18px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-notify:hover { background: #d69c53; transform: translateY(-1px); }
+
+  .lang-toggle {
+    display: flex;
+    border: 1px solid var(--line-dark);
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  .lang-btn {
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .lang-btn.active { background: var(--emerald); color: white; }
+  .lang-btn:not(.active):hover { background: rgba(255,255,255,0.08); color: white; }
+
+  .progress-track {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: transparent;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--emerald), var(--copper));
+    transition: width 0.1s linear;
+  }
+
+  @media (min-width: 640px) { .nav-year { display: inline; } }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(100deg, rgba(6,14,12,0.96) 0%, rgba(6,14,12,0.82) 38%, rgba(6,14,12,0.5) 68%, rgba(6,14,12,0.6) 100%),
+      url('https://images.unsplash.com/photo-1413882353314-73389f63b6fd?fm=jpg&q=80&w=2200&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center 35%;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+    padding: clamp(72px, 12vw, 140px) 24px clamp(48px, 6vw, 80px);
+    display: grid;
+    grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+  }
+  .hero-inner { max-width: 640px; min-width: 0; }
+  .hero-sld-wrap {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 0;
+  }
+  .hero-sld {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    opacity: 0.5;
+  }
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-sld-wrap { display: none; }
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--copper);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 22px;
+  }
+  .hero-tag i { font-size: 0.7rem; }
+  .hero h1 {
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.14;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--emerald-light);
+  }
+  .hero p {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 500px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+  .btn-hero-primary {
+    background: var(--emerald);
+    color: white;
+    padding: 15px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn-hero-primary:hover { background: var(--emerald-dark); transform: translateY(-1px); }
+  .btn-hero-outline {
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: white;
+    padding: 15px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+  }
+  .btn-hero-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    position: relative;
+    z-index: 1;
+    background: var(--ink-soft);
+    border-top: 1px solid var(--line-dark);
+  }
+  .stats-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 18px;
+  }
+  .stat {
+    min-width: 0;
+    padding-left: 22px;
+    border-left: 1px solid var(--line-dark);
+  }
+  .stat:first-child { border-left: none; padding-left: 0; }
+  @media (max-width: 720px) {
+    .stats-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stat { border-left: none; padding-left: 0; padding-top: 14px; border-top: 1px solid var(--line-dark); }
+    .stat:nth-child(-n+2) { padding-top: 0; border-top: none; }
+  }
+  @media (max-width: 380px) {
+    .stats-inner { grid-template-columns: 1fr; }
+    .stat { border-top: 1px solid var(--line-dark); padding-top: 14px; }
+    .stat:first-child { border-top: none; padding-top: 0; }
+  }
+  .stat-number {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--copper);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  /* ── COURSES SECTION ── */
+  .courses-section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 96px 24px 40px;
+  }
+  .section-head { max-width: 620px; margin-bottom: 52px; }
+  .section-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.15rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .section-sub {
+    color: var(--text-mute);
+    font-size: 1.02rem;
+    line-height: 1.65;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px;
+  }
+
+  /* ── COURSE CARD ── */
+  .course-card {
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--line-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lift);
+    border-color: transparent;
+  }
+
+  .card-banner {
+    height: 176px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 18px 22px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+  .card-banner-sd {
+    background-image:
+      linear-gradient(180deg, rgba(4,45,32,0.35) 0%, rgba(4,45,32,0.88) 100%),
+      url('https://images.unsplash.com/photo-1509390221805-d1c887a72a00?fm=jpg&q=75&w=1200&auto=format&fit=crop');
+  }
+  .card-banner-pv {
+    background-image:
+      linear-gradient(180deg, rgba(18,60,86,0.35) 0%, rgba(18,60,86,0.88) 100%),
+      url('https://images.unsplash.com/photo-1592263904934-b00851dc93eb?fm=jpg&q=75&w=1200&auto=format&fit=crop');
+  }
+  .card-banner-pss {
+    background-image:
+      linear-gradient(180deg, rgba(76,24,119,0.4) 0%, rgba(76,24,119,0.9) 100%),
+      url('https://images.unsplash.com/photo-1560977466-c02ffbb12189?fm=jpg&q=75&w=1200&auto=format&fit=crop');
+  }
+  .card-banner-pd {
+    background-image:
+      linear-gradient(180deg, rgba(143,65,22,0.4) 0%, rgba(143,65,22,0.9) 100%),
+      url('https://images.unsplash.com/photo-1566417110090-6b15a06ec800?fm=jpg&q=75&w=1200&auto=format&fit=crop');
+  }
+  .card-banner-psse {
+    background: linear-gradient(135deg, var(--psse-primary-dark) 0%, var(--psse-primary) 100%);
+  }
+  .banner-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 25px 25px;
+  }
+  .banner-wave {
+    position: absolute; inset: 0;
+    opacity: 0.5;
+  }
+  .banner-icon {
+    position: absolute;
+    right: 18px; top: 18px;
+    width: 46px; height: 46px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.92);
+  }
+  .banner-badge {
+    position: relative;
+    z-index: 1;
+    background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .dot-live { color: #4ade80; }
+  .dot-open { color: #ffd166; }
+  .dot-soon { color: rgba(255,255,255,0.6); }
+
+  .card-body { padding: 26px 24px; flex: 1; display: flex; flex-direction: column; }
+
+  .card-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.22rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 11px;
+    line-height: 1.32;
+  }
+  .card-description {
+    font-size: 0.94rem;
+    color: var(--text-mute);
+    line-height: 1.62;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--ink);
+    background: var(--paper);
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .meta-chip i { color: var(--emerald); font-size: 0.78rem; }
+  .meta-chip i.pss-icon { color: var(--pss-primary); }
+  .meta-chip i.pd-icon { color: var(--pd-primary); }
+  .meta-chip i.psse-icon { color: var(--psse-primary); }
+  .meta-chip i.pv-icon { color: var(--pv-primary); }
+
+  .card-divider { border: none; border-top: 1px solid var(--line-light); margin-bottom: 20px; }
+
+  .card-instructor { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .card-instructor.two-up { align-items: flex-start; }
+  .instructor-avatar {
+    width: 36px; height: 36px;
+    background: var(--emerald-glow);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--emerald);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .instructor-avatar-blue { background: var(--pv-glow); color: var(--pv-primary); }
+  .instructor-avatar-purple { background: var(--pss-glow); color: var(--pss-primary); }
+  .instructor-avatar-orange { background: var(--pd-glow); color: var(--pd-primary); }
+  .instructor-avatar-teal { background: var(--psse-glow); color: var(--psse-primary); }
+  .instructor-avatar-stack { display: flex; flex-shrink: 0; }
+  .instructor-avatar-stack .instructor-avatar { border: 2px solid white; }
+  .instructor-avatar-stack .instructor-avatar:not(:first-child) { margin-left: -12px; }
+  .instructor-name { font-size: 0.89rem; font-weight: 600; color: var(--ink); }
+  .instructor-title { font-size: 0.77rem; color: var(--text-mute); }
+
+  .card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary {
+    flex: 1;
+    text-align: center;
+    padding: 12px 18px;
+    background: var(--emerald);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--emerald-dark); transform: translateY(-1px); }
+  .btn-primary-blue { background: var(--pv-primary); }
+  .btn-primary-blue:hover { background: var(--pv-primary-dark); }
+  .btn-primary-purple { background: var(--pss-primary); }
+  .btn-primary-purple:hover { background: var(--pss-primary-dark); }
+  .btn-primary-orange { background: var(--pd-primary); }
+  .btn-primary-orange:hover { background: var(--pd-primary-dark); }
+  .btn-primary-teal { background: var(--psse-primary); }
+  .btn-primary-teal:hover { background: var(--psse-primary-dark); }
+
+  .btn-outline {
+    padding: 12px 15px;
+    border: 1.5px solid var(--emerald);
+    color: var(--emerald);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .btn-outline:hover { background: var(--emerald); color: white; }
+  .btn-outline-blue { border-color: var(--pv-primary); color: var(--pv-primary); }
+  .btn-outline-blue:hover { background: var(--pv-primary); color: white; }
+  .btn-outline-purple { border-color: var(--pss-primary); color: var(--pss-primary); }
+  .btn-outline-purple:hover { background: var(--pss-primary); color: white; }
+  .btn-outline-orange { border-color: var(--pd-primary); color: var(--pd-primary); }
+  .btn-outline-orange:hover { background: var(--pd-primary); color: white; }
+  .btn-outline-teal { border-color: var(--psse-primary); color: var(--psse-primary); }
+  .btn-outline-teal:hover { background: var(--psse-primary); color: white; }
+
+  /* ── SOFTWARE STRIP ── */
+  .tools-strip {
+    max-width: 1240px;
+    margin: 64px auto 0;
+    padding: 34px 24px;
+    border-top: 1px solid var(--line-light);
+    border-bottom: 1px solid var(--line-light);
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .tools-strip-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-mute);
+    white-space: nowrap;
+  }
+  .tools-list { display: flex; gap: 28px; flex-wrap: wrap; }
+  .tools-list span {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.98rem;
+    opacity: 0.75;
+  }
+
+  /* ── NOTIFY BANNER ── */
+  .notify-banner {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    margin-top: 96px;
+  }
+  .notify-banner::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--copper), var(--emerald));
+  }
+  .notify-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 64px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .notify-text { max-width: 560px; }
+  .notify-eyebrow {
+    color: var(--copper);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .notify-text h2 {
+    color: white;
+    font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .notify-text p {
+    color: rgba(255,255,255,0.68);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .btn-notify-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--copper);
+    color: var(--ink);
+    padding: 16px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.98rem;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  .btn-notify-lg:hover { background: #d69c53; transform: translateY(-1px); }
+
+  /* ── WHY GRID ACADEMY ── */
+  .why-section { background: var(--ink); padding: 88px 24px; }
+  .why-inner { max-width: 1240px; margin: 0 auto; }
+  .why-head { max-width: 620px; margin-bottom: 52px; }
+  .why-inner .section-label { color: var(--copper); }
+  .why-inner .section-title { color: white; }
+  .why-inner .section-sub { color: rgba(255,255,255,0.6); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--line-dark);
+    border: 1px solid var(--line-dark);
+  }
+  .feature-card {
+    background: var(--ink);
+    padding: 30px 24px;
+  }
+  .feature-icon {
+    width: 44px; height: 44px;
+    background: rgba(0,146,104,0.14);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+    color: var(--emerald-light);
+  }
+  .feature-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .feature-desc { font-size: 0.87rem; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #081210;
+    padding: 60px 24px 28px;
+  }
+  .footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .footer-brand {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 14px;
+  }
+  .footer-blurb { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.65; max-width: 320px; }
+  .footer-col h4 {
+    color: white;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.88rem;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+  }
+  .footer-col a:hover { color: var(--copper); }
+  .footer-bottom {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 96px 24px 40px;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    counter-reset: step;
+    border-top: 1px solid var(--line-light);
+    border-left: 1px solid var(--line-light);
+  }
+  .how-step {
+    counter-increment: step;
+    padding: 28px 24px;
+    border-right: 1px solid var(--line-light);
+    border-bottom: 1px solid var(--line-light);
+    position: relative;
+  }
+  .how-step::before {
+    content: counter(step, decimal-leading-zero);
+    display: block;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--copper);
+    margin-bottom: 14px;
+  }
+  .how-step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .how-step p {
+    font-size: 0.88rem;
+    color: var(--text-mute);
+    line-height: 1.55;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-section {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 96px 24px 40px;
+  }
+  .compare-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line-light);
+    border-radius: var(--radius);
+  }
+  table.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+    font-size: 0.9rem;
+  }
+  .compare-table th, .compare-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--line-light);
+    white-space: nowrap;
+  }
+  .compare-table thead th {
+    background: var(--ink);
+    color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+  }
+  .compare-table thead th:first-child { border-top-left-radius: var(--radius); }
+  .compare-table thead th:last-child { border-top-right-radius: var(--radius); }
+  .compare-table tbody th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 0.85rem;
+  }
+  .compare-table tbody tr:last-child td, .compare-table tbody tr:last-child th { border-bottom: none; }
+  .compare-table td { color: var(--text-mute); }
+  .compare-table .status-live { color: var(--emerald-dark); font-weight: 600; }
+  .compare-table .status-open { color: var(--copper-dark); font-weight: 600; }
+  .compare-table .status-soon { color: var(--text-mute); font-weight: 600; }
+  html[dir="rtl"] .compare-table th, html[dir="rtl"] .compare-table td { text-align: right; }
+
+  /* ── CORPORATE TRAINING ── */
+  .corporate-section {
+    background: var(--ink);
+    padding: 96px 24px;
+    margin-top: 40px;
+  }
+  .corporate-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .corporate-text .section-label { color: var(--copper); }
+  .corporate-text .section-title { color: white; }
+  .corporate-text p.corporate-lead {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .corporate-list { list-style: none; }
+  .corporate-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .corporate-list i { color: var(--emerald-light); margin-top: 3px; flex-shrink: 0; }
+
+  .contact-form {
+    background: var(--ink-soft);
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+  }
+  .form-group input, .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line-dark);
+    border-radius: 7px;
+    padding: 11px 14px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--emerald);
+    background: rgba(255,255,255,0.09);
+  }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .btn-form-submit {
+    width: 100%;
+    background: var(--emerald);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+  }
+  .btn-form-submit:hover { background: var(--emerald-dark); }
+  .form-note {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  /* ── WHATSAPP FLOAT ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 90;
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+  html[dir="rtl"] .whatsapp-float { right: auto; left: 24px; }
+
+  @media (max-width: 720px) {
+    .corporate-inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .how-grid { border-left: none; }
+    .how-step { border-right: none; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .courses-grid { grid-template-columns: 1fr; }
+    .card-actions { flex-direction: column; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .notify-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="Sm1.svg" alt="Grid Academy Logo" class="nav-logo">
+        GRID ACADEMY
+      </a>
+      <div class="nav-right">
+        <span class="nav-year" data-ar="دورات 2026">2026 Courses</span>
+        <div class="lang-toggle">
+          <button type="button" class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button type="button" class="lang-btn" data-lang="ar" onclick="setLang('ar')">AR</button>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy8u6JsBfLq4gNz6nvGTaH5G57xsdJnUxnCHkXyxNaQFnrQ/viewform?usp=send_form" class="btn-notify" target="_blank" rel="noopener">
+          <i class="fas fa-bell"></i> <span data-ar="أشعرني">Get Notified</span>
+        </a>
+      </div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="scrollProgress"></div></div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-content">
+      <div class="hero-inner">
+        <div class="hero-tag" data-ar="تدريب هندسي احترافي"><i class="fas fa-bolt"></i> PROFESSIONAL ENGINEERING TRAINING</div>
+        <h1 data-ar="طوّر مسيرتك في<br>الهندسة <em>الكهربائية</em>">Power your career in<br>electrical <em>engineering</em></h1>
+        <p data-ar="دورات تدريبية متوافقة مع سوق العمل في تصميم المحطات ودراسات نظم القوى والتكامل مع الشبكة، يقدمها مهندسون ممارسون في المجال.">Industry-aligned, job-ready courses in substation design, power system studies and grid integration, built and taught by practicing engineers.</p>
+        <div class="hero-ctas">
+          <a href="#courses" class="btn-hero-primary"><i class="fas fa-arrow-right"></i> <span data-ar="استعرض الدورات">Explore Courses</span></a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy8u6JsBfLq4gNz6nvGTaH5G57xsdJnUxnCHkXyxNaQFnrQ/viewform?usp=send_form" class="btn-hero-outline" target="_blank" rel="noopener"><i class="fas fa-bell"></i> <span data-ar="أشعرني بالمستويات الجديدة">Notify Me on New Levels</span></a>
+        </div>
+      </div>
+      <div class="hero-sld-wrap">
+        <svg class="hero-sld" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.4">
+          <line x1="80" y1="0" x2="80" y2="420"/>
+          <line x1="200" y1="0" x2="200" y2="150"/>
+          <line x1="200" y1="270" x2="200" y2="420"/>
+          <rect x="170" y="150" width="60" height="120" rx="3"/>
+          <circle cx="80" cy="60" r="14"/>
+          <circle cx="80" cy="110" r="14"/>
+          <line x1="80" y1="74" x2="80" y2="96"/>
+          <rect x="60" y="180" width="40" height="20"/>
+          <line x1="320" y1="0" x2="320" y2="420"/>
+          <circle cx="320" cy="200" r="10"/>
+          <path d="M300 260 L340 260 L300 300 L340 300" />
+          <line x1="0" y1="340" x2="400" y2="340" stroke-dasharray="2 6" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+    <div class="stats-strip">
+      <div class="stats-inner">
+        <div class="stat"><span class="stat-number">5</span><span class="stat-label" data-ar="دورات">Courses</span></div>
+        <div class="stat"><span class="stat-number">66+</span><span class="stat-label" data-ar="جلسة">Sessions</span></div>
+        <div class="stat"><span class="stat-number">100+</span><span class="stat-label" data-ar="مهندس تم تدريبه">Engineers Trained</span></div>
+        <div class="stat"><span class="stat-number">16+</span><span class="stat-label" data-ar="سنة خبرة صناعية">Years Industry Exp.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-head">
+      <p class="section-label" data-ar="كيف تسير العملية">HOW IT WORKS</p>
+      <h2 class="section-title" data-ar="من التسجيل إلى الشهادة">From sign-up to certificate</h2>
+      <p class="section-sub" data-ar="خمس خطوات واضحة تفصل بينك وبين بدء تدريبك.">Five straightforward steps stand between you and starting your training.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <h3 data-ar="اختر دورتك">Choose your course</h3>
+        <p data-ar="تصفح الدورات المتاحة واختر المستوى الذي يناسب خبرتك الحالية.">Browse the available courses and pick the level that matches your current experience.</p>
+      </div>
+      <div class="how-step">
+        <h3 data-ar="سجّل والتحق">Register and enroll</h3>
+        <p data-ar="أكمل التسجيل عبر نموذج الالتحاق، أو سجّل لتصلك الإشعارات إذا لم يفتح المستوى بعد.">Complete enrollment through our sign-up form, or register for updates if the level isn't open yet.</p>
+      </div>
+      <div class="how-step">
+        <h3 data-ar="احضر الجلسات المباشرة">Attend live sessions</h3>
+        <p data-ar="انضم إلى الجلسات المباشرة عبر Microsoft Teams والعمل على سيناريوهات مشاريع حقيقية.">Join live sessions over Microsoft Teams and work through real project scenarios with your instructor.</p>
+      </div>
+      <div class="how-step">
+        <h3 data-ar="أكمل التكليفات">Complete the assignments</h3>
+        <p data-ar="طبّق ما تتعلمه باستخدام AutoCAD أو ETAP أو PSS®E أو PVsyst في تكليفات عملية.">Apply what you learn using AutoCAD, ETAP, PSS&reg;E, or PVsyst in hands-on graded assignments.</p>
+      </div>
+      <div class="how-step">
+        <h3 data-ar="احصل على شهادتك">Get certified</h3>
+        <p data-ar="استلم شهادة إتمام المستوى بعد إنهاء الدورة بنجاح.">Receive your level-completion certificate once you finish the course.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <div class="courses-section" id="courses">
+    <div class="section-head">
+      <p class="section-label" data-ar="ماذا نقدم">WHAT WE OFFER</p>
+      <h2 class="section-title" data-ar="الدورات المتاحة">Available courses</h2>
+      <p class="section-sub" data-ar="اختر تخصصك وابدأ رحلتك لتصبح مهندس نظم قوى محترفًا. تُضاف مستويات جديدة على مدار العام، سجّل أدناه لتصلك إشعار فور فتح أي منها.">Choose your specialization and start your journey toward becoming a power systems professional. New levels are added throughout the year, register below to be notified the moment one opens.</p>
+    </div>
+
+    <div class="courses-grid">
+
+      <!-- CARD 1: Substation Design & Protection -->
+      <div class="course-card">
+        <div class="card-banner card-banner-sd">
+          <div class="banner-icon"><i class="fas fa-bolt"></i></div>
+          <span class="banner-badge"><i class="fas fa-circle dot-live" style="font-size:0.5rem; margin-right:6px;"></i> <span data-ar="نشطة، الدفعة الثالثة جارية">Active, Round 3 Ongoing</span></span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" data-ar="تصميم المحطات وأنظمة الحماية">Substation Design &amp; Protection Systems</h3>
+          <p class="card-description" data-ar="أتقن تصميم المحطات من فلسفة التحكم إلى مخططات الحماية المتقدمة، مع تغطية المخططات أحادية الخط والحسابات وإعدادات المرحلات وممارسات الربط الميداني عبر 4 مستويات متدرجة.">Master substation design from control philosophy to advanced protection schemes, covering SLDs, calculations, relay settings, and field interfacing practices across 4 progressive levels.</p>
+          <div class="card-meta">
+            <span class="meta-chip"><i class="fas fa-layer-group"></i> <span data-ar="4 مستويات">4 Levels</span></span>
+            <span class="meta-chip"><i class="fas fa-video"></i> <span data-ar="21 جلسة">21 Sessions</span></span>
+            <span class="meta-chip"><i class="fas fa-laptop"></i> <span data-ar="عبر الإنترنت / Teams">Online / Teams</span></span>
+            <span class="meta-chip"><i class="fas fa-tools"></i> AutoCAD · ETAP · Excel</span>
+          </div>
+          <hr class="card-divider" />
+          <div class="card-instructor">
+            <div class="instructor-avatar"><i class="fas fa-user-tie"></i></div>
+            <div>
+              <div class="instructor-name">Eng. Ahmed Metwally</div>
+              <div class="instructor-title" data-ar="مدير هندسة المحطات · خبرة 16+ عامًا">Substation Engineering Manager · 16+ yrs</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://gridacad.github.io/course/SDPC.html" class="btn-primary">
+              <i class="fas fa-arrow-right"></i> <span data-ar="عرض الدورة">View Course</span>
+            </a>
+            <a href="https://gridacad.github.io/pay/sdpc.html" class="btn-outline">
+              <i class="fas fa-file-alt"></i>&nbsp;<span data-ar="التسجيل">Enroll</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Power System Studies (PSS) -->
+      <div class="course-card">
+        <div class="card-banner card-banner-pss">
+          <div class="banner-icon"><i class="fas fa-diagram-project"></i></div>
+          <span class="banner-badge"><i class="fas fa-circle dot-live" style="font-size:0.5rem; margin-right:6px;"></i> <span data-ar="نشطة، الدفعة الأولى جارية">Active, Round 1 Ongoing</span></span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" data-ar="دراسات نظم القوى">Power System Studies</h3>
+          <p class="card-description" data-ar="دورة عملية مباشرة في ETAP تغطي سيلان الأحمال والدائرة القصيرة وتنسيق الحماية وبدء تشغيل المحركات وتحليل التوافقيات، وهي الدراسات الأساسية لكل مهندس نظم قوى.">A hands-on live course in ETAP covering load flow, short circuit, protection coordination, motor starting, and harmonic analysis: the core studies every power systems engineer needs.</p>
+          <div class="card-meta">
+            <span class="meta-chip"><i class="fas fa-video pss-icon"></i> <span data-ar="8 جلسات">8 Sessions</span></span>
+            <span class="meta-chip"><i class="fas fa-laptop pss-icon"></i> <span data-ar="عبر الإنترنت / Teams">Online / Teams</span></span>
+            <span class="meta-chip"><i class="fas fa-tools pss-icon"></i> ETAP</span>
+          </div>
+          <hr class="card-divider" />
+          <div class="card-instructor two-up">
+            <div class="instructor-avatar-stack">
+              <div class="instructor-avatar instructor-avatar-purple"><i class="fas fa-user-tie"></i></div>
+              <div class="instructor-avatar instructor-avatar-purple"><i class="fas fa-user-tie"></i></div>
+            </div>
+            <div>
+              <div class="instructor-name">Eng. Ziad Samy &amp; Eng. Mohamed Nady</div>
+              <div class="instructor-title" data-ar="مهندسا دراسات نظم القوى">Power System Studies Engineers</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://gridacad.github.io/course/pss.html" class="btn-primary btn-primary-purple">
+              <i class="fas fa-arrow-right"></i> <span data-ar="عرض الدورة">View Course</span>
+            </a>
+            <a href="https://gridacad.github.io/pay/pss.html" class="btn-outline btn-outline-purple">
+              <i class="fas fa-file-alt"></i>&nbsp;<span data-ar="التسجيل">Enroll</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Primary Design Course (PD) -->
+      <div class="course-card">
+        <div class="card-banner card-banner-pd">
+          <div class="banner-pattern"></div>
+          <div class="banner-icon"><i class="fas fa-drafting-compass"></i></div>
+          <span class="banner-badge"><i class="fas fa-circle dot-open" style="font-size:0.5rem; margin-right:6px;"></i> <span data-ar="التسجيل متاح الآن">Enrolling Now</span></span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" data-ar="دورة التصميم الأولي">Primary Design Course</h3>
+          <p class="card-description" data-ar="ابنِ أساسًا قويًا في التصميم الأولي الكهربائي، تشمل المخططات أحادية الخط وتحديد أحجام المعدات وأساسيات المخططات، وهي مصممة للمهندسين المبتدئين في تصميم نظم القوى.">Build a strong foundation in electrical primary design, covering single line diagrams, equipment sizing, and layout fundamentals, structured for engineers starting out in power system design.</p>
+          <div class="card-meta">
+            <span class="meta-chip"><i class="fas fa-layer-group pd-icon"></i> <span data-ar="3 مستويات">3 Levels</span></span>
+            <span class="meta-chip"><i class="fas fa-video pd-icon"></i> <span data-ar="12 جلسة">12 Sessions</span></span>
+            <span class="meta-chip"><i class="fas fa-laptop pd-icon"></i> <span data-ar="عبر الإنترنت / Teams">Online / Teams</span></span>
+            <span class="meta-chip"><i class="fas fa-tools pd-icon"></i> AutoCAD · Excel</span>
+          </div>
+          <hr class="card-divider" />
+          <div class="card-instructor">
+            <div class="instructor-avatar instructor-avatar-orange"><i class="fas fa-user-tie"></i></div>
+            <div>
+              <div class="instructor-name">Eng. Mohamed Moatasim</div>
+              <div class="instructor-title" data-ar="مهندس تصميم أولي">Primary Design Engineer</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://gridacad.github.io/course/pd.html" class="btn-primary btn-primary-orange">
+              <i class="fas fa-arrow-right"></i> <span data-ar="عرض الدورة">View Course</span>
+            </a>
+            <a href="https://gridacad.github.io/pay/pd.html" class="btn-outline btn-outline-orange">
+              <i class="fas fa-file-alt"></i>&nbsp;<span data-ar="التسجيل">Enroll</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: PV Systems Engineering -->
+      <div class="course-card">
+        <div class="card-banner card-banner-pv">
+          <div class="banner-icon"><i class="fas fa-solar-panel"></i></div>
+          <span class="banner-badge"><i class="fas fa-circle dot-soon" style="font-size:0.5rem; margin-right:6px;"></i> <span data-ar="غير متاحة حاليًا">Not Live</span></span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" data-ar="هندسة الأنظمة الكهروضوئية">Photovoltaic Systems Engineering</h3>
+          <p class="card-description" data-ar="صمم وهندس أنظمة كهروضوئية متكاملة من الأساسيات إلى المشاريع الحقيقية، تشمل الأنظمة المتصلة بالشبكة والمستقلة والهجينة وأنظمة الضخ الشمسي مع ورش عمل عملية وبرامج محاكاة.">Design and engineer complete PV systems from fundamentals to real projects, covering grid-tied, off-grid, hybrid, and solar pumping systems with hands-on workshops and simulation software.</p>
+          <div class="card-meta">
+            <span class="meta-chip"><i class="fas fa-layer-group pv-icon"></i> <span data-ar="5 مستويات">5 Levels</span></span>
+            <span class="meta-chip"><i class="fas fa-video pv-icon"></i> <span data-ar="20 جلسة">20 Sessions</span></span>
+            <span class="meta-chip"><i class="fas fa-laptop pv-icon"></i> <span data-ar="عبر الإنترنت / Teams">Online / Teams</span></span>
+            <span class="meta-chip"><i class="fas fa-tools pv-icon"></i> PVsyst · Excel</span>
+          </div>
+          <hr class="card-divider" />
+          <div class="card-instructor">
+            <div class="instructor-avatar instructor-avatar-blue"><i class="fas fa-user-tie"></i></div>
+            <div>
+              <div class="instructor-name">Eng. Amr Farouk</div>
+              <div class="instructor-title" data-ar="مستشار أعمال الطاقة المتجددة · خبرة 35+ عامًا">Renewable Energy Business Consultant · 35+ yrs</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://gridacad.github.io/course/PV.html" class="btn-primary btn-primary-blue">
+              <i class="fas fa-arrow-right"></i> <span data-ar="عرض الدورة">View Course</span>
+            </a>
+            <a href="https://gridacad.github.io/pay/pv.html" class="btn-outline btn-outline-blue">
+              <i class="fas fa-file-alt"></i>&nbsp;<span data-ar="التسجيل">Enroll</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5: PSS®E Steady-State Analysis & IBRs Grid Integration -->
+      <div class="course-card">
+        <div class="card-banner card-banner-psse">
+          <svg class="banner-wave" viewBox="0 0 340 176" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.5">
+            <path d="M-10 100 Q 30 40, 70 100 T 150 100 T 230 100 T 310 100 T 390 100" />
+            <path d="M-10 130 Q 30 70, 70 130 T 150 130 T 230 130 T 310 130 T 390 130" stroke-opacity="0.5"/>
+          </svg>
+          <div class="banner-icon"><i class="fas fa-bolt"></i></div>
+          <span class="banner-badge"><i class="fas fa-circle dot-live" style="font-size:0.5rem; margin-right:6px;"></i> <span data-ar="نشطة، الدفعة الأولى جارية">Active, Round 1 Ongoing</span></span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" data-ar="تحليل PSS®E للحالة المستقرة ودراسات التكامل مع الشبكة">PSS&reg;E Steady-State Analysis &amp; IBRs Grid Integration Studies</h3>
+          <p class="card-description" data-ar="دورة عملية مباشرة في PSS®E تغطي سيلان القدرة للحالة المستقرة وتحليل الدائرة القصيرة والطوارئ، والامتثال لقواعد الشبكة المصرية لمصادر الطاقة المتجددة، من أساسيات البرنامج إلى دراسات تكامل شاملة.">A hands-on live course in PSS&reg;E covering steady-state power flow, short-circuit and contingency analysis, and Egyptian IBR grid-code compliance, from software fundamentals to comprehensive IBR grid integration studies.</p>
+          <div class="card-meta">
+            <span class="meta-chip"><i class="fas fa-video psse-icon"></i> <span data-ar="6 جلسات">6 Sessions</span></span>
+            <span class="meta-chip"><i class="fas fa-laptop psse-icon"></i> <span data-ar="عبر الإنترنت / Teams">Online / Teams</span></span>
+            <span class="meta-chip"><i class="fas fa-tools psse-icon"></i> PSS&reg;E</span>
+          </div>
+          <hr class="card-divider" />
+          <div class="card-instructor">
+            <div class="instructor-avatar instructor-avatar-teal"><i class="fas fa-user-tie"></i></div>
+            <div>
+              <div class="instructor-name">Eng. Ahmed Farid</div>
+              <div class="instructor-title" data-ar="مهندس استشاري في نظم القوى">Power System Consulting Engineer</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <a href="https://gridacad.github.io/course/psse.html" class="btn-primary btn-primary-teal">
+              <i class="fas fa-arrow-right"></i> <span data-ar="عرض الدورة">View Course</span>
+            </a>
+            <a href="https://gridacad.github.io/pay/psse.html" class="btn-outline btn-outline-teal">
+              <i class="fas fa-file-alt"></i>&nbsp;<span data-ar="التسجيل">Enroll</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tools-strip">
+      <span class="tools-strip-label" data-ar="البرامج المستخدمة في دوراتنا">SOFTWARE COVERED ACROSS OUR COURSES</span>
+      <div class="tools-list">
+        <span>AutoCAD</span>
+        <span>ETAP</span>
+        <span>PSS&reg;E</span>
+        <span>PVsyst</span>
+        <span>Excel</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <section class="compare-section">
+    <div class="section-head">
+      <p class="section-label" data-ar="أي دورة تناسبك">FIND YOUR FIT</p>
+      <h2 class="section-title" data-ar="قارن بين الدورات">Compare the courses</h2>
+      <p class="section-sub" data-ar="نظرة سريعة على المستويات والجلسات والبرامج والحالة الحالية لكل دورة.">A quick side-by-side of levels, sessions, software, and current status for every course.</p>
+    </div>
+    <div class="compare-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th data-ar="الدورة">Course</th>
+            <th data-ar="المستويات">Levels</th>
+            <th data-ar="الجلسات">Sessions</th>
+            <th data-ar="البرامج">Software</th>
+            <th data-ar="الأنسب لـ">Best for</th>
+            <th data-ar="الحالة">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th data-ar="تصميم المحطات والحماية">Substation Design &amp; Protection</th>
+            <td data-ar="4">4</td>
+            <td data-ar="21">21</td>
+            <td>AutoCAD, ETAP, Excel</td>
+            <td data-ar="مهندسو المحطات المتقدمون">Engineers advancing into substation design</td>
+            <td class="status-live" data-ar="نشطة">Active</td>
+          </tr>
+          <tr>
+            <th data-ar="دراسات نظم القوى">Power System Studies</th>
+            <td data-ar="1">1</td>
+            <td data-ar="8">8</td>
+            <td>ETAP</td>
+            <td data-ar="من يريد إتقان دراسات ETAP الأساسية">Engineers who want to master core ETAP studies</td>
+            <td class="status-live" data-ar="نشطة">Active</td>
+          </tr>
+          <tr>
+            <th data-ar="دورة التصميم الأولي">Primary Design Course</th>
+            <td data-ar="3">3</td>
+            <td data-ar="12">12</td>
+            <td>AutoCAD, Excel</td>
+            <td data-ar="المبتدئون في تصميم نظم القوى">Engineers starting out in power system design</td>
+            <td class="status-open" data-ar="التسجيل متاح">Enrolling</td>
+          </tr>
+          <tr>
+            <th data-ar="هندسة الأنظمة الكهروضوئية">PV Systems Engineering</th>
+            <td data-ar="5">5</td>
+            <td data-ar="20">20</td>
+            <td>PVsyst, Excel</td>
+            <td data-ar="المهتمون بمشاريع الطاقة المتجددة">Engineers interested in renewable energy projects</td>
+            <td class="status-soon" data-ar="غير متاحة حاليًا">Not live</td>
+          </tr>
+          <tr>
+            <th data-ar="تحليل PSS®E والتكامل مع الشبكة">PSS&reg;E Steady-State &amp; IBRs</th>
+            <td data-ar="1">1</td>
+            <td data-ar="6">6</td>
+            <td>PSS&reg;E</td>
+            <td data-ar="المهندسون الاستشاريون ومهندسو التخطيط">Consulting and planning engineers</td>
+            <td class="status-live" data-ar="نشطة">Active</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- NOTIFY BANNER -->
+  <section class="notify-banner">
+    <div class="notify-inner">
+      <div class="notify-text">
+        <div class="notify-eyebrow"><i class="fas fa-bell"></i> <span data-ar="ابق في المقدمة">STAY AHEAD OF THE COHORT</span></div>
+        <h2 data-ar="كن أول من يعلم عند فتح مستوى جديد">Be first in line when a new level opens</h2>
+        <p data-ar="المستويات والدفعات تمتلئ بسرعة. سجّل مرة واحدة وسنُعلمك فور توفر مستوى أو دورة أو دفعة جديدة للتسجيل.">Levels and cohorts fill quickly. Register once and we'll notify you the moment a new level, course, or round becomes available for enrollment.</p>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy8u6JsBfLq4gNz6nvGTaH5G57xsdJnUxnCHkXyxNaQFnrQ/viewform?usp=send_form" class="btn-notify-lg" target="_blank" rel="noopener">
+        <i class="fas fa-bell"></i> <span data-ar="سجّل لتصلك الإشعارات">Register for Updates</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY GRID ACADEMY -->
+  <section class="why-section">
+    <div class="why-inner">
+      <div class="why-head">
+        <p class="section-label" data-ar="لماذا تختارنا">WHY CHOOSE US</p>
+        <h2 class="section-title" data-ar="بناها مهندسون، لأجل المهندسين">Built by engineers, for engineers</h2>
+        <p class="section-sub" data-ar="لا نظريات لمجرد النظرية. كل موضوع مرتبط بمُخرج مشروع حقيقي.">No theory for theory's sake. Every topic maps to a real project deliverable.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-hard-hat"></i></div>
+          <div class="feature-title" data-ar="بقيادة صناعية">Industry-led</div>
+          <div class="feature-desc" data-ar="يقدمها مهندسون ممارسون بخبرة تتجاوز 16 عامًا في مشاريع حقيقية.">Taught by practicing engineers with 16+ years of real project experience.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-tools"></i></div>
+          <div class="feature-title" data-ar="مشاريع عملية">Hands-on projects</div>
+          <div class="feature-desc" data-ar="تكليفات حقيقية باستخدام AutoCAD وExcel وETAP وPSS®E وPVsyst.">Real assignments using AutoCAD, Excel, ETAP, PSS&reg;E, and PVsyst.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+          <div class="feature-title" data-ar="شهادات">Certifications</div>
+          <div class="feature-desc" data-ar="احصل على شهادات إتمام وحضور لكل مستوى.">Earn level-by-level completion and attendance certificates.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <div class="feature-title" data-ar="مجموعات صغيرة">Small groups</div>
+          <div class="feature-desc" data-ar="دفعات مركزة عبر Microsoft Teams لأقصى قدر من التفاعل.">Focused cohorts via Microsoft Teams for maximum interaction.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
+          <div class="feature-title" data-ar="ملاحظات الجلسات">Session notes</div>
+          <div class="feature-desc" data-ar="ملفات PDF تُقدَّم بعد كل جلسة للرجوع إليها لاحقًا.">PDF notes provided after every session to keep for reference.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-video"></i></div>
+          <div class="feature-title" data-ar="تسجيلات الجلسات">Session recordings</div>
+          <div class="feature-desc" data-ar="متاحة لدورات مختارة فقط. التسجيلات مقفلة على جهازك طوال مدة الدورة لتتمكن من تعويض أي جلسة فاتتك.">Available for select courses. Recordings are locked to your device for the course duration, so you can catch up on a missed session.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE TRAINING -->
+  <section class="corporate-section" id="corporate-anchor">
+    <div class="corporate-inner">
+      <div class="corporate-text">
+        <p class="section-label" data-ar="تدريب للشركات">FOR ORGANIZATIONS</p>
+        <h2 class="section-title" data-ar="تدريب داخلي لفريقك الهندسي">In-house training for your engineering team</h2>
+        <p class="corporate-lead" data-ar="ندرّب فرق المحطات والتصميم داخل الشركات مباشرة، مع محتوى مُعدّل حسب معايير مشاريعكم وأدواتكم وجدولكم الزمني.">We train substation and design teams directly inside companies, with content adapted to your project standards, tools, and schedule.</p>
+        <ul class="corporate-list">
+          <li><i class="fas fa-check"></i> <span data-ar="مناهج مخصصة حسب مستوى الفريق ونوع المشاريع">Custom curriculum tailored to your team's level and project type</span></li>
+          <li><i class="fas fa-check"></i> <span data-ar="جدولة مرنة، حضوريًا أو عبر الإنترنت">Flexible scheduling, delivered on-site or online</span></li>
+          <li><i class="fas fa-check"></i> <span data-ar="شهادات إتمام رسمية لكل مشارك">Formal completion certificates for every participant</span></li>
+          <li><i class="fas fa-check"></i> <span data-ar="تسعير جماعي للفرق بدلًا من الاشتراك الفردي">Group pricing for teams instead of individual enrollment</span></li>
+        </ul>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/gridacademyinfo@gmail.com" method="POST" id="corporateForm">
+        <input type="hidden" name="_subject" id="formSubjectField" value="New corporate training inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name" data-ar="الاسم">Name</label>
+            <input type="text" id="cf-name" name="Name" placeholder="Your full name" data-ar-placeholder="اسمك الكامل" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-email" data-ar="البريد الإلكتروني">Email</label>
+            <input type="email" id="cf-email" name="Email" placeholder="you@company.com" data-ar-placeholder="بريدك الإلكتروني" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-subject" data-ar="الموضوع">Subject</label>
+          <input type="text" id="cf-subject" name="Subject" placeholder="e.g. Training for 10 engineers" data-ar-placeholder="مثال: تدريب لـ 10 مهندسين" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-message" data-ar="الرسالة">Message</label>
+          <textarea id="cf-message" name="Message" placeholder="Tell us about your team and what you're looking for." data-ar-placeholder="أخبرنا عن فريقك وما تبحث عنه." required></textarea>
+        </div>
+        <button type="submit" class="btn-form-submit"><i class="fas fa-paper-plane"></i> <span data-ar="أرسل الرسالة">Send Message</span></button>
+        <p class="form-note" data-ar="ستصلنا رسالتك على gridacademyinfo@gmail.com وسنرد عليك في أقرب وقت.">Your message goes to gridacademyinfo@gmail.com and we'll get back to you shortly.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">GRID ACADEMY</div>
+        <p class="footer-blurb" data-ar="تدريب هندسي متوافق مع سوق العمل في نظم القوى، يقدمه مهندسون ممارسون لمن يريد العمل على محطات وشبكات ومشاريع حقيقية.">Industry-aligned power systems engineering training, built by practicing engineers for engineers who want to work on real substations, real grids, and real projects.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-ar="الدورات">Courses</h4>
+        <a href="https://gridacad.github.io/course/SDPC.html" data-ar="تصميم المحطات والحماية">Substation Design &amp; Protection</a>
+        <a href="https://gridacad.github.io/course/pss.html" data-ar="دراسات نظم القوى">Power System Studies</a>
+        <a href="https://gridacad.github.io/course/pd.html" data-ar="دورة التصميم الأولي">Primary Design Course</a>
+        <a href="https://gridacad.github.io/course/psse.html" data-ar="تحليل PSS®E والتكامل مع الشبكة">PSS&reg;E Steady-State &amp; IBRs</a>
+        <a href="https://gridacad.github.io/course/PV.html" data-ar="هندسة الأنظمة الكهروضوئية">PV Systems Engineering</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-ar="ابق على اطلاع">Stay Updated</h4>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKy8u6JsBfLq4gNz6nvGTaH5G57xsdJnUxnCHkXyxNaQFnrQ/viewform?usp=send_form" target="_blank" rel="noopener"><i class="fas fa-bell" style="margin-right:6px;"></i><span data-ar="سجّل لتصلك إشعارات المستويات الجديدة">Register for new-level alerts</span></a>
+        <a href="#corporate-anchor" data-ar="تدريب للشركات">Corporate training</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-ar="© 2026 أكاديمية الشبكة. جميع الحقوق محفوظة.">&copy; 2026 GRID ACADEMY. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/201000000000?text=Hi%20Grid%20Academy%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses"
+     class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Sync typed subject into the hidden email-subject field before submit
+    var corpForm = document.getElementById('corporateForm');
+    if (corpForm) {
+      corpForm.addEventListener('submit', function () {
+        var typed = document.getElementById('cf-subject').value;
+        if (typed) document.getElementById('formSubjectField').value = 'Corporate inquiry: ' + typed;
+      });
+    }
+
+    // Scroll progress bar under the header
+    var progressEl = document.getElementById('scrollProgress');
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressEl.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    // English / Arabic toggle
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-ar]').forEach(function (el) {
+        if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+        el.innerHTML = lang === 'ar' ? el.dataset.ar : el.dataset.en;
+      });
+
+      document.querySelectorAll('[data-ar-placeholder]').forEach(function (el) {
+        if (el.dataset.enPlaceholder === undefined) el.dataset.enPlaceholder = el.placeholder;
+        el.placeholder = lang === 'ar' ? el.dataset.arPlaceholder : el.dataset.enPlaceholder;
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+
+      try { localStorage.setItem('ga_lang', lang); } catch (e) {}
+    }
+
+    (function () {
+      var saved = 'en';
+      try { saved = localStorage.getItem('ga_lang') || 'en'; } catch (e) {}
+      setLang(saved);
+    })();
+  </script>
+
+</body>
+</html>
