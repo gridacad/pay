@@ -259,6 +259,12 @@
       color: var(--color-primary);
       line-height: 1;
       margin-bottom: 4px;
+      min-height: 2.2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .price-card__amount span {
@@ -268,22 +274,15 @@
     }
 
     .price-card__amount span.original-price {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #95a5a6;
       text-decoration: line-through;
-      margin-right: 8px;
-      font-weight: 800;
+      font-weight: 700;
     }
     .price-card__amount span.discounted-price {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       color: var(--color-primary);
       font-weight: 800;
-    }
-    .price-card__was {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      text-decoration: line-through;
-      margin-bottom: 10px;
     }
 
     .price-card__desc {
@@ -312,27 +311,26 @@
     .breadcrumb a:hover { text-decoration: underline; }
     .breadcrumb span { margin: 0 6px; }
 
-    /* Early bird badge */
+    /* ── EARLY BIRD BADGE + COUNTDOWN ── */
+    .early-bird-wrap { margin-top: 10px; }
     .early-bird {
-      display: inline-block;
-      background: #fff3cd;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #fff3cd, #ffe9a8);
       color: #856404;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      border: 1px solid #ffeaa7;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid #ffdd80;
+      white-space: nowrap;
     }
-    .original-price {
-      text-decoration: line-through;
-      color: #95a5a6;
-      margin-right: 8px;
-      font-size: 1.5rem;
-    }
-    .discounted-price {
-      color: var(--color-primary);
-      font-weight: bold;
-      font-size: 2.2rem;
+    .early-bird i { font-size: 0.75rem; }
+    .countdown-timer {
+      font-variant-numeric: tabular-nums;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.3px;
     }
   </style>
 
@@ -376,11 +374,6 @@
     </div>
 
     <div class="container">
-
-
-
-
-
 
       <div style="display:flex;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
         <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
@@ -462,55 +455,50 @@ Scan the QR code or use the button below to open Instapay with our payment addre
         </div>
       </div>
 
-<!-- PROFESSIONALS -->
-<div class="section">
-  <h2>For Professionals</h2>
-  <div class="price-grid">
-    <div class="price-card price-card--full">
-      <div class="price-card__badge">Best Value</div>
-      <div class="price-card__label">Full Program</div>
-      <div class="price-card__amount">
-        <span class="discounted-price">EGP 5,000</span>
+      <!-- PROFESSIONALS -->
+      <div class="section">
+        <h2>For Professionals</h2>
+        <div class="price-grid">
+          <div class="price-card price-card--full">
+            <div class="price-card__badge">Best Value</div>
+            <div class="price-card__label">Full Program</div>
+            <div class="price-card__amount" data-original="5000" data-discounted="4700" data-currency="EGP"></div>
+            <div class="early-bird-wrap">
+              <div class="early-bird"><i class="fas fa-clock"></i> Early bird ends in <span class="countdown-timer">--</span></div>
+            </div>
+            <div class="price-card__desc">one payment covers the entire course, all levels included.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card__label">Weekly Payment</div>
+            <div class="price-card__amount">EGP 650<span>/week</span></div>
+            <div class="price-card__desc">Pay weekly as the course progresses.</div>
+          </div>
+        </div>
+        <p class="note">Choose whichever fits your budget — the full-program rate is the more economical option overall.</p>
       </div>
-      <div class="price-card__desc">one payment covers the entire course, all levels included.</div>
-      <div class="early-bird">Early Bird – <span class="countdown">Expired</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-card__label">Weekly Payment</div>
-      <div class="price-card__amount">EGP 650<span>/week</span></div>
-      <div class="price-card__desc">Pay weekly as the course progresses.</div>
-    </div>
-  </div>
-  <p class="note">Choose whichever fits your budget — the full-program rate is the more economical option overall.</p>
-</div>
 
-<!-- STUDENTS -->
-<div class="section">
-  <h2>For Full-time Students</h2>
-  <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
-  <div class="price-grid">
-    <div class="price-card price-card--full">
-      <div class="price-card__badge">Best Value</div>
-      <div class="price-card__label">Full Program</div>
-      <div class="price-card__amount">
-        <span class="discounted-price">EGP 3,000</span>
+      <!-- STUDENTS -->
+      <div class="section">
+        <h2>For Full-time Students</h2>
+        <p><em>(Present your Faculty ID with the payment to receive your discount)</em></p>
+        <div class="price-grid">
+          <div class="price-card price-card--full">
+            <div class="price-card__badge">Best Value</div>
+            <div class="price-card__label">Full Program</div>
+            <div class="price-card__amount" data-original="3000" data-discounted="2800" data-currency="EGP"></div>
+            <div class="early-bird-wrap">
+              <div class="early-bird"><i class="fas fa-clock"></i> Early bird ends in <span class="countdown-timer">--</span></div>
+            </div>
+            <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card__label">Weekly Payment</div>
+            <div class="price-card__amount">EGP 400<span>/week</span></div>
+            <div class="price-card__desc">Pay weekly as the course progresses.</div>
+          </div>
+        </div>
+        <p class="note">Student discount applies with a valid Faculty ID presented at time of payment.</p>
       </div>
-      <div class="price-card__desc">One payment covers the entire course, all levels included.</div>
-      <div class="early-bird">Early Bird – <span class="countdown">Expired</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-card__label">Weekly Payment</div>
-      <div class="price-card__amount">EGP 400<span>/week</span></div>
-      <div class="price-card__desc">Pay weekly as the course progresses.</div>
-    </div>
-  </div>
-  <p class="note">Student discount applies with a valid Faculty ID presented at time of payment.</p>
-</div>
-
-<script>
-  // Early bird period has expired — countdown removed, static "Expired" label shown instead. return to PSS html at 31-7 for the script
-</script>
-
 
       <!-- REGISTRATION FORM -->
       <div class="form-section">
@@ -520,7 +508,6 @@ Scan the QR code or use the button below to open Instapay with our payment addre
           <a href="https://forms.gle/Qe4TR5rzFCtd8TfN9" class="btn" style="font-size:16px;padding:14px 24px;">
             <i class="fas fa-briefcase" style="margin-right:6px;"></i> Submit Payment Proof
           </a>
-          
         </div>
         <p class="note" style="margin-top:16px;">
           Please include: Transfer screenshot/reference number, your ID, and any required attachments as mentioned in your email.
@@ -529,6 +516,81 @@ Scan the QR code or use the button below to open Instapay with our payment addre
 
     </div>
   </div>
+
+  <script>
+    /* =========================================================================
+       EARLY-BIRD OFFER — CONFIG
+       -------------------------------------------------------------------------
+       >>> THIS IS THE ONLY LINE YOU NEED TO TOUCH TO RUN A NEW EARLY-BIRD <<<
+       Set EARLY_BIRD_DEADLINE to the new cutoff (Cairo time, GMT+2) whenever
+       you want to open a fresh early-bird window for a future round.
+       Everything else — the slashed price, the live countdown, and the
+       automatic revert to full price once the deadline passes — is fully
+       automatic and needs no other edits anywhere on this page.
+       Format: "YYYY-MM-DDTHH:MM:SS+02:00"
+       ========================================================================= */
+    const EARLY_BIRD_DEADLINE = new Date("2026-10-06T23:59:59+02:00");
+
+    function formatMoney(amount, currency) {
+      return currency + " " + Number(amount).toLocaleString("en-US");
+    }
+
+    // Draws each full-program price card according to whether the
+    // early-bird window is still open or has passed.
+    function renderPriceCards(offerActive) {
+      document.querySelectorAll(".price-card__amount[data-original]").forEach(function (amountEl) {
+        const original = amountEl.getAttribute("data-original");
+        const discounted = amountEl.getAttribute("data-discounted");
+        const currency = amountEl.getAttribute("data-currency") || "EGP";
+        const badgeWrap = amountEl.parentElement.querySelector(".early-bird-wrap");
+
+        if (offerActive) {
+          amountEl.innerHTML =
+            '<span class="original-price">' + formatMoney(original, currency) + '</span>' +
+            '<span class="discounted-price">' + formatMoney(discounted, currency) + '</span>';
+          if (badgeWrap) badgeWrap.style.display = "";
+        } else {
+          amountEl.innerHTML = '<span class="discounted-price">' + formatMoney(original, currency) + '</span>';
+          if (badgeWrap) badgeWrap.style.display = "none";
+        }
+      });
+    }
+
+    let countdownIntervalId = null;
+
+    function tickCountdown() {
+      const msLeft = EARLY_BIRD_DEADLINE - new Date();
+
+      if (msLeft <= 0) {
+        // Deadline has passed: switch every card to full, un-slashed price
+        // and stop the timer — no further ticking needed.
+        renderPriceCards(false);
+        if (countdownIntervalId) clearInterval(countdownIntervalId);
+        return;
+      }
+
+      const totalSeconds = Math.floor(msLeft / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      const label = days + "d " +
+        String(hours).padStart(2, "0") + "h " +
+        String(minutes).padStart(2, "0") + "m " +
+        String(seconds).padStart(2, "0") + "s";
+
+      document.querySelectorAll(".countdown-timer").forEach(function (el) {
+        el.textContent = label;
+      });
+    }
+
+    // Initial render (runs immediately, before the first tick, so the
+    // correct price shows with no flash of the wrong state).
+    renderPriceCards(EARLY_BIRD_DEADLINE - new Date() > 0);
+    tickCountdown();
+    countdownIntervalId = setInterval(tickCountdown, 1000);
+  </script>
 
 </body>
 </html>
