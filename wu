@@ -244,7 +244,7 @@ footer a{color:var(--green);font-weight:600;text-decoration:none}
 </div>
 
 <script>
-const WA_NUMBER = "201205947400";
+const WA_NUMBER = "+201090855647";
 
 function copyText(text){
   if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
