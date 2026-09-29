@@ -188,7 +188,7 @@ footer a{color:var(--green);font-weight:600;text-decoration:none}
         <div class="info-box" style="margin-top:12px">
           <strong>Receiver phone number</strong>
           <small>Mobile, with country code</small>
-          <div class="number-box"><span id="phone" dir="ltr">+201205947400</span><button class="copy-btn" data-target="phone">Copy</button></div>
+          <div class="number-box"><span id="phone" dir="ltr">+201090855647</span><button class="copy-btn" data-target="phone">Copy</button></div>
         </div>
 
         <div class="info-box">
