@@ -111,7 +111,22 @@
 
     footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 13.5px; }
     footer a { color: var(--red); font-weight: 600; text-decoration: none; }
+  
+    /* ---- Arabic / RTL support ---- */
+    html[dir="rtl"] body { font-family: "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif; }
+    html[dir="rtl"] .fa-arrow-left, html[dir="rtl"] .fa-arrow-right { transform: scaleX(-1); display: inline-block; }
+    html[dir="rtl"] .nav__brand { direction: ltr; }
+
+    html[dir="rtl"] .plan__tag { right: auto; left: 16px; }
+    html[dir="rtl"] .plan-opt__price { text-align: left; }
+
+    .nav__lang { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .nav__lang:hover { background: rgba(255,255,255,.2); }
+    .nav__lang i { font-size: 12px; }
+
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -121,6 +136,7 @@
       <a href="psa.html" class="nav__brand"><img src="Sm1.svg" alt="" class="nav-logo"> GRID ACADEMY</a>
       <a href="psa_pay.html" class="nav__back"><i class="fas fa-arrow-left"></i> Back to payment</a>
       <span class="nav__badge">International · USD</span>
+      <button class="nav__lang" id="langToggle" aria-label="Switch language" title="Switch language"><span class="lang-current">عربي</span><i class="fas fa-globe"></i></button>
     </div>
   </nav>
 
@@ -278,5 +294,86 @@
     if (earlyOpen()) countTimer = setInterval(tick, 1000);
     setInterval(renderPrices, 60000);
   </script>
+<script>
+(function () {
+  var AR = {"Back to payment": "العودة إلى الدفع", "International · USD": "دولي · USD", "Course": "الدورة", "Payment": "الدفع", "› International (USD)": "‹ دولي (USD)", "International payment, in USD.": "دفع دولي، بالدولار الأمريكي.", "PSS®E Power System Analysis: Comprehensive Stability & Automation. Choose your plan and pay through PayPal or Grey. The full amount is pre-set for you.": "تحليل نظم الطاقة PSS®E: الاستقرار الشامل والأتمتة. اختر خطتك وادفع عبر PayPal أو Grey. المبلغ الكامل محدد مسبقاً لك.", "Paying from outside Egypt": "الدفع من خارج مصر", "8 weekly lectures · 24 hours": "8 محاضرات أسبوعية · 24 ساعة", "Early bird · 5% off": "عرض مبكر · خصم 5%", "Full price · enrolment open": "السعر الكامل · التسجيل مفتوح", "Step 1": "الخطوة 1", "Choose your plan & pay": "اختر خطتك وادفع", "Amounts update automatically. Click the platform you prefer.": "يتم تحديث المبالغ تلقائياً. اضغط على المنصة التي تفضلها.", "Best value": "أفضل قيمة", "Live + Recorded": "مباشر + مسجل", "All live sessions plus full recordings to revisit anytime.": "كل الجلسات المباشرة مع التسجيلات الكاملة لمراجعتها في أي وقت.", "Pay via PayPal": "ادفع عبر PayPal", "Live Sessions Only": "الجلسات المباشرة فقط", "All live sessions, no recorded access.": "كل الجلسات المباشرة، دون وصول للتسجيلات.", "Full price": "السعر الكامل", "Early bird ends in": "ينتهي العرض المبكر خلال", "PayPal may add an international transfer fee. Confirm the final amount on the platform before you send.": "قد يضيف PayPal رسوم تحويل دولية. تأكد من المبلغ النهائي على المنصة قبل الإرسال.", "Step 2": "الخطوة 2", "Reserve your seat": "احجز مقعدك", "After payment, submit your details and payment screenshot.": "بعد الدفع، أرسل بياناتك ولقطة شاشة الدفع.", "Complete your registration": "أكمل تسجيلك", "Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.": "أرفق لقطة شاشة التحويل أو رقم المرجع، وصورة الهوية، وأي مرفقات مذكورة في بريدك الإلكتروني.", "Submit payment proof": "أرسل إثبات الدفع", "Not sure which option to use?": "لست متأكداً من الخيار المناسب؟", "Message us on WhatsApp and we will send you a direct payment link.": "راسلنا على واتساب وسنرسل لك رابط دفع مباشر.", "WhatsApp us": "راسلنا على واتساب", "© Grid Academy ·": "© جريد أكاديمي ·", "PSS®E Power System Analysis: Comprehensive Stability & Automation": "تحليل نظم الطاقة PSS®E: الاستقرار الشامل والأتمتة", "Switch language": "تغيير اللغة"};
+  var TITLE_AR = "Grid Academy — تحليل نظم الطاقة PSS®E · الدفع الدولي (USD)";
+  var EN_TITLE = document.title;
+  var PATTERNS = [
+    [/^EGP ([\d,]+)$/, function (m) { return m[1] + " ج.م"; }],
+    [/^EGP —$/, function () { return "— ج.م"; }],
+    [/^≈ (\$[\d,]+) by card$/, function (m) { return "≈ " + m[1] + " بالبطاقة"; }],
+    [/^You save EGP ([\d,]+) · (\d+)% early bird$/, function (m) { return "توفر " + m[1] + " ج.م · عرض مبكر " + m[2] + "%"; }],
+    [/^Early bird · save (\$[\d,]+)$/, function (m) { return "عرض مبكر · وفر " + m[1]; }],
+    [/^Early bird · (\d+)% off$/, function (m) { return "عرض مبكر · خصم " + m[1] + "%"; }],
+    [/^([\d-]+)d ([\d-]+)h ([\d-]+)m ([\d-]+)s$/, function (m) { return m[1] + " ي " + m[2] + " س " + m[3] + " د " + m[4] + " ث"; }]
+  ];
+
+  function lookup(s) {
+    if (Object.prototype.hasOwnProperty.call(AR, s)) return AR[s];
+    for (var i = 0; i < PATTERNS.length; i++) {
+      var m = s.match(PATTERNS[i][0]);
+      if (m) return PATTERNS[i][1](m);
+    }
+    return null;
+  }
+
+  var textOrig = new WeakMap(), attrOrig = new WeakMap();
+
+  function apply(lang) {
+    var ar = lang === "ar";
+    document.documentElement.lang = ar ? "ar" : "en";
+    document.documentElement.dir = ar ? "rtl" : "ltr";
+    document.title = ar ? TITLE_AR : EN_TITLE;
+
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        return /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = w.nextNode())) nodes.push(n);
+    nodes.forEach(function (node) {
+      if (!textOrig.has(node)) {
+        if (!node.nodeValue.trim()) return;
+        textOrig.set(node, node.nodeValue);
+      }
+      var src = textOrig.get(node), s = src.trim();
+      var t = ar ? lookup(s.replace(/\s+/g, " ")) : null;
+      var out = t === null ? src : src.replace(s, function () { return t; });
+      if (node.nodeValue !== out) node.nodeValue = out;
+    });
+
+    document.querySelectorAll("[alt],[aria-label],[title]").forEach(function (el) {
+      var o = attrOrig.get(el);
+      if (!o) { o = {}; attrOrig.set(el, o); }
+      ["alt", "aria-label", "title"].forEach(function (a) {
+        if (!el.hasAttribute(a)) return;
+        if (!(a in o)) o[a] = el.getAttribute(a);
+        var t = ar ? lookup(o[a].trim()) : null;
+        var v = t === null ? o[a] : t;
+        if (el.getAttribute(a) !== v) el.setAttribute(a, v);
+      });
+    });
+
+    var cur = document.querySelector("#langToggle .lang-current");
+    if (cur) {
+      var label = ar ? "EN" : "عربي";
+      if (cur.textContent !== label) cur.textContent = label;
+    }
+  }
+
+  var lang = "en";
+  try { lang = localStorage.getItem("gaLang") || "en"; } catch (e) {}
+  var tb = document.getElementById("langToggle");
+  if (tb) tb.addEventListener("click", function () {
+    lang = lang === "en" ? "ar" : "en";
+    try { localStorage.setItem("gaLang", lang); } catch (e) {}
+    apply(lang);
+  });
+  apply(lang);
+  setInterval(function () { apply(lang); }, 1000);
+})();
+</script>
 </body>
 </html>
