@@ -153,7 +153,22 @@
       .hero { border-bottom: 1px solid rgba(254,226,226,.14); }
     @media (min-width: 1600px) { .container { max-width: 1240px; } .hero h1 { font-size: 64px; } }
     @media (min-width: 2200px) { .container { max-width: 1400px; } }
+  
+    /* ---- Arabic / RTL support ---- */
+    html[dir="rtl"] body { font-family: "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif; }
+    html[dir="rtl"] .fa-arrow-left, html[dir="rtl"] .fa-arrow-right { transform: scaleX(-1); display: inline-block; }
+    html[dir="rtl"] .nav__brand { direction: ltr; }
+
+    html[dir="rtl"] .plan-opt__price { text-align: left; }
+    html[dir="rtl"] .plan-opt__tag { right: auto; left: 14px; }
+
+    .nav__lang { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .nav__lang:hover { background: rgba(255,255,255,.2); }
+    .nav__lang i { font-size: 12px; }
+
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -163,6 +178,7 @@
       <a href="/course/index.html" class="nav__brand"><img src="Sm1.svg" alt="" class="nav-logo"> GRID ACADEMY</a>
       <a href="/course/psa.html" class="nav__back"><i class="fas fa-arrow-left"></i> Back to course</a>
       <span class="nav__badge">PSS®E Power System Analysis: Comprehensive Stability & Automation</span>
+      <button class="nav__lang" id="langToggle" aria-label="Switch language" title="Switch language"><span class="lang-current">عربي</span><i class="fas fa-globe"></i></button>
     </div>
   </nav>
 
@@ -407,5 +423,86 @@
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .1 });
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
   </script>
+<script>
+(function () {
+  var AR = {"Back to course": "العودة إلى الدورة", "PSS®E Power System Analysis: Comprehensive Stability & Automation": "تحليل نظم الطاقة PSS®E: الاستقرار الشامل والأتمتة", "Course": "الدورة", "› Enrolment & payment": "‹ التسجيل والدفع", "Secure your seat.": "احجز مقعدك.", "Choose your plan, pay with the method that suits you, then submit your proof. Early bird pricing applies until the countdown ends.": "اختر خطتك وادفع بالطريقة التي تناسبك، ثم أرسل إثبات الدفع. تنطبق أسعار العرض المبكر حتى ينتهي العد التنازلي.", "Secure payment": "دفع آمن", "8 weekly lectures · 24 hours": "8 محاضرات أسبوعية · 24 ساعة", "Early bird · 5% off": "عرض مبكر · خصم 5%", "Full price · enrolment open": "السعر الكامل · التسجيل مفتوح", "Step 1": "الخطوة 1", "Choose your plan": "اختر خطتك", "The amount updates automatically.": "يتم تحديث المبلغ تلقائياً.", "Plan": "الخطة", "Best value": "أفضل قيمة", "Live + Recorded": "مباشر + مسجل", "All live sessions + full recordings": "كل الجلسات المباشرة + التسجيلات الكاملة", "Live Sessions Only": "الجلسات المباشرة فقط", "All live sessions, no recordings": "كل الجلسات المباشرة دون تسجيلات", "Amount due": "المبلغ المستحق", "≈ $—": "≈ $—", "Early bird ends in": "ينتهي العرض المبكر خلال", "Step 2": "الخطوة 2", "Pay": "ادفع", "Tap a method to see the details.": "اضغط على طريقة لعرض التفاصيل.", "Instapay": "إنستاباي", "Details": "التفاصيل", "Hide": "إخفاء", "Scan the QR code, or open Instapay with our payment address loaded. Enter the amount shown above.": "امسح رمز QR، أو افتح إنستاباي بعنوان الدفع الخاص بنا. أدخل المبلغ الموضح أعلاه.", "Instapay QR code": "رمز QR لإنستاباي", "Open Instapay": "فتح إنستاباي", "Vodafone Cash": "فودافون كاش", "Visa / Mastercard": "فيزا / ماستركارد", "Pay by card": "ادفع بالبطاقة", "Instant, secure card payment through a licensed gateway. No app or account needed. A processing fee of about 2–3% is charged by the gateway.": "دفع فوري وآمن بالبطاقة عبر بوابة مرخّصة. لا يلزم تطبيق أو حساب. تفرض البوابة رسوم معالجة تقارب 2–3%.", "Bank transfer": "تحويل بنكي", "Contact us on WhatsApp and we will send the bank details.": "تواصل معنا عبر واتساب وسنرسل لك بيانات الحساب البنكي.", "Message on WhatsApp": "راسلنا على واتساب", "EGP prices apply to Instapay, Vodafone Cash and bank transfer. Card payments are processed in USD.": "تنطبق أسعار الجنيه المصري على إنستاباي وفودافون كاش والتحويل البنكي. تتم مدفوعات البطاقات بالدولار.", "Copy": "نسخ", "Copied!": "تم النسخ!", "Step 3": "الخطوة 3", "Complete your registration": "أكمل تسجيلك", "After paying, submit your details and proof of payment. Keep your transfer screenshot or reference number ready.": "بعد الدفع، أرسل بياناتك وإثبات الدفع. جهّز لقطة شاشة التحويل أو رقم المرجع.", "Submit payment proof": "أرسل إثبات الدفع", "Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.": "أرفق لقطة شاشة التحويل أو رقم المرجع، وصورة الهوية، وأي مرفقات مذكورة في بريدك الإلكتروني.", "What you get": "ما ستحصل عليه", "Taught by Consultant Eng. Sameh Medhat.": "يقدمها المهندس الاستشاري سامح مدحت.", "8 lectures, one per week": "8 محاضرات، واحدة أسبوعياً", "24 hours of theory and hands-on PSS®E": "24 ساعة نظرية وتطبيق عملي على PSS®E", "Load flow, contingency, voltage stability, short-circuit": "تدفق الحمل، الطوارئ، استقرار الجهد، القصر", "Python automation and dynamics introduction": "أتمتة بايثون ومقدمة في الديناميك", "Back to course details": "العودة إلى تفاصيل الدورة", "© Grid Academy ·": "© جريد أكاديمي ·", "Switch language": "تغيير اللغة"};
+  var TITLE_AR = "Grid Academy — PSS®E: الدفع والتسجيل";
+  var EN_TITLE = document.title;
+  var PATTERNS = [
+    [/^EGP ([\d,]+)$/, function (m) { return m[1] + " ج.م"; }],
+    [/^EGP —$/, function () { return "— ج.م"; }],
+    [/^≈ (\$[\d,]+) by card$/, function (m) { return "≈ " + m[1] + " بالبطاقة"; }],
+    [/^You save EGP ([\d,]+) · (\d+)% early bird$/, function (m) { return "توفر " + m[1] + " ج.م · عرض مبكر " + m[2] + "%"; }],
+    [/^Early bird · save (\$[\d,]+)$/, function (m) { return "عرض مبكر · وفر " + m[1]; }],
+    [/^Early bird · (\d+)% off$/, function (m) { return "عرض مبكر · خصم " + m[1] + "%"; }],
+    [/^([\d-]+)d ([\d-]+)h ([\d-]+)m ([\d-]+)s$/, function (m) { return m[1] + " ي " + m[2] + " س " + m[3] + " د " + m[4] + " ث"; }]
+  ];
+
+  function lookup(s) {
+    if (Object.prototype.hasOwnProperty.call(AR, s)) return AR[s];
+    for (var i = 0; i < PATTERNS.length; i++) {
+      var m = s.match(PATTERNS[i][0]);
+      if (m) return PATTERNS[i][1](m);
+    }
+    return null;
+  }
+
+  var textOrig = new WeakMap(), attrOrig = new WeakMap();
+
+  function apply(lang) {
+    var ar = lang === "ar";
+    document.documentElement.lang = ar ? "ar" : "en";
+    document.documentElement.dir = ar ? "rtl" : "ltr";
+    document.title = ar ? TITLE_AR : EN_TITLE;
+
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        return /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while ((n = w.nextNode())) nodes.push(n);
+    nodes.forEach(function (node) {
+      if (!textOrig.has(node)) {
+        if (!node.nodeValue.trim()) return;
+        textOrig.set(node, node.nodeValue);
+      }
+      var src = textOrig.get(node), s = src.trim();
+      var t = ar ? lookup(s.replace(/\s+/g, " ")) : null;
+      var out = t === null ? src : src.replace(s, function () { return t; });
+      if (node.nodeValue !== out) node.nodeValue = out;
+    });
+
+    document.querySelectorAll("[alt],[aria-label],[title]").forEach(function (el) {
+      var o = attrOrig.get(el);
+      if (!o) { o = {}; attrOrig.set(el, o); }
+      ["alt", "aria-label", "title"].forEach(function (a) {
+        if (!el.hasAttribute(a)) return;
+        if (!(a in o)) o[a] = el.getAttribute(a);
+        var t = ar ? lookup(o[a].trim()) : null;
+        var v = t === null ? o[a] : t;
+        if (el.getAttribute(a) !== v) el.setAttribute(a, v);
+      });
+    });
+
+    var cur = document.querySelector("#langToggle .lang-current");
+    if (cur) {
+      var label = ar ? "EN" : "عربي";
+      if (cur.textContent !== label) cur.textContent = label;
+    }
+  }
+
+  var lang = "en";
+  try { lang = localStorage.getItem("gaLang") || "en"; } catch (e) {}
+  var tb = document.getElementById("langToggle");
+  if (tb) tb.addEventListener("click", function () {
+    lang = lang === "en" ? "ar" : "en";
+    try { localStorage.setItem("gaLang", lang); } catch (e) {}
+    apply(lang);
+  });
+  apply(lang);
+  setInterval(function () { apply(lang); }, 1000);
+})();
+</script>
 </body>
 </html>
