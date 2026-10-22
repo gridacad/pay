@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — PSS®E Power System Analysis: Comprehensive Stability & Automation · International Payment (USD)</title>
+
+  <link rel="icon" type="image/svg+xml" href="Sm1.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+  <link rel="apple-touch-icon" href="Sm1.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --red-deep: #3a0f0f;
+      --red: #9b1c1c;
+      --red-2: #b91c1c;
+      --red-soft: #fdf2f2;
+      --red-line: #f3c9c9;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --paypal: #003087;
+      --paypal-dark: #001f5c;
+      --grey: #1f2937;
+      --grey-dark: #111827;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f8f7f7; color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+    a { color: inherit; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 1600px) { .container { max-width: 1240px; } }
+    @media (min-width: 2200px) { .container { max-width: 1400px; } }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(58,15,15,.94); backdrop-filter: saturate(180%) blur(14px); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .nav__brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .08em; font-size: 14px; }
+    .nav-logo { height: 26px; width: auto; filter: brightness(0) invert(1); }
+    .nav__back { color: rgba(255,255,255,.75); text-decoration: none; font-size: 13.5px; font-weight: 500; display: inline-flex; gap: 8px; align-items: center; }
+    .nav__back:hover { color: #fff; }
+    .nav__badge { background: rgba(254,226,226,.12); color: #fee2e2; border: 1px solid rgba(254,226,226,.2); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+    @media (max-width: 640px) { .nav__badge { display: none; } }
+
+    /* HERO */
+    .hero { background: radial-gradient(120% 90% at 80% 0%, #6b1c1c 0%, var(--red-deep) 55%, #230909 100%); color: #fff; padding: 52px 0 96px; position: relative; border-bottom: 1px solid rgba(254,226,226,.14); }
+    .crumb { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 16px; }
+    .crumb a { color: rgba(255,255,255,.85); text-decoration: none; }
+    .crumb a:hover { color: #fff; }
+    .hero h1 { font-size: clamp(32px, 4.4vw, 50px); letter-spacing: -.03em; line-height: 1.06; font-weight: 800; margin: 0 0 12px; }
+    .hero p { color: rgba(255,255,255,.78); font-size: 16.5px; margin: 0; max-width: 640px; }
+    .hero__meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 22px; font-size: 14px; color: rgba(255,255,255,.82); }
+    .hero__meta i { color: #fca5a5; margin-right: 6px; }
+    @media (min-width: 1600px) { .hero h1 { font-size: 64px; } }
+
+    .wrap { margin-top: -56px; position: relative; z-index: 2; }
+    .panel { background: #fff; border-radius: 18px; padding: 28px; border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(17,24,39,.08); margin-bottom: 22px; }
+    .panel h2 { font-size: 20px; letter-spacing: -.02em; margin: 0 0 4px; color: var(--ink); }
+    .panel .sub { color: var(--muted); margin: 0 0 20px; font-size: 14.5px; }
+    .step { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+
+    /* plan blocks */
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
+    .plan { border: 1px solid var(--red-line); border-radius: 16px; padding: 22px; background: linear-gradient(180deg, #fff, var(--red-soft)); position: relative; }
+    .plan--main { border-color: var(--red); box-shadow: 0 10px 26px rgba(155,28,28,.08); }
+    .plan__tag { position: absolute; top: -10px; right: 16px; background: var(--red); color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .plan h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
+    .plan__desc { font-size: 13.5px; color: var(--muted); margin: 0 0 14px; min-height: 38px; }
+    .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .price__now { font-size: 36px; font-weight: 800; color: var(--red); letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .price__old { font-size: 16px; color: #9ca3af; text-decoration: line-through; }
+    .price__note { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+    .plan__actions { display: grid; gap: 10px; margin-top: 18px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 14.5px;
+      text-decoration: none; color: #fff; border: 0; transition: background .25s, transform .25s var(--ease); cursor: pointer; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--paypal { background: var(--paypal); } .btn--paypal:hover { background: var(--paypal-dark); }
+    .btn--grey { background: var(--grey); } .btn--grey:hover { background: var(--grey-dark); }
+    .btn--red { background: var(--red); } .btn--red:hover { background: var(--red-deep); }
+    .btn--ghost { background: #fff; color: var(--red); border: 1px solid var(--red-line); }
+    .btn--ghost:hover { background: var(--red-soft); }
+    .btn--block { width: 100%; }
+
+    .notice { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #4b5563; background: #f9fafb; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+    .notice i { color: var(--red); margin-top: 2px; }
+
+    .countdown { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 16px; border-radius: 12px; background: #fff7f7; border: 1px solid var(--red-line); font-size: 14px; color: #7f1d1d; }
+    .countdown b { font-variant-numeric: tabular-nums; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 15px; color: var(--red-deep); }
+
+    /* registration */
+    .register { background: linear-gradient(160deg, #4a1212, var(--red)); color: #fff; border-radius: 18px; padding: 26px; text-align: center; }
+    .register h3 { margin: 0 0 6px; font-size: 19px; }
+    .register p { margin: 0 auto 16px; max-width: 560px; color: rgba(255,255,255,.82); font-size: 14.5px; }
+    .register .btn { background: #fff; color: var(--red-deep); }
+    .register .btn:hover { background: var(--red-soft); }
+    .register .note { font-size: 12.5px; color: rgba(255,255,255,.65); margin-top: 14px; }
+
+    .whatsapp { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin-top: 22px; }
+    .whatsapp strong { display: block; font-size: 15px; }
+    .whatsapp span { font-size: 13.5px; color: var(--muted); }
+    .btn--wa { background: #25d366; color: #052e16; }
+    .btn--wa:hover { background: #1fb858; }
+
+    footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 13.5px; }
+    footer a { color: var(--red); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="psa.html" class="nav__brand"><img src="Sm1.svg" alt="" class="nav-logo"> GRID ACADEMY</a>
+      <a href="psa_pay.html" class="nav__back"><i class="fas fa-arrow-left"></i> Back to payment</a>
+      <span class="nav__badge">International · USD</span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="crumb"><a href="psa.html">Course</a> &nbsp;›&nbsp; <a href="psa_pay.html">Payment</a> &nbsp;›&nbsp; International (USD)</div>
+      <h1>International payment, in USD.</h1>
+      <p>PSS®E Power System Analysis: Comprehensive Stability & Automation. Choose your plan and pay through PayPal or Grey. The full amount is pre-set for you.</p>
+      <div class="hero__meta">
+        <span><i class="fas fa-globe"></i>Paying from outside Egypt</span>
+        <span><i class="fas fa-calendar-check"></i>8 weekly lectures · 24 hours</span>
+        <span><i class="fas fa-tag"></i><span id="heroOffer">Early bird · 5% off</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container wrap">
+
+    <section class="panel">
+      <div class="step">Step 1</div>
+      <h2>Choose your plan &amp; pay</h2>
+      <p class="sub">Amounts update automatically. Click the platform you prefer.</p>
+
+      <div class="plans">
+        <div class="plan plan--main" data-plan="full">
+          <span class="plan__tag">Best value</span>
+          <h3>Live + Recorded</h3>
+          <p class="plan__desc">All live sessions plus full recordings to revisit anytime.</p>
+          <div class="price">
+            <span class="price__old js-old"></span>
+            <span class="price__now js-now">$—</span>
+          </div>
+          <div class="price__note js-note"></div>
+          <div class="plan__actions">
+            <a class="btn btn--paypal js-paypal" target="_blank" rel="noopener"><i class="fab fa-paypal"></i> Pay via PayPal</a>
+                      </div>
+        </div>
+
+        <div class="plan" data-plan="live">
+          <h3>Live Sessions Only</h3>
+          <p class="plan__desc">All live sessions, no recorded access.</p>
+          <div class="price">
+            <span class="price__old js-old"></span>
+            <span class="price__now js-now">$—</span>
+          </div>
+          <div class="price__note js-note"></div>
+          <div class="plan__actions">
+            <a class="btn btn--paypal js-paypal" target="_blank" rel="noopener"><i class="fab fa-paypal"></i> Pay via PayPal</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="countdown" id="countBar" style="margin-top:18px;">
+        <span><i class="fas fa-clock" style="margin-right:6px;"></i> Early bird ends in</span>
+        <b id="earlyCountdown">--d --h --m --s</b>
+      </div>
+
+      <div class="notice">
+        <i class="fas fa-info-circle"></i>
+        <span>PayPal may add an international transfer fee. Confirm the final amount on the platform before you send.</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="step">Step 2</div>
+      <h2>Reserve your seat</h2>
+      <p class="sub">After payment, submit your details and payment screenshot.</p>
+      <div class="register" style="border-radius:14px;">
+        <h3>Complete your registration</h3>
+        <p>Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.</p>
+        <a href="https://forms.gle/bSkca4xnMPrDaNRc9" target="_blank" rel="noopener" class="btn"><i class="fas fa-paper-plane"></i> Submit payment proof</a>
+      </div>
+    </section>
+
+    <div class="whatsapp">
+      <div>
+        <strong>Not sure which option to use?</strong>
+        <span>Message us on WhatsApp and we will send you a direct payment link.</span>
+      </div>
+      <a href="https://wa.me/201090855647?text=International+PSS+course+payment" target="_blank" rel="noopener" class="btn btn--wa"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div>© Grid Academy · <a href="psa.html">PSS®E Power System Analysis: Comprehensive Stability & Automation</a></div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       COURSE CONFIG — keep identical to psa.html and psa_pay.html.
+       Edit here only.
+       ========================================================================= */
+    const CONFIG = {
+      earlyBirdDeadline: "2026-11-30T23:59:59+02:00", // Cairo time, format YYYY-MM-DDTHH:MM:SS+02:00
+      earlyBirdDiscount: 0.05,                       // 5% off
+      priceIncrease: 0.20,                           // 20% increase applied to the old prices below
+      plans: {
+        full: { name: "Live + Recorded", oldUSD: 199, oldEGP: 10000 },
+        live: { name: "Live Only",       oldUSD: 149, oldEGP: 7500  }
+      }
+    };
+
+    const roundTo = (n, step) => Math.round(n / step) * step;
+    const earlyOpen = () => Date.now() < new Date(CONFIG.earlyBirdDeadline).getTime();
+    const fmtUSD = n => "$" + n.toLocaleString("en-US");
+
+    function priceFor(key) {
+      const p = CONFIG.plans[key];
+      const baseUSD = roundTo(p.oldUSD * (1 + CONFIG.priceIncrease), 1);
+      const earlyUSD = roundTo(baseUSD * (1 - CONFIG.earlyBirdDiscount), 1);
+      return { baseUSD, earlyUSD };
+    }
+
+    /* Prices + PayPal links. PayPal amounts are generated from the config,
+       so the link always matches the price shown. */
+    function renderPrices() {
+      const open = earlyOpen();
+      document.querySelectorAll(".plan[data-plan]").forEach(card => {
+        const p = priceFor(card.dataset.plan);
+        const amount = open ? p.earlyUSD : p.baseUSD;
+        card.querySelector(".js-now").textContent = fmtUSD(amount);
+        card.querySelector(".js-old").textContent = open ? fmtUSD(p.baseUSD) : "";
+        card.querySelector(".js-note").textContent = open
+          ? "Early bird · save " + fmtUSD(p.baseUSD - p.earlyUSD)
+          : "Full price";
+        card.querySelector(".js-paypal").href = "https://paypal.me/GRIDACAD/" + amount;
+      });
+      document.getElementById("heroOffer").textContent = open
+        ? "Early bird · " + Math.round(CONFIG.earlyBirdDiscount * 100) + "% off"
+        : "Full price · enrolment open";
+    }
+
+    /* Countdown */
+    const countBar = document.getElementById("countBar");
+    const countEl = document.getElementById("earlyCountdown");
+    let countTimer = null;
+    function tick() {
+      const ms = new Date(CONFIG.earlyBirdDeadline) - Date.now();
+      if (ms <= 0) {
+        countBar.style.display = "none";
+        clearInterval(countTimer);
+        renderPrices();
+        return;
+      }
+      const s = Math.floor(ms / 1000);
+      const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600),
+            m = Math.floor((s % 3600) / 60), sec = s % 60;
+      const pad = n => String(n).padStart(2, "0");
+      countEl.textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(sec) + "s";
+    }
+
+    renderPrices();
+    tick();
+    if (earlyOpen()) countTimer = setInterval(tick, 1000);
+    setInterval(renderPrices, 60000);
+  </script>
+</body>
+</html>

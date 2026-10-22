@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HJX4Q5JN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M6HJX4Q5JN');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4NWHLNQS1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y4NWHLNQS1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — PSS®E Payment &amp; Enrolment</title>
+
+  <link rel="icon" type="image/svg+xml" href="Sm1.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+  <link rel="apple-touch-icon" href="Sm1.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --ink: #0a1f1d;
+      --teal-deep: #3a0f0f;
+      --teal: #9b1c1c;
+      --teal-2: #e07a7a;
+      --mint: #fee2e2;
+      --bg: #fbfbfd;
+      --bg-alt: #f2f4f6;
+      --card: #ffffff;
+      --muted: #6e6e73;
+      --line: rgba(10, 31, 29, 0.10);
+      --gold: #f5b942;
+      --radius: 22px;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.5;
+    }
+    a { color: inherit; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV — same as course page */
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(58,15,15,.92); backdrop-filter: saturate(180%) blur(16px); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .nav__brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .08em; font-size: 14px; }
+    .nav-logo { height: 26px; width: auto; filter: brightness(0) invert(1); }
+    .nav__back { color: rgba(255,255,255,.75); text-decoration: none; font-size: 13.5px; font-weight: 500; display: inline-flex; gap: 8px; align-items: center; }
+    .nav__back:hover { color: #fff; }
+    .nav__badge { background: rgba(254,226,226,.12); color: var(--mint); border: 1px solid rgba(254,226,226,.2); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+    @media (max-width: 640px) { .nav__badge { display: none; } }
+
+    /* HERO STRIP */
+    .hero { background: radial-gradient(120% 90% at 80% 0%, #6b1c1c 0%, var(--teal-deep) 55%, #230909 100%); color: #fff; padding: 56px 0 96px; position: relative; overflow: hidden; }
+    
+    .crumb { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 18px; }
+    .crumb a { color: rgba(255,255,255,.85); text-decoration: none; }
+    .crumb a:hover { color: #fff; }
+    .hero h1 { font-size: clamp(34px, 4.6vw, 52px); letter-spacing: -.03em; line-height: 1.05; font-weight: 800; margin: 0 0 14px; }
+    .hero p { color: rgba(255,255,255,.75); font-size: 17px; margin: 0; max-width: 620px; }
+    .hero__meta { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-size: 14px; color: rgba(255,255,255,.8); }
+    .hero__meta span i { color: var(--teal-2); margin-right: 6px; }
+
+    .wrap { position: relative; z-index: 2; margin-top: -60px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items: start; }
+    @media (max-width: 880px) { .wrap { grid-template-columns: 1fr; } }
+
+    .panel { background: var(--card); border-radius: var(--radius); padding: 30px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(10,31,29,.08); }
+    .panel h2 { font-size: 22px; letter-spacing: -.02em; margin: 0 0 6px; }
+    .panel > p.sub { color: var(--muted); margin: 0 0 22px; font-size: 15px; }
+    .step { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+
+    /* PLAN SELECTOR */
+    .plans { display: grid; gap: 10px; margin-bottom: 4px; }
+    .plan-opt { position: relative; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1.5px solid var(--line); border-radius: 16px; cursor: pointer; transition: border-color .25s, background .25s, transform .25s var(--ease); }
+    .plan-opt:hover { transform: translateY(-1px); border-color: var(--teal-2); }
+    .plan-opt input { accent-color: var(--teal); width: 18px; height: 18px; margin: 0; }
+    .plan-opt.selected { border-color: var(--teal); background: linear-gradient(135deg, #fff, #ecfdf9); box-shadow: 0 10px 26px rgba(15,118,110,.12); }
+    .plan-opt__name { font-weight: 700; font-size: 16px; }
+    .plan-opt__desc { font-size: 13px; color: var(--muted); }
+    .plan-opt__price { margin-left: auto; text-align: right; font-variant-numeric: tabular-nums; }
+    .plan-opt__price b { display: block; font-size: 18px; font-weight: 800; color: var(--teal-deep); }
+    .plan-opt__price s { font-size: 13px; color: #9ca3af; }
+    .plan-opt__tag { position: absolute; top: -9px; right: 14px; background: var(--gold); color: #3b2a00; font-size: 10.5px; font-weight: 800; padding: 3px 9px; border-radius: 999px; letter-spacing: .05em; text-transform: uppercase; }
+
+    /* AMOUNT DUE */
+    .due { margin: 22px 0 6px; background: linear-gradient(160deg, #4a1212, #9b1c1c); color: #fff; border-radius: 20px; padding: 24px; }
+    .due__label { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--mint); font-weight: 700; }
+    .due__row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+    .due__egp { font-size: 42px; font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .due__old { font-size: 17px; color: rgba(255,255,255,.5); text-decoration: line-through; }
+    .due__usd { margin-top: 8px; font-size: 14px; color: rgba(255,255,255,.8); }
+    .due__save { display: inline-block; margin-top: 12px; background: rgba(245,185,66,.18); color: #fde68a; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+
+    .countdown-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; padding: 14px 16px;
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 14px; color: #854d0e; font-size: 14px; }
+    .countdown-bar b { font-variant-numeric: tabular-nums; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 15px; }
+
+    /* PAYMENT METHODS */
+    .methods { display: grid; gap: 12px; }
+    .method { border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; background: var(--card); transition: border-color .25s, transform .25s var(--ease); }
+    .method:hover { border-color: var(--teal-2); transform: translateY(-2px); }
+    .method__top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .method__title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; }
+    .method__title i { width: 34px; height: 34px; border-radius: 10px; background: var(--mint); color: var(--teal); display: grid; place-items: center; font-size: 15px; }
+    .method p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+    .method__body { display: none; margin-top: 14px; }
+    .method.open .method__body { display: block; animation: fade .35s var(--ease); }
+    @keyframes fade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    .qr { text-align: center; margin: 4px 0 10px; }
+    .qr img { max-width: 180px; border-radius: 14px; border: 1px solid var(--line); }
+    .numbox { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--bg-alt); border-radius: 12px; padding: 12px 14px; font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; }
+    .copy-btn { background: var(--teal); color: #fff; border: 0; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 13px; cursor: pointer; transition: background .2s, transform .2s; }
+    .copy-btn:hover { background: var(--teal-deep); transform: translateY(-1px); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 700; font-size: 14.5px; text-decoration: none; background: var(--teal); color: #fff; border: 0; cursor: pointer; transition: transform .2s var(--ease), background .2s; }
+    .btn:hover { background: var(--teal-deep); transform: translateY(-1px); }
+    .btn--light { background: var(--bg-alt); color: var(--ink); }
+    .btn--light:hover { background: #e5e7eb; }
+    .btn--wa { background: #25d366; color: #052e16; }
+    .btn--wa:hover { background: #1fb858; }
+    .btn--block { width: 100%; justify-content: center; }
+    .note { font-size: 13px; color: var(--muted); margin: 14px 0 0; }
+
+    /* REGISTRATION */
+    .register { margin-top: 22px; background: linear-gradient(160deg, #4a1212, #9b1c1c); color: #fff; border-radius: 20px; padding: 26px; }
+    .register h3 { margin: 0 0 6px; font-size: 19px; letter-spacing: -.01em; }
+    .register p { margin: 0 0 16px; color: rgba(255,255,255,.8); font-size: 14.5px; }
+    .register .btn { background: #fff; color: var(--teal-deep); }
+    .register .btn:hover { background: var(--mint); }
+    .register .note { color: rgba(255,255,255,.65); }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    footer { padding: 36px 0; color: var(--muted); font-size: 13.5px; text-align: center; }
+    footer a { color: var(--teal); text-decoration: none; font-weight: 600; }
+      .hero { border-bottom: 1px solid rgba(254,226,226,.14); }
+    @media (min-width: 1600px) { .container { max-width: 1240px; } .hero h1 { font-size: 64px; } }
+    @media (min-width: 2200px) { .container { max-width: 1400px; } }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="psa.html" class="nav__brand"><img src="Sm1.svg" alt="" class="nav-logo"> GRID ACADEMY</a>
+      <a href="psa.html" class="nav__back"><i class="fas fa-arrow-left"></i> Back to course</a>
+      <span class="nav__badge">PSS®E Power System Analysis: Comprehensive Stability & Automation</span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="crumb"><a href="psa.html">Course</a> &nbsp;›&nbsp; Enrolment &amp; payment</div>
+      <h1>Secure your seat.</h1>
+      <p>Choose your plan, pay with the method that suits you, then submit your proof. Early bird pricing applies until the countdown ends.</p>
+      <div class="hero__meta">
+        <span><i class="fas fa-lock"></i>Secure payment</span>
+        <span><i class="fas fa-calendar-check"></i>8 weekly lectures · 24 hours</span>
+        <span><i class="fas fa-tag"></i><span id="heroOffer">Early bird · 5% off</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="wrap">
+
+      <!-- LEFT: plan + payment methods -->
+      <section class="panel reveal" id="left">
+        <div class="step">Step 1</div>
+        <h2>Choose your plan</h2>
+        <p class="sub">The amount updates automatically.</p>
+
+        <div class="plans" role="radiogroup" aria-label="Plan">
+          <label class="plan-opt selected" data-plan="full">
+            <span class="plan-opt__tag">Best value</span>
+            <input type="radio" name="plan" value="full" checked>
+            <div>
+              <div class="plan-opt__name">Live + Recorded</div>
+              <div class="plan-opt__desc">All live sessions + full recordings</div>
+            </div>
+            <div class="plan-opt__price"><s class="js-old-egp"></s><b class="js-now-egp">EGP —</b></div>
+          </label>
+          <label class="plan-opt" data-plan="live">
+            <input type="radio" name="plan" value="live">
+            <div>
+              <div class="plan-opt__name">Live Sessions Only</div>
+              <div class="plan-opt__desc">All live sessions, no recordings</div>
+            </div>
+            <div class="plan-opt__price"><s class="js-old-egp"></s><b class="js-now-egp">EGP —</b></div>
+          </label>
+        </div>
+
+        <div class="due" id="due">
+          <div class="due__label">Amount due</div>
+          <div class="due__row">
+            <span class="due__egp js-due-egp">EGP —</span>
+            <span class="due__old js-due-old"></span>
+          </div>
+          <div class="due__usd js-due-usd">≈ $—</div>
+          <span class="due__save js-due-save" style="display:none;"></span>
+        </div>
+
+        <div class="countdown-bar" id="countBar">
+          <span><i class="fas fa-clock"></i> Early bird ends in</span>
+          <b id="earlyCountdown">--d --h --m --s</b>
+        </div>
+
+        <div class="step" style="margin-top:28px;">Step 2</div>
+        <h2>Pay</h2>
+        <p class="sub">Tap a method to see the details.</p>
+
+        <div class="methods">
+          <div class="method open" data-method="instapay">
+            <div class="method__top">
+              <div class="method__title"><i class="fas fa-mobile-screen-button"></i> Instapay</div>
+              <button class="btn btn--light" type="button" data-toggle><i class="fas fa-chevron-down"></i> Details</button>
+            </div>
+            <div class="method__body">
+              <p style="margin-top:0;">Scan the QR code, or open Instapay with our payment address loaded. Enter the amount shown above.</p>
+              <div class="qr"><img src="instapay-qr.jpg" alt="Instapay QR code"></div>
+              <a href="https://ipn.eg/S/minanbe2/instapay/2IxLCC" target="_blank" rel="noopener" class="btn btn--block"><i class="fas fa-up-right-from-square"></i> Open Instapay</a>
+            </div>
+          </div>
+
+          <div class="method" data-method="vodafone">
+            <div class="method__top">
+              <div class="method__title"><i class="fas fa-wallet"></i> Vodafone Cash</div>
+              <button class="btn btn--light" type="button" data-toggle><i class="fas fa-chevron-down"></i> Details</button>
+            </div>
+            <div class="method__body">
+              <div class="numbox"><span>01090855647</span><button class="copy-btn" type="button" id="copyBtn">Copy</button></div>
+            </div>
+          </div>
+
+          <div class="method" data-method="card">
+            <div class="method__top">
+              <div class="method__title"><i class="fas fa-credit-card"></i> Visa / Mastercard</div>
+              <a href="psa_fin.html" target="_blank" rel="noopener" class="btn"><i class="fas fa-lock"></i> Pay by card</a>
+            </div>
+            <p>Instant, secure card payment through a licensed gateway. No app or account needed. A processing fee of about 2–3% is charged by the gateway.</p>
+          </div>
+
+          <div class="method" data-method="bank">
+            <div class="method__top">
+              <div class="method__title"><i class="fas fa-building-columns"></i> Bank transfer</div>
+              <button class="btn btn--light" type="button" data-toggle><i class="fas fa-chevron-down"></i> Details</button>
+            </div>
+            <div class="method__body">
+              <p style="margin-top:0;">Contact us on WhatsApp and we will send the bank details.</p>
+              <a href="https://wa.me/201090855647" target="_blank" rel="noopener" class="btn btn--wa btn--block"><i class="fab fa-whatsapp"></i> Message on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <p class="note">EGP prices apply to Instapay, Vodafone Cash and bank transfer. Card payments are processed in USD.</p>
+      </section>
+
+      <!-- RIGHT: registration -->
+      <aside class="reveal" id="right">
+        <div class="register">
+          <div class="step" style="color:var(--mint);">Step 3</div>
+          <h3>Complete your registration</h3>
+          <p>After paying, submit your details and proof of payment. Keep your transfer screenshot or reference number ready.</p>
+          <a href="https://forms.gle/bSkca4xnMPrDaNRc9" target="_blank" rel="noopener" class="btn btn--block"><i class="fas fa-paper-plane"></i> Submit payment proof</a>
+          <p class="note">Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.</p>
+        </div>
+
+        <div class="panel" style="margin-top:22px;">
+          <h2 style="font-size:18px;">What you get</h2>
+          <p class="sub" style="margin-bottom:10px;">Taught by Consultant Eng. Sameh Medhat.</p>
+          <div style="font-size:14.5px;display:grid;gap:10px;">
+            <div><i class="fas fa-check" style="color:var(--teal);margin-right:8px;"></i> 8 lectures, one per week</div>
+            <div><i class="fas fa-check" style="color:var(--teal);margin-right:8px;"></i> 24 hours of theory and hands-on PSS®E</div>
+            <div><i class="fas fa-check" style="color:var(--teal);margin-right:8px;"></i> Load flow, contingency, voltage stability, short-circuit</div>
+            <div><i class="fas fa-check" style="color:var(--teal);margin-right:8px;"></i> Python automation and dynamics introduction</div>
+          </div>
+          <a href="psa.html" style="display:inline-block;margin-top:18px;color:var(--teal);font-weight:700;text-decoration:none;font-size:14.5px;"><i class="fas fa-arrow-left"></i> Back to course details</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <div>© Grid Academy · <a href="psa.html">PSS®E Power System Analysis: Comprehensive Stability & Automation</a></div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       COURSE CONFIG — keep identical to psa.html. Edit here only.
+       ========================================================================= */
+    const CONFIG = {
+      earlyBirdDeadline: "2026-11-30T23:59:59+02:00", // Cairo time, format YYYY-MM-DDTHH:MM:SS+02:00
+      earlyBirdDiscount: 0.05,                       // 5% off
+      priceIncrease: 0.20,                           // 20% increase applied to the old prices below
+      plans: {
+        full: { name: "Live + Recorded", oldUSD: 199, oldEGP: 10000 },
+        live: { name: "Live Only",       oldUSD: 149, oldEGP: 7500  }
+      }
+    };
+
+    const roundTo = (n, step) => Math.round(n / step) * step;
+    function priceFor(key) {
+      const p = CONFIG.plans[key];
+      const baseUSD = roundTo(p.oldUSD * (1 + CONFIG.priceIncrease), 1);
+      const baseEGP = roundTo(p.oldEGP * (1 + CONFIG.priceIncrease), 50);
+      const earlyUSD = roundTo(baseUSD * (1 - CONFIG.earlyBirdDiscount), 1);
+      const earlyEGP = roundTo(baseEGP * (1 - CONFIG.earlyBirdDiscount), 50);
+      return { baseUSD, baseEGP, earlyUSD, earlyEGP };
+    }
+    const fmtUSD = n => "$" + n.toLocaleString("en-US");
+    const fmtEGP = n => "EGP " + n.toLocaleString("en-US");
+    const earlyOpen = () => Date.now() < new Date(CONFIG.earlyBirdDeadline).getTime();
+
+    /* ---------- plan selector: prices + amount due ---------- */
+    function renderPlans() {
+      const open = earlyOpen();
+      const selectedKey = document.querySelector('input[name="plan"]:checked').value;
+
+      document.querySelectorAll(".plan-opt").forEach(opt => {
+        const key = opt.dataset.plan;
+        const p = priceFor(key);
+        opt.classList.toggle("selected", key === selectedKey);
+        opt.querySelector(".js-now-egp").textContent = fmtEGP(open ? p.earlyEGP : p.baseEGP);
+        opt.querySelector(".js-old-egp").textContent = open ? fmtEGP(p.baseEGP) : "";
+      });
+
+      const p = priceFor(selectedKey);
+      const egp = open ? p.earlyEGP : p.baseEGP;
+      const usd = open ? p.earlyUSD : p.baseUSD;
+      document.querySelector(".js-due-egp").textContent = fmtEGP(egp);
+      document.querySelector(".js-due-usd").textContent = "≈ " + fmtUSD(usd) + " by card";
+      const oldEl = document.querySelector(".js-due-old");
+      oldEl.textContent = open ? fmtEGP(p.baseEGP) : "";
+      const save = document.querySelector(".js-due-save");
+      save.style.display = open ? "inline-block" : "none";
+      save.textContent = open ? "You save " + fmtEGP(p.baseEGP - p.earlyEGP) + " · " + Math.round(CONFIG.earlyBirdDiscount * 100) + "% early bird" : "";
+
+      document.getElementById("heroOffer").textContent = open
+        ? "Early bird · " + Math.round(CONFIG.earlyBirdDiscount * 100) + "% off"
+        : "Full price · enrolment open";
+    }
+
+    document.querySelectorAll('input[name="plan"]').forEach(r => r.addEventListener("change", renderPlans));
+
+    /* ---------- countdown ---------- */
+    const countEl = document.getElementById("earlyCountdown");
+    const countBar = document.getElementById("countBar");
+    let countTimer = null;
+    function tickCount() {
+      const ms = new Date(CONFIG.earlyBirdDeadline) - Date.now();
+      if (ms <= 0) {
+        countBar.style.display = "none";
+        clearInterval(countTimer);
+        renderPlans();
+        return;
+      }
+      const s = Math.floor(ms / 1000);
+      const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600),
+            m = Math.floor((s % 3600) / 60), sec = s % 60;
+      const pad = n => String(n).padStart(2, "0");
+      countEl.textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(sec) + "s";
+    }
+
+    renderPlans();
+    tickCount();
+    if (earlyOpen()) countTimer = setInterval(tickCount, 1000);
+    setInterval(renderPlans, 60000);
+
+    /* ---------- payment method accordions ---------- */
+    document.querySelectorAll("[data-toggle]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const card = btn.closest(".method");
+        card.classList.toggle("open");
+        btn.innerHTML = card.classList.contains("open")
+          ? '<i class="fas fa-chevron-up"></i> Hide'
+          : '<i class="fas fa-chevron-down"></i> Details';
+      });
+    });
+
+    /* ---------- copy number ---------- */
+    document.getElementById("copyBtn").addEventListener("click", function () {
+      const btn = this;
+      if (navigator.clipboard) navigator.clipboard.writeText("01090855647");
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy", 2000);
+    });
+
+    /* ---------- reveal ---------- */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .1 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
