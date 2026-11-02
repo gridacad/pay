@@ -1,341 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — PSS Card Payment (USD)</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HJX4Q5JN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M6HJX4Q5JN');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4NWHLNQS1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y4NWHLNQS1');
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="Sm1.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
   <link rel="apple-touch-icon" href="Sm1.png">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grid Academy — Power System Studies International Payment (USD)</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --color-primary: #6b21a8;
-      --color-primary-dark: #581c87;
-      --color-primary-bg: #f5eefb;
-      --color-primary-light: #a855f7;
-      --color-text: #111827;
-      --color-text-muted: #6b7280;
-      --color-border: #e5e7eb;
+      --p: #6b21a8;
+      --p-dark: #581c87;
+      --p-light: #a855f7;
+      --p-soft: #f5eefb;
+      --p-line: #e9d5ff;
+      --ink: #1e1030;
+      --muted: #6b6780;
+      --line: #e7e2ef;
+      --bg: #faf7fd;
+      --gold: #f5b942;
+      --paypal: #003087;
+      --paypal-dark: #001f5c;
+      --ease: cubic-bezier(.2,.7,.2,1);
     }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    .early-only:empty { display: none !important; }
+    body { margin: 0; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
-    .top-nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(30,16,46,0.97); backdrop-filter: blur(10px);
-      padding: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-    }
-    .nav-logo { height: 28px; width: auto; filter: brightness(0) invert(1); display: block; flex-shrink: 0; }
-    .nav-inner {
-      max-width: 860px; margin: 0 auto; padding: 0 20px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    }
-    .nav-brand {
-      font-family: Arial, sans-serif; font-size: 1.05rem; font-weight: 800; color: white;
-      text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
-    }
-    .nav-back {
-      display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.75);
-      text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
-    }
-    .nav-back:hover { color: white; }
-    .nav-left { display: flex; align-items: center; gap: 20px; }
-    .nav-course-badge {
-      background: var(--color-primary); color: white; padding: 5px 14px;
-      border-radius: 20px; font-size: 0.82rem; font-weight: 700;
-    }
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(30,16,46,.94); backdrop-filter: saturate(180%) blur(14px); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .nav__brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .08em; font-size: 14px; }
+    .nav-logo { height: 26px; width: auto; filter: brightness(0) invert(1); }
+    .nav__back { color: rgba(255,255,255,.75); text-decoration: none; font-size: 13.5px; font-weight: 500; display: inline-flex; gap: 8px; align-items: center; }
+    .nav__back:hover, .nav__brand:hover { color: #fff; }
+    .nav__badge { background: rgba(233,213,255,.12); color: #f3e8ff; border: 1px solid rgba(233,213,255,.2); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+    @media (max-width: 640px) { .nav__badge { display: none; } }
 
-    body { font-family: Arial, Helvetica, sans-serif; background: #f9fafb; color: var(--color-text); margin: 0; padding: 0; }
-    .page-body { padding: 32px 20px; }
-    .container {
-      max-width: 800px; margin: 0 auto; background: #fff;
-      border-radius: 12px; padding: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    h1, h2, h3 { color: var(--color-primary); margin-top: 0; }
-    h1 { font-size: 24px; margin-bottom: 4px; }
-    h2 { font-size: 20px; margin-bottom: 16px; }
-    h3 { font-size: 15px; margin-bottom: 10px; }
-    p { line-height: 1.5; }
-    .section { margin-bottom: 32px; }
+    /* HERO */
+    .hero { background: radial-gradient(120% 90% at 80% 0%, #7e3bc0 0%, #3b1566 55%, #1e102e 100%); color: #fff; padding: 52px 0 96px; border-bottom: 1px solid rgba(233,213,255,.14); }
+    .crumb { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 16px; }
+    .crumb a { color: rgba(255,255,255,.85); text-decoration: none; }
+    .crumb a:hover { color: #fff; }
+    .hero h1 { font-size: clamp(32px, 4.4vw, 50px); letter-spacing: -.03em; line-height: 1.06; font-weight: 800; margin: 0 0 12px; }
+    .hero p { color: rgba(255,255,255,.8); font-size: 16.5px; margin: 0; max-width: 640px; }
+    .hero__meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 22px; font-size: 14px; color: rgba(255,255,255,.85); }
+    .hero__meta i { color: #d8b4fe; margin-right: 6px; }
 
-    .pay-method {
-      margin-bottom: 16px; padding: 16px;
-      border: 1px solid var(--color-primary); border-radius: 8px; background: var(--color-primary-bg);
-    }
-    .btn {
-      display: inline-block; padding: 9px 14px; background: var(--color-primary); color: #fff;
-      text-decoration: none; border-radius: 6px; font-weight: 600;
-      transition: background-color 0.3s ease; font-size: 0.85rem; white-space: nowrap;
-    }
-    .btn:hover { background: var(--color-primary-dark); }
-    .btn-paypal { background: #003087; }
-    .btn-paypal:hover { background: #001f5c; }
-    .btn-grey { background: #1f2937; }
-    .btn-grey:hover { background: #111827; }
+    /* LAYOUT */
+    .wrap { margin-top: -56px; position: relative; z-index: 2; display: grid; gap: 22px; padding-bottom: 12px; }
+    .panel { background: #fff; border-radius: 18px; padding: 28px; border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(30,16,46,.08); }
+    .step { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--p); margin-bottom: 8px; }
+    .panel h2 { font-size: 21px; letter-spacing: -.02em; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 20px; font-size: 14.5px; }
 
-    .note { font-size: 13px; color: var(--color-text-muted); margin-top: 8px; }
-    .form-section { background: var(--color-primary-bg); padding: 20px; border-radius: 8px; margin-top: 32px; text-align: center; }
+    /* PLAN CARDS */
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 680px) { .plans { grid-template-columns: 1fr; } }
+    .plan { position: relative; border: 1px solid var(--p-line); border-radius: 16px; padding: 22px; background: linear-gradient(180deg, #fff, var(--p-soft)); display: flex; flex-direction: column; }
+    .plan--main { border-color: var(--p); box-shadow: 0 10px 26px rgba(107,33,168,.10); }
+    .plan__tag { position: absolute; top: -10px; right: 16px; background: var(--p); color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .plan h3 { margin: 0 0 6px; font-size: 16px; }
+    .plan__desc { font-size: 13.5px; color: var(--muted); margin: 0 0 14px; min-height: 38px; }
+    .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .price__now { font-size: 36px; font-weight: 800; color: var(--p); letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .price__old { font-size: 16px; color: #9ca3af; text-decoration: line-through; }
+    .price__note { font-size: 12.5px; color: var(--muted); margin-top: 6px; min-height: 18px; }
+    .plan__actions { margin-top: auto; padding-top: 18px; }
 
-    .breadcrumb {
-      max-width: 800px; margin: 0 auto 16px; padding: 14px 20px 0;
-      font-size: 0.88rem; color: var(--color-text-muted);
-    }
-    .breadcrumb a { color: var(--color-primary); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-    .breadcrumb span { margin: 0 6px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 10px; font-weight: 700; font-size: 14.5px; text-decoration: none; color: #fff; border: 0; cursor: pointer; background: var(--p); transition: background .2s, transform .2s var(--ease); }
+    .btn:hover { background: var(--p-dark); transform: translateY(-1px); }
+    .btn--paypal { background: var(--paypal); }
+    .btn--paypal:hover { background: var(--paypal-dark); }
+    .btn--wa { background: #25d366; color: #052e16; }
+    .btn--wa:hover { background: #1fb858; }
+    .btn--white { background: #fff; color: var(--p-dark); }
+    .btn--white:hover { background: var(--p-soft); }
+    .btn--block { width: 100%; }
 
-    /* course strip */
-    .course-header-strip {
-      background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
-      border-radius: 10px; padding: 16px 20px; margin-bottom: 24px;
-      color: white; display: flex; align-items: center; gap: 14px;
-    }
-    .course-header-strip i { font-size: 1.8rem; opacity: 0.9; flex-shrink: 0; }
-    .course-header-strip h2 { color: white; margin: 0; font-size: 1.05rem; }
-    .course-header-strip p { margin: 4px 0 0; font-size: 0.83rem; opacity: 0.85; }
+    .countdown { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 18px; padding: 14px 16px; border-radius: 14px; background: #fbf5ff; border: 1px solid var(--p-line); font-size: 14px; color: var(--p-dark); }
+    .countdown b { font-variant-numeric: tabular-nums; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 15px; }
 
-    .usd-banner {
-      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-      color: white; padding: 14px 18px; border-radius: 8px; margin-bottom: 28px;
-      display: flex; align-items: center; gap: 12px; font-size: 0.93rem;
-    }
-    .usd-banner i { font-size: 1.3rem; opacity: 0.9; flex-shrink: 0; }
+    .notice { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #4b5563; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+    .notice i { color: var(--p); margin-top: 2px; }
 
-    /* platform block */
-    .platform-block { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
-    .platform-block-header {
-      display: flex; align-items: center; gap: 12px;
-      padding: 14px 18px; font-weight: 700; font-size: 1rem;
-    }
-    .platform-block-header.paypal { background: #eef2ff; color: #003087; border-bottom: 1px solid #c7d4f0; }
-    .platform-block-header.grey   { background: #f3f4f6; color: #1f2937;  border-bottom: 1px solid #d1d5db; }
-    .platform-block-body { padding: 18px; }
+    /* REGISTRATION */
+    .register { background: linear-gradient(160deg, #4c1d7a, var(--p)); color: #fff; border-radius: 18px; padding: 26px; text-align: center; }
+    .register h3 { margin: 0 0 6px; font-size: 19px; }
+    .register p { margin: 0 auto 16px; max-width: 560px; color: rgba(255,255,255,.85); font-size: 14.5px; }
+    .register .note { color: rgba(255,255,255,.7); font-size: 12.5px; margin: 14px auto 0; }
 
-    .audience-section { margin-bottom: 20px; }
-    .audience-label {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
-    }
-    .audience-label.prof { background: #f5eefb; color: var(--color-primary-dark); border: 1px solid #e2c9f5; }
-    .audience-label.stud { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .whatsapp { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+    .whatsapp strong { display: block; font-size: 15px; }
+    .whatsapp span { font-size: 13.5px; color: var(--muted); }
 
-    /* single bundle price row (no per-level breakdown) */
-    .bundle-row {
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-      background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;
-      padding: 14px 18px; margin-top: 4px;
-    }
-    .bundle-row strong { font-size: 0.95rem; }
-    .bundle-row .bundle-amount {
-      font-size: 1.3rem; font-weight: 800; color: var(--color-primary); display: block; margin: 2px 0 3px;
-    }
-    .bundle-row p { margin: 0; font-size: 0.83rem; color: var(--color-text-muted); }
+    footer { padding: 36px 0; color: var(--muted); font-size: 13.5px; text-align: center; }
+    footer a { color: var(--p); text-decoration: none; font-weight: 600; }
 
-    .fee-note {
-      font-size: 0.8rem; color: var(--color-text-muted); background: #f9fafb;
-      border: 1px solid #e5e7eb; border-radius: 6px; padding: 8px 12px; margin-bottom: 16px;
-    }
-    .fee-note i { color: var(--color-primary); }
-    .divider { border: none; border-top: 1px solid #e5e7eb; margin: 20px 0; }
+    @media (max-width: 640px) { .panel { padding: 22px; } }
   </style>
 </head>
 
 <body>
 
-  <nav class="top-nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <a href="/course/index.html" class="nav-back">
-          <i class="fas fa-chevron-left"></i> All Courses
-        </a>
-        <a href="/course/index.html" class="nav-brand">
-          <img src="Sm1.svg" alt="Grid Academy Logo" class="nav-logo">
-          GRID ACADEMY
-        </a>
-      </div>
-      <span class="nav-course-badge">
-        <i class="fas fa-bolt" style="margin-right:5px;"></i> Power System Studies
-      </span>
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="/course/index.html" class="nav__brand"><img src="Sm1.svg" alt="" class="nav-logo"> GRID ACADEMY</a>
+      <a href="pss_en.html" class="nav__back"><i class="fas fa-arrow-left"></i> Back to payment</a>
+      <span class="nav__badge">Card payment · USD</span>
     </div>
   </nav>
 
-  <div class="page-body">
-
-    <div class="breadcrumb">
-      <a href="/course/index.html">All Courses</a>
-      <span>›</span>
-      <a href="/course/pss.html">Power System Studies</a>
-      <span>›</span>
-      <a href="sdpc.html">Payment</a>
-      <span>›</span>
-      International (USD)
-    </div>
-
+  <header class="hero">
     <div class="container">
-
-      <!-- HEADER -->
-      <div style="display:flex;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
-        <img src="logo.png" alt="Grid Academy Logo" style="width:60px;">
-        <div>
-          <h1>International Payment — USD</h1>
-          <p style="margin:4px 0 0;color:var(--color-text-muted);font-size:0.9rem;">Power System Studies (PSS) Course</p>
-        </div>
+      <div class="crumb"><a href="/course/index.html">All Courses</a> &nbsp;›&nbsp; <a href="/course/pss.html">Power System Studies</a> &nbsp;›&nbsp; <a href="pss_en.html">Payment</a> &nbsp;›&nbsp; Card (USD)</div>
+      <h1>Pay by card, in USD.</h1>
+      <p>Choose your plan and pay through PayPal or Grey. The full amount is pre-set for you.</p>
+      <div class="hero__meta">
+        <span><i class="fas fa-globe"></i>Paying from outside Egypt, or by card</span>
+        <span><i class="fas fa-tag"></i><span id="heroOffer">Early bird pricing</span></span>
       </div>
-
-      <!-- COURSE STRIP -->
-      <div class="course-header-strip">
-        <i class="fas fa-bolt"></i>
-        <div>
-          <h2>Power System Studies</h2>
-          <p>6 Sessions &nbsp;·&nbsp; Live Online &nbsp;·&nbsp; Starting 15 August 2026</p>
-        </div>
-      </div>
-
-      <div style="margin-bottom:20px;">
-        <a href="sdpc.html" style="color:var(--color-primary);text-decoration:none;font-size:0.92rem;font-weight:600;">
-          <i class="fas fa-arrow-left" style="margin-right:5px;"></i> Back to Payment Options
-        </a>
-      </div>
-
-      <div class="usd-banner">
-        <i class="fas fa-globe"></i>
-        <div>
-          <strong>Paying from outside Egypt?</strong><br>
-          <span style="font-size:0.88rem;opacity:0.92;">
-            All prices are in <strong>USD</strong>. Choose your platform below and click Pay — the full-program amount is pre-set.
-          </span>
-        </div>
-      </div>
-
-      <!-- ═══════════════════════════ PAYPAL ═══════════════════════════ -->
-      <div class="section">
-        <h2><i class="fab fa-paypal" style="margin-right:8px;color:#003087;"></i>Pay via PayPal</h2>
-        <div class="fee-note">
-          <i class="fas fa-info-circle" style="margin-right:5px;"></i>
-          PayPal applies a standard international fee (typically 3–5%). The amounts shown factor this in — contact us if unsure.
-        </div>
-
-        <div class="platform-block">
-          <div class="platform-block-header paypal">
-            <i class="fab fa-paypal"></i> PayPal — Payment Links
-          </div>
-          <div class="platform-block-body">
-
-            <!-- PAYPAL · PROFESSIONALS -->
-            <div class="audience-section">
-              <span class="audience-label prof"><i class="fas fa-briefcase"></i> For Professionals</span>
-              <div class="bundle-row">
-                <div>
-                  <strong>Full Program — All Levels</strong>
-                  <span class="bundle-amount">$120</span>
-                  <p>One-time payment · Covers the complete course</p>
-                </div>
-                <!-- ████ PLACEHOLDER · PayPal · Prof · Full Program ████ -->
-                <a href="https://paypal.me/GRIDACAD/120" class="btn btn-paypal" target="_blank" rel="noopener">Pay via PayPal</a>
-              </div>
-            </div>
-
-            <hr class="divider">
-
-            <!-- PAYPAL · STUDENTS -->
-            <div class="audience-section">
-              <span class="audience-label stud"><i class="fas fa-graduation-cap"></i> For Full-time Students</span>
-              <div class="bundle-row">
-                <div>
-                  <strong>Full Program — All Levels</strong>
-                  <span class="bundle-amount">$80</span>
-                  <p>One-time payment · Valid Faculty ID required</p>
-                </div>
-                <!-- ████ PLACEHOLDER · PayPal · Stud · Full Program ████ -->
-                <a href="https://paypal.me/GRIDACAD/80" class="btn btn-paypal" target="_blank" rel="noopener">Pay via PayPal</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- /PayPal section -->
-
-      <!-- ═══════════════════════════ GREY ═══════════════════════════ -->
-      <div class="section">
-        <h2><i class="fas fa-exchange-alt" style="margin-right:8px;color:#1f2937;"></i>Pay via Grey</h2>
-        <div class="fee-note">
-          <i class="fas fa-info-circle" style="margin-right:5px;"></i>
-          Grey is a USD-account platform popular in Egypt &amp; Africa. Transfer fees vary by account type — confirm the final amount in the Grey app before sending.
-        </div>
-
-        <div class="platform-block">
-          <div class="platform-block-header grey">
-            <i class="fas fa-exchange-alt"></i> Grey — Payment Links
-          </div>
-          <div class="platform-block-body">
-
-            <!-- GREY · PROFESSIONALS -->
-            <div class="audience-section">
-              <span class="audience-label prof"><i class="fas fa-briefcase"></i> For Professionals</span>
-              <div class="bundle-row">
-                <div>
-                  <strong>Full Program — All Levels</strong>
-                  <span class="bundle-amount">$120</span>
-                  <p>One-time payment · Covers the complete course</p>
-                </div>
-                <!-- ████ PLACEHOLDER · Grey · Prof · Full Program ████ -->
-                <a href="GREY_LINK_PROF_FULL" class="btn btn-grey" target="_blank" rel="noopener">Pay via Grey</a>
-              </div>
-            </div>
-
-            <hr class="divider">
-
-            <!-- GREY · STUDENTS -->
-            <div class="audience-section">
-              <span class="audience-label stud"><i class="fas fa-graduation-cap"></i> For Full-time Students</span>
-              <div class="bundle-row">
-                <div>
-                  <strong>Full Program — All Levels</strong>
-                  <span class="bundle-amount">$80</span>
-                  <p>One-time payment · Valid Faculty ID required</p>
-                </div>
-                <!-- ████ PLACEHOLDER · Grey · Stud · Full Program ████ -->
-                <a href="GREY_LINK_STUD_FULL" class="btn btn-grey" target="_blank" rel="noopener">Pay via Grey</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- /Grey section -->
-
-      <!-- NEED HELP -->
-      <div class="pay-method" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-        <div>
-          <strong>Not sure which option to use?</strong><br>
-          <span style="font-size:0.88rem;">Message us on WhatsApp — we'll send you a direct payment link.</span>
-        </div>
-        <a href="https://wa.me/201090855647?text=International+PSS+course+payment" class="btn" target="_blank" rel="noopener">
-          <i class="fab fa-whatsapp" style="margin-right:5px;"></i> WhatsApp Us
-        </a>
-      </div>
-
-      <!-- REGISTRATION FORM -->
-      <div class="form-section">
-        <h3>Reserve Your Seat</h3>
-        <p>After payment, submit your details and payment screenshot using the form below:</p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
-          <a href="https://forms.gle/AZ5d8w1Aky7kqrGt6" class="btn" style="font-size:16px;padding:14px 24px;">
-            <i class="fas fa-briefcase" style="margin-right:6px;"></i> For Professionals
-          </a>
-          <a href="https://forms.gle/6AAiKed1huC28YZK8" class="btn" style="font-size:16px;padding:14px 24px;">
-            <i class="fas fa-graduation-cap" style="margin-right:6px;"></i> For Undergrads
-          </a>
-        </div>
-        <p class="note" style="margin-top:16px;">
-          Please include: Transfer screenshot/reference number, your ID, and any required attachments as mentioned in your email.
-        </p>
-      </div>
-
     </div>
-  </div>
+  </header>
 
+  <main class="container wrap">
+
+    <!-- STEP 1 -->
+    <section class="panel">
+      <div class="step">Step 1</div>
+      <h2>Choose your plan &amp; pay</h2>
+      <p class="sub">Amounts update automatically. Click PayPal to pay the amount shown.</p>
+
+      <div class="plans">
+        <div class="plan plan--main" data-plan="full">
+          <span class="plan__tag">Best value</span>
+          <h3>Live + Recorded</h3>
+          <p class="plan__desc">All live sessions plus full recordings to revisit anytime.</p>
+          <div class="price">
+            <span class="price__old js-old"></span>
+            <span class="price__now js-now">$—</span>
+          </div>
+          <div class="price__note js-note"></div>
+          <div class="plan__actions">
+            <a class="btn btn--paypal js-paypal" target="_blank" rel="noopener"><i class="fab fa-paypal"></i> Pay via PayPal</a>
+          </div>
+        </div>
+
+        <div class="plan" data-plan="live">
+          <h3>Live Sessions Only</h3>
+          <p class="plan__desc">All live sessions, no recorded access.</p>
+          <div class="price">
+            <span class="price__old js-old"></span>
+            <span class="price__now js-now">$—</span>
+          </div>
+          <div class="price__note js-note"></div>
+          <div class="plan__actions">
+            <a class="btn btn--paypal js-paypal" target="_blank" rel="noopener"><i class="fab fa-paypal"></i> Pay via PayPal</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="countdown early-only" id="countBar">
+        <span><i class="fas fa-clock"></i> Early bird ends in</span>
+        <b id="earlyCountdown">--d --h --m --s</b>
+      </div>
+
+      <div class="notice">
+        <i class="fas fa-info-circle"></i>
+        <span>PayPal may add an international transfer fee. Confirm the final amount on the platform before you send.</span>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="register">
+      <div class="step" style="color:#f3e8ff;">Step 2</div>
+      <h3>Reserve your seat</h3>
+      <p>After payment, submit your details and payment screenshot.</p>
+      <a href="https://forms.gle/bSkca4xnMPrDaNRc9" target="_blank" rel="noopener" class="btn btn--white"><i class="fas fa-paper-plane"></i> Submit payment proof</a>
+      <p class="note">Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.</p>
+    </section>
+
+    <div class="whatsapp">
+      <div>
+        <strong>Prefer Grey, or not sure which option to use?</strong>
+        <span>Message us on WhatsApp and we will send you a direct payment link.</span>
+      </div>
+      <a href="https://wa.me/201090855647?text=PSS+English+course+card+payment" target="_blank" rel="noopener" class="btn btn--wa"><i class="fab fa-whatsapp"></i> WhatsApp us</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div>© Grid Academy · <a href="/course/pss.html">Power System Studies</a></div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       COURSE CONFIG — CARD PAYMENT PAGE (USD). Edit here only.
+       -------------------------------------------------------------------------
+       earlyBirdDeadline: Cairo time, format "YYYY-MM-DDTHH:MM:SS+02:00".
+         - Future date  → early-bird prices, slashed prices and countdown show.
+         - null         → early bird OFF: slashed prices, badges and countdown
+                          disappear and only the normal prices show.
+         - Date passed  → automatically reverts to normal prices.
+       Keep these prices in line with pss_en.html.
+       ========================================================================= */
+    const CONFIG = {
+      earlyBirdDeadline: "2026-11-30T23:59:59+02:00",
+      plans: {
+        full: { normalUSD: 160, earlyUSD: 150 },
+        live: { normalUSD: 120, earlyUSD: 112 }
+      }
+    };
+
+    const $  = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    const earlyOn = () => !!CONFIG.earlyBirdDeadline && Date.now() < new Date(CONFIG.earlyBirdDeadline).getTime();
+    const usd = n => "$" + n.toLocaleString("en-US");
+    const pad = n => String(n).padStart(2, "0");
+
+    function render() {
+      const on = earlyOn();
+      $$(".plan[data-plan]").forEach(card => {
+        const p = CONFIG.plans[card.dataset.plan];
+        const amount = on ? p.earlyUSD : p.normalUSD;
+        $(".js-now", card).textContent = usd(amount);
+        $(".js-old", card).textContent = on ? usd(p.normalUSD) : "";
+        $(".js-note", card).textContent = on ? "Early bird · save " + usd(p.normalUSD - p.earlyUSD) : "Full price";
+        $(".js-paypal", card).href = "https://paypal.me/GRIDACAD/" + amount;
+      });
+      $("#heroOffer").textContent = on ? "Early bird pricing is open" : "Enrolment open at full price";
+      $$(".early-only").forEach(el => el.hidden = !on);
+    }
+
+    function tickCountdown() {
+      if (!earlyOn()) return;
+      const ms = new Date(CONFIG.earlyBirdDeadline).getTime() - Date.now();
+      const s = Math.floor(ms / 1000);
+      const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600),
+            m = Math.floor((s % 3600) / 60), sec = s % 60;
+      $("#earlyCountdown").textContent = d + "d " + pad(h) + "h " + pad(m) + "m " + pad(sec) + "s";
+    }
+
+    function refresh() { render(); tickCountdown(); }
+    refresh();
+    setInterval(refresh, 1000);
+  </script>
 </body>
 </html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HJX4Q5JN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M6HJX4Q5JN');
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4NWHLNQS1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y4NWHLNQS1');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Academy — PSS Payment &amp; Enrolment (Arabic Course)</title>
+
+  <link rel="icon" type="image/svg+xml" href="Sm1.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="Sm1.png">
+  <link rel="apple-touch-icon" href="Sm1.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --p: #6b21a8;
+      --p-dark: #581c87;
+      --p-light: #a855f7;
+      --p-soft: #f5eefb;
+      --p-line: #e9d5ff;
+      --ink: #1e1030;
+      --muted: #6b6780;
+      --line: #e7e2ef;
+      --bg: #faf7fd;
+      --gold: #f5b942;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    .early-only:empty { display: none !important; }
+    body { margin: 0; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 200; background: rgba(30,16,46,.94); backdrop-filter: saturate(180%) blur(14px); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .nav__brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .08em; font-size: 14px; }
+    .nav-logo { height: 26px; width: auto; filter: brightness(0) invert(1); }
+    .nav__back { color: rgba(255,255,255,.75); text-decoration: none; font-size: 13.5px; font-weight: 500; display: inline-flex; gap: 8px; align-items: center; }
+    .nav__back:hover, .nav__brand:hover { color: #fff; }
+    .nav__badge { background: rgba(233,213,255,.12); color: #f3e8ff; border: 1px solid rgba(233,213,255,.2); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+    .nav__lang { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .nav__lang:hover { background: rgba(255,255,255,.2); }
+    @media (max-width: 640px) { .nav__badge { display: none; } }
+
+    /* HERO */
+    .hero { background: radial-gradient(120% 90% at 80% 0%, #7e3bc0 0%, #3b1566 55%, #1e102e 100%); color: #fff; padding: 52px 0 96px; border-bottom: 1px solid rgba(233,213,255,.14); }
+    .crumb { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 16px; }
+    .crumb a { color: rgba(255,255,255,.85); text-decoration: none; }
+    .crumb a:hover { color: #fff; }
+    .hero h1 { font-size: clamp(32px, 4.4vw, 50px); letter-spacing: -.03em; line-height: 1.06; font-weight: 800; margin: 0 0 12px; }
+    .hero p { color: rgba(255,255,255,.8); font-size: 16.5px; margin: 0; max-width: 640px; }
+    .hero__meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 22px; font-size: 14px; color: rgba(255,255,255,.85); }
+    .hero__meta i { color: #d8b4fe; margin-right: 6px; }
+
+    /* LAYOUT */
+    .wrap { margin-top: -56px; position: relative; z-index: 2; display: grid; gap: 22px; padding-bottom: 12px; }
+    .panel { background: #fff; border-radius: 18px; padding: 28px; border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(30,16,46,.08); }
+    .step { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--p); margin-bottom: 8px; }
+    .panel h2 { font-size: 21px; letter-spacing: -.02em; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin: 0 0 20px; font-size: 14.5px; }
+
+    /* PLAN SELECTOR */
+    .plans { display: grid; gap: 10px; }
+    .plan-opt { position: relative; display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1.5px solid var(--line); border-radius: 16px; cursor: pointer; transition: border-color .25s, background .25s, transform .25s var(--ease), box-shadow .25s; }
+    .plan-opt:hover { transform: translateY(-1px); border-color: var(--p-light); }
+    .plan-opt input { accent-color: var(--p); width: 18px; height: 18px; margin: 0; flex-shrink: 0; }
+    .plan-opt.selected { border-color: var(--p); background: linear-gradient(135deg, #fff, var(--p-soft)); box-shadow: 0 10px 26px rgba(107,33,168,.14); }
+    .plan-opt__name { font-weight: 700; font-size: 16px; }
+    .plan-opt__desc { font-size: 13px; color: var(--muted); }
+    .plan-opt__price { margin-left: auto; text-align: right; font-variant-numeric: tabular-nums; }
+    .plan-opt__price b { display: block; font-size: 17px; font-weight: 800; color: var(--p-dark); }
+    .plan-opt__price s { font-size: 13px; color: #9ca3af; }
+    .plan-opt__tag { position: absolute; top: -9px; right: 14px; background: var(--gold); color: #3b2a00; font-size: 10.5px; font-weight: 800; padding: 3px 9px; border-radius: 999px; letter-spacing: .05em; text-transform: uppercase; }
+
+    /* AMOUNT DUE */
+    .due { margin: 22px 0 6px; background: linear-gradient(160deg, #4c1d7a, var(--p)); color: #fff; border-radius: 20px; padding: 24px; }
+    .due__label { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: #f3e8ff; font-weight: 700; }
+    .due__row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+    .due__amt { font-size: 40px; font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+    .due__old { font-size: 17px; color: rgba(255,255,255,.55); text-decoration: line-through; }
+    .due__save { display: inline-block; margin-top: 12px; background: rgba(245,185,66,.2); color: #fde68a; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+
+    .countdown { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 16px; padding: 14px 16px; border-radius: 14px; background: #fbf5ff; border: 1px solid var(--p-line); font-size: 14px; color: var(--p-dark); }
+    .countdown b { font-variant-numeric: tabular-nums; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 15px; }
+
+    .notice { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #4b5563; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+    .notice i { color: var(--p); margin-top: 2px; }
+
+    /* PAYMENT METHODS */
+    .hint { text-align: center; color: var(--muted); font-size: 14px; padding: 14px; background: var(--bg); border-radius: 12px; margin-bottom: 12px; }
+    .methods { display: grid; gap: 12px; }
+    .method { border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: border-color .25s, box-shadow .25s; }
+    .method:hover { border-color: var(--p-light); }
+    .method.open { border-color: var(--p); box-shadow: 0 10px 26px rgba(107,33,168,.10); }
+    .method__head { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; background: none; border: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+    .method__title { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 16px; }
+    .method__icon { width: 36px; height: 36px; border-radius: 10px; background: var(--p-soft); color: var(--p); display: grid; place-items: center; flex-shrink: 0; }
+    .method__chev { color: var(--muted); transition: transform .25s; }
+    .method.open .method__chev { transform: rotate(180deg); }
+    .method__body { display: none; padding: 0 20px 20px; }
+    .method.open .method__body { display: block; animation: fade .35s var(--ease); }
+    @keyframes fade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    .method__body p { margin: 0 0 12px; color: #4b5563; font-size: 14.5px; }
+    .steps { margin: 0 0 14px; padding-left: 22px; color: #374151; font-size: 14.5px; }
+    .steps li { margin-bottom: 8px; }
+    .amount-chip { display: inline-block; background: var(--p-soft); color: var(--p-dark); font-weight: 800; padding: 3px 10px; border-radius: 8px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .qr { text-align: center; margin: 4px 0 14px; }
+    .qr img { max-width: 180px; border-radius: 14px; border: 1px solid var(--line); }
+    .numbox { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--bg); border-radius: 12px; padding: 12px 14px; font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; margin-bottom: 14px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 700; font-size: 14.5px; text-decoration: none; background: var(--p); color: #fff; border: 0; cursor: pointer; transition: background .2s, transform .2s var(--ease); }
+    .btn:hover { background: var(--p-dark); transform: translateY(-1px); }
+    .btn--block { width: 100%; }
+    .btn--light { background: var(--p-soft); color: var(--p-dark); }
+    .btn--light:hover { background: var(--p-line); }
+    .btn--wa { background: #25d366; color: #052e16; }
+    .btn--wa:hover { background: #1fb858; }
+    .btn--white { background: #fff; color: var(--p-dark); }
+    .btn--white:hover { background: var(--p-soft); }
+    .note { font-size: 13px; color: var(--muted); margin: 14px 0 0; }
+
+    /* REGISTRATION */
+    .register { background: linear-gradient(160deg, #4c1d7a, var(--p)); color: #fff; border-radius: 18px; padding: 26px; text-align: center; }
+    .register h3 { margin: 0 0 6px; font-size: 19px; }
+    .register p { margin: 0 auto 16px; max-width: 560px; color: rgba(255,255,255,.85); font-size: 14.5px; }
+    .register .note { color: rgba(255,255,255,.7); margin: 14px auto 0; }
+
+    .whatsapp { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+    .whatsapp strong { display: block; font-size: 15px; }
+    .whatsapp span { font-size: 13.5px; color: var(--muted); }
+
+    footer { padding: 36px 0; color: var(--muted); font-size: 13.5px; text-align: center; }
+    footer a { color: var(--p); text-decoration: none; font-weight: 600; }
+
+    @media (max-width: 640px) { .panel { padding: 22px; } .due__amt { font-size: 32px; } }
+
+    /* ---- Arabic / RTL ---- */
+    html[dir="rtl"] body { font-family: "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif; }
+    html[dir="rtl"] .fa-arrow-left { transform: scaleX(-1); display: inline-block; }
+    html[dir="rtl"] .nav__brand { direction: ltr; }
+    html[dir="rtl"] .plan-opt__price { margin-left: 0; margin-right: auto; text-align: left; }
+    html[dir="rtl"] .plan-opt__tag { right: auto; left: 14px; }
+    html[dir="rtl"] .steps { padding-left: 0; padding-right: 22px; }
+    html[dir="rtl"] .amount-chip, html[dir="rtl"] .numbox, html[dir="rtl"] .due__amt { direction: ltr; }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="/course/index.html" class="nav__brand"><img src="Sm1.svg" alt="" class="nav-logo"> GRID ACADEMY</a>
+      <a href="/course/pss.html" class="nav__back"><i class="fas fa-arrow-left"></i> <span data-i18n>Back to course</span></a>
+      <span class="nav__badge" data-i18n>Power System Studies · Arabic Course</span>
+      <button class="nav__lang" id="langToggle" type="button" aria-label="Switch language" title="Switch language"><span class="lang-current">عربي</span><i class="fas fa-globe"></i></button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="crumb"><a href="/course/index.html" data-i18n>All Courses</a> &nbsp;›&nbsp; <a href="/course/pss.html" data-i18n>Power System Studies</a> &nbsp;›&nbsp; <span data-i18n>Enrolment &amp; payment</span></div>
+      <h1 data-i18n>Secure your seat.</h1>
+      <p data-i18n>Choose your plan, pick the payment method that suits you, then submit your proof of payment.</p>
+      <div class="hero__meta">
+        <span><i class="fas fa-lock"></i><span data-i18n>Secure payment</span></span>
+        <span><i class="fas fa-tag"></i><span id="heroOffer">Early bird pricing</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container wrap">
+
+    <!-- STEP 1 -->
+    <section class="panel">
+      <div class="step" data-i18n>Step 1</div>
+      <h2 data-i18n>Choose your plan</h2>
+      <p class="sub" data-i18n>The amount updates automatically.</p>
+
+      <div class="plans" role="radiogroup" aria-label="Plan">
+        <label class="plan-opt selected" data-plan="proFull">
+          <span class="plan-opt__tag early-only" data-i18n>Best value</span>
+          <input type="radio" name="plan" value="proFull" checked>
+          <div>
+            <div class="plan-opt__name" data-i18n>Professionals · Full program</div>
+            <div class="plan-opt__desc" data-i18n>One payment covers the whole course.</div>
+          </div>
+          <div class="plan-opt__price"><s class="js-old"></s><b class="js-now">EGP —</b></div>
+        </label>
+
+        <label class="plan-opt" data-plan="proWeekly">
+          <input type="radio" name="plan" value="proWeekly">
+          <div>
+            <div class="plan-opt__name" data-i18n>Professionals · Weekly</div>
+            <div class="plan-opt__desc" data-i18n>Pay weekly as the course progresses.</div>
+          </div>
+          <div class="plan-opt__price"><s class="js-old"></s><b class="js-now">EGP —</b></div>
+        </label>
+
+        <label class="plan-opt" data-plan="stuFull">
+          <input type="radio" name="plan" value="stuFull">
+          <div>
+            <div class="plan-opt__name" data-i18n>Students · Full program</div>
+            <div class="plan-opt__desc" data-i18n>Valid Faculty ID required at payment.</div>
+          </div>
+          <div class="plan-opt__price"><s class="js-old"></s><b class="js-now">EGP —</b></div>
+        </label>
+
+        <label class="plan-opt" data-plan="stuWeekly">
+          <input type="radio" name="plan" value="stuWeekly">
+          <div>
+            <div class="plan-opt__name" data-i18n>Students · Weekly</div>
+            <div class="plan-opt__desc" data-i18n>Valid Faculty ID required. Pay weekly.</div>
+          </div>
+          <div class="plan-opt__price"><s class="js-old"></s><b class="js-now">EGP —</b></div>
+        </label>
+      </div>
+
+      <div class="due">
+        <div class="due__label" data-i18n>Amount due</div>
+        <div class="due__row">
+          <span class="due__amt js-due-amt">EGP —</span>
+          <span class="due__old early-only js-due-old"></span>
+        </div>
+        <span class="due__save early-only js-due-save"></span>
+      </div>
+
+      <div class="countdown early-only" id="countBar">
+        <span><i class="fas fa-clock"></i> <span data-i18n>Early bird ends in</span></span>
+        <b id="earlyCountdown">--d --h --m --s</b>
+      </div>
+
+      <div class="notice">
+        <i class="fas fa-info-circle"></i>
+        <span data-i18n>All payments are in Egyptian pounds (EGP).</span>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="panel">
+      <div class="step" data-i18n>Step 2</div>
+      <h2 data-i18n>Pay</h2>
+      <p class="sub" data-i18n>Tap a method to see the steps.</p>
+
+      <div class="hint" id="pickHint" data-i18n>Select a payment method below to see the steps.</div>
+
+      <div class="methods">
+
+        <!-- Instapay -->
+        <div class="method" data-method="instapay">
+          <button class="method__head" type="button" aria-expanded="false">
+            <span class="method__title"><span class="method__icon"><i class="fas fa-mobile-screen-button"></i></span> <span data-i18n>Instapay (EGP)</span></span>
+            <i class="fas fa-chevron-down method__chev"></i>
+          </button>
+          <div class="method__body">
+            <p data-i18n>Pay the amount in EGP through Instapay:</p>
+            <ol class="steps">
+              <li><span data-i18n>Scan the QR code below, or tap Open Instapay to load our payment address.</span></li>
+              <li><span data-i18n>Enter the amount</span>: <span class="amount-chip js-egp2">EGP —</span></li>
+              <li><span data-i18n>Tap Send and complete the payment.</span></li>
+              <li><span data-i18n>Take a screenshot of the confirmation and share it in Step 3.</span></li>
+            </ol>
+            <div class="qr"><img src="instapay-qr.jpg" alt="Instapay QR code"></div>
+            <a href="https://ipn.eg/S/minanbe2/instapay/2IxLCC" target="_blank" rel="noopener" class="btn btn--block"><i class="fas fa-up-right-from-square"></i> <span data-i18n>Open Instapay</span></a>
+          </div>
+        </div>
+
+        <!-- Vodafone Cash -->
+        <div class="method" data-method="vodafone">
+          <button class="method__head" type="button" aria-expanded="false">
+            <span class="method__title"><span class="method__icon"><i class="fas fa-wallet"></i></span> <span data-i18n>Vodafone Cash (EGP)</span></span>
+            <i class="fas fa-chevron-down method__chev"></i>
+          </button>
+          <div class="method__body">
+            <ol class="steps">
+              <li><span data-i18n>Send to this Vodafone Cash number:</span></li>
+            </ol>
+            <div class="numbox"><span>01090855647</span><button class="btn btn--light" type="button" id="copyBtn" data-i18n>Copy</button></div>
+            <ol class="steps" start="2">
+              <li><span data-i18n>Enter the amount</span>: <span class="amount-chip js-egp2">EGP —</span></li>
+              <li><span data-i18n>Send, then take a screenshot of the confirmation and share it in Step 3.</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Bank transfer -->
+        <div class="method" data-method="bank">
+          <button class="method__head" type="button" aria-expanded="false">
+            <span class="method__title"><span class="method__icon"><i class="fas fa-building-columns"></i></span> <span data-i18n>Bank transfer</span></span>
+            <i class="fas fa-chevron-down method__chev"></i>
+          </button>
+          <div class="method__body">
+            <p data-i18n>Message us on WhatsApp and we will send you the bank details.</p>
+            <a href="https://wa.me/201090855647?text=PSS+Arabic+course+bank+transfer" target="_blank" rel="noopener" class="btn btn--wa btn--block"><i class="fab fa-whatsapp"></i> <span data-i18n>Message on WhatsApp</span></a>
+          </div>
+        </div>
+
+      </div>
+      <p class="note" data-i18n>Students: present your valid Faculty ID at the time of payment to receive the student rate.</p>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="register">
+      <div class="step" style="color:#f3e8ff;" data-i18n>Step 3</div>
+      <h3 data-i18n>Complete your registration</h3>
+      <p data-i18n>After paying, submit your details and proof of payment. Keep your transfer screenshot or reference number ready.</p>
+      <a href="https://forms.gle/Qe4TR5rzFCtd8TfN9" target="_blank" rel="noopener" class="btn btn--white"><i class="fas fa-paper-plane"></i> <span data-i18n>Submit payment proof</span></a>
+      <p class="note" data-i18n>Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.</p>
+    </section>
+
+    <div class="whatsapp">
+      <div>
+        <strong data-i18n>Not sure which option to use?</strong>
+        <span data-i18n>Message us on WhatsApp and we will send you a direct payment link.</span>
+      </div>
+      <a href="https://wa.me/201090855647?text=PSS+Arabic+course+payment" target="_blank" rel="noopener" class="btn btn--wa"><i class="fab fa-whatsapp"></i> <span data-i18n>WhatsApp us</span></a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div>© Grid Academy · <a href="/course/pss.html" data-i18n>Power System Studies</a></div>
+  </footer>
+
+  <script>
+    /* =========================================================================
+       COURSE CONFIG — ARABIC PSS PAGE (EGP). Edit here only.
+       -------------------------------------------------------------------------
+       earlyBirdDeadline: Cairo time, format "YYYY-MM-DDTHH:MM:SS+02:00".
+         - Future date  → early-bird prices, slashed prices and countdown show.
+         - null         → early bird OFF: slashed prices, badges and countdown
+                          disappear and only the normal prices show.
+         - Date passed  → automatically reverts to normal prices.
+       early: null means that plan has no early-bird price (weekly plans).
+       ========================================================================= */
+    const CONFIG = {
+      earlyBirdDeadline: "2026-11-30T23:59:59+02:00",
+      plans: {
+        proFull:   { normal: 5000, early: 4700, unit: null },
+        proWeekly: { normal: 650,  early: null, unit: "week" },
+        stuFull:   { normal: 3000, early: 2800, unit: null },
+        stuWeekly: { normal: 400,  early: null, unit: "week" }
+      }
+    };
+
+    /* ---------- Arabic translations (English text is the key) ---------- */
+    const AR = {
+      "Back to course": "العودة إلى الدورة",
+      "Power System Studies · Arabic Course": "دراسات أنظمة القدرة · الدورة العربية",
+      "All Courses": "جميع الدورات",
+      "Power System Studies": "دراسات أنظمة القدرة",
+      "Enrolment & payment": "التسجيل والدفع",
+      "Secure your seat.": "احجز مقعدك.",
+      "Choose your plan, pick the payment method that suits you, then submit your proof of payment.": "اختر خطتك، ثم اختر طريقة الدفع المناسبة لك، ثم أرسل إثبات الدفع.",
+      "Secure payment": "دفع آمن",
+      "Early bird pricing": "أسعار العرض المبكر",
+      "Enrolment open at full price": "التسجيل مفتوح بالسعر الكامل",
+      "Early bird pricing is open": "أسعار العرض المبكر متاحة",
+      "Step 1": "الخطوة 1",
+      "Choose your plan": "اختر خطتك",
+      "The amount updates automatically.": "يتم تحديث المبلغ تلقائياً.",
+      "Best value": "أفضل قيمة",
+      "Professionals · Full program": "المهنيون · البرنامج الكامل",
+      "One payment covers the whole course.": "دفعة واحدة تغطي الدورة كاملة.",
+      "Professionals · Weekly": "المهنيون · أسبوعي",
+      "Pay weekly as the course progresses.": "ادفع أسبوعياً مع تقدم الدورة.",
+      "Students · Full program": "الطلاب · البرنامج الكامل",
+      "Valid Faculty ID required at payment.": "يلزم بطاقة كلية سارية عند الدفع.",
+      "Students · Weekly": "الطلاب · أسبوعي",
+      "Valid Faculty ID required. Pay weekly.": "يلزم بطاقة كلية سارية. ادفع أسبوعياً.",
+      "Amount due": "المبلغ المستحق",
+      "Early bird ends in": "ينتهي العرض المبكر خلال",
+      "All payments are in Egyptian pounds (EGP).": "جميع المدفوعات بالجنيه المصري (EGP).",
+      "Step 2": "الخطوة 2",
+      "Pay": "ادفع",
+      "Tap a method to see the steps.": "اضغط على طريقة لعرض الخطوات.",
+      "Select a payment method below to see the steps.": "اختر طريقة دفع من الأسفل لعرض الخطوات.",
+      "Instapay (EGP)": "إنستاباي (جنيه)",
+      "Pay the amount in EGP through Instapay:": "ادفع المبلغ بالجنيه المصري عبر إنستاباي:",
+      "Scan the QR code below, or tap Open Instapay to load our payment address.": "امسح رمز QR أدناه، أو اضغط فتح إنستاباي لتحميل عنوان الدفع الخاص بنا.",
+      "Enter the amount": "أدخل المبلغ",
+      "Tap Send and complete the payment.": "اضغط إرسال وأكمل عملية الدفع.",
+      "Take a screenshot of the confirmation and share it in Step 3.": "التقط لقطة شاشة للتأكيد وأرسلها في الخطوة 3.",
+      "Open Instapay": "فتح إنستاباي",
+      "Vodafone Cash (EGP)": "فودافون كاش (جنيه)",
+      "Send to this Vodafone Cash number:": "أرسل إلى رقم فودافون كاش التالي:",
+      "Copy": "نسخ",
+      "Copied!": "تم النسخ!",
+      "Send, then take a screenshot of the confirmation and share it in Step 3.": "أرسل ثم التقط لقطة شاشة للتأكيد وأرسلها في الخطوة 3.",
+      "Bank transfer": "تحويل بنكي",
+      "Message us on WhatsApp and we will send you the bank details.": "راسلنا على واتساب وسنرسل لك بيانات الحساب البنكي.",
+      "Message on WhatsApp": "راسلنا على واتساب",
+      "Students: present your valid Faculty ID at the time of payment to receive the student rate.": "الطلاب: أحضر بطاقة الكلية السارية وقت الدفع للحصول على سعر الطلاب.",
+      "Step 3": "الخطوة 3",
+      "Complete your registration": "أكمل تسجيلك",
+      "After paying, submit your details and proof of payment. Keep your transfer screenshot or reference number ready.": "بعد الدفع، أرسل بياناتك وإثبات الدفع. جهّز لقطة شاشة التحويل أو رقم المرجع.",
+      "Submit payment proof": "أرسل إثبات الدفع",
+      "Include your transfer screenshot or reference number, your ID, and any attachments mentioned in your email.": "أرفق لقطة شاشة التحويل أو رقم المرجع، وصورة الهوية، وأي مرفقات مذكورة في بريدك الإلكتروني.",
+      "Not sure which option to use?": "لست متأكداً من الخيار المناسب؟",
+      "Message us on WhatsApp and we will send you a direct payment link.": "راسلنا على واتساب وسنرسل لك رابط دفع مباشر.",
+      "WhatsApp us": "راسلنا على واتساب",
+      "You save": "توفر",
+      "early bird": "عرض مبكر",
+      "week": "أسبوع"
+    };
+
+    let lang = "en";
+    try { lang = localStorage.getItem("gaLang") || "en"; } catch (e) {}
+
+    const $  = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    const T  = k => (lang === "ar" && AR[k]) || k;
+    const earlyOn = () => !!CONFIG.earlyBirdDeadline && Date.now() < new Date(CONFIG.earlyBirdDeadline).getTime();
+    const egp = n => {
+      const num = n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return lang === "ar" ? num + " ج.م" : "EGP " + num;
+    };
+    const pad = n => String(n).padStart(2, "0");
+
+    function render() {
+      const on = earlyOn();
+      const sel = $('input[name="plan"]:checked').value;
+
+      $$(".plan-opt").forEach(opt => {
+        const p = CONFIG.plans[opt.dataset.plan];
+        const hasEarly = on && p.early != null;
+        const suffix = p.unit ? " / " + T(p.unit) : "";
+        opt.classList.toggle("selected", opt.dataset.plan === sel);
+        $(".js-now", opt).textContent = egp(hasEarly ? p.early : p.normal) + suffix;
+        $(".js-old", opt).textContent = hasEarly ? egp(p.normal) : "";
+      });
+
+      const p = CONFIG.plans[sel];
+      const hasEarly = on && p.early != null;
+      const amt = hasEarly ? p.early : p.normal;
+      $(".js-due-amt").textContent = egp(amt) + (p.unit ? " / " + T(p.unit) : "");
+      $(".js-due-old").textContent = hasEarly ? egp(p.normal) : "";
+      $(".js-due-save").textContent = hasEarly ? T("You save") + " " + egp(p.normal - p.early) + " · " + T("early bird") : "";
+      $$(".js-egp2").forEach(el => el.textContent = egp(amt));
+      $("#heroOffer").textContent = on ? T("Early bird pricing") : T("Enrolment open at full price");
+
+      $$(".early-only").forEach(el => el.hidden = !on);
+    }
+
+    function tickCountdown() {
+      if (!earlyOn()) return;
+      const ms = new Date(CONFIG.earlyBirdDeadline).getTime() - Date.now();
+      const s = Math.floor(ms / 1000);
+      const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600),
+            m = Math.floor((s % 3600) / 60), sec = s % 60;
+      $("#earlyCountdown").textContent = lang === "ar"
+        ? d + " ي " + pad(h) + " س " + pad(m) + " د " + pad(sec) + " ث"
+        : d + "d " + pad(h) + "h " + pad(m) + "m " + pad(sec) + "s";
+    }
+
+    function refresh() { render(); tickCountdown(); }
+
+    /* Static text: English is stored once, then swapped for Arabic */
+    function applyStatic() {
+      $$("[data-i18n]").forEach(el => {
+        if (!el.dataset.en) el.dataset.en = el.textContent.trim();
+        el.textContent = lang === "ar" ? (AR[el.dataset.en] || el.dataset.en) : el.dataset.en;
+      });
+    }
+
+    function setLang(next) {
+      lang = next;
+      try { localStorage.setItem("gaLang", lang); } catch (e) {}
+      const ar = lang === "ar";
+      document.documentElement.lang = ar ? "ar" : "en";
+      document.documentElement.dir = ar ? "rtl" : "ltr";
+      $("#langToggle .lang-current").textContent = ar ? "EN" : "عربي";
+      applyStatic();
+      refresh();
+    }
+
+    $("#langToggle").addEventListener("click", () => setLang(lang === "en" ? "ar" : "en"));
+
+    $$('input[name="plan"]').forEach(r => r.addEventListener("change", refresh));
+
+    /* Payment method accordion: one open at a time */
+    $$(".method__head").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const m = btn.closest(".method");
+        const willOpen = !m.classList.contains("open");
+        $$(".method").forEach(x => {
+          x.classList.remove("open");
+          $(".method__head", x).setAttribute("aria-expanded", "false");
+        });
+        if (willOpen) {
+          m.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+        }
+        $("#pickHint").hidden = willOpen;
+      });
+    });
+
+    $("#copyBtn").addEventListener("click", function () {
+      if (navigator.clipboard) navigator.clipboard.writeText("01090855647");
+      const was = lang === "ar" ? AR["Copy"] : "Copy";
+      this.textContent = lang === "ar" ? AR["Copied!"] : "Copied!";
+      setTimeout(() => this.textContent = was, 2000);
+    });
+
+    setLang(lang);
+    setInterval(refresh, 1000);
+  </script>
+</body>
+</html>
